@@ -150,7 +150,6 @@
       </ul>
       <ul>
         <li><a href="#header-3_2">Inception of layout ̂A CMOS faabrication process </a></li>
-	      
 		 <ul>
 			<li><a href="#header-3_2_1">Create Active regions</a></li>
 		</ul>
