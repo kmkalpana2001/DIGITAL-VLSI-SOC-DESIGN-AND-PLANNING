@@ -82,6 +82,21 @@
       </ul>
       <ul>
         <li><a href="#header-2_2">Library building and Placement</a></li>
+	      <ul>
+			<li><a href="#header-2_2_1">Netlist binding and initial place design</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_2_2">Optimize placement using estimated wire-length and capacitance</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_2_3">Final placement optimization</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-2_2_4">Need for libraries and characterization</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_2_5">Congestion aware placement using RePlAce</a></li>
+		</ul>
       </ul>
 	<ul>
         <li><a href="#header-2_3">Cell design and characterization flows</a></li>
