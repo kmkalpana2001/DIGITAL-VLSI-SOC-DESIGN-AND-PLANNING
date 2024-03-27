@@ -5,6 +5,15 @@
     <li><a href="#header-1">Day 1 - Inception of open-source EDA, OpenLANE and sky130 PDK</a></li>
 	<ul>
         <li><a href="#header-1_1"> How to talk to computers</a></li>
+		<ul>
+			<li><a href="#header-1_1_1">Introduction to QFN-48 Package, chip, pads, core, die and IPs</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-1_1_2">Introduction to RISC-V</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-1_1_3">From Software Applications to Hardware</a></li>
+		</ul>
       </ul>
       <ul>
         <li><a href="#header-1_2">Soc design and OpenLANE</a></li>
