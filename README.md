@@ -119,7 +119,7 @@
 			<li><a href="#header-2_4_1"> Timing threshold definitions</a></li>
 		</ul>
 		<ul>
-			<li><a href="#header-2_4_2">Propagation delay and transitionn time</a></li>
+			<li><a href="#header-2_4_2">Propagation delay and transition time</a></li>
 		</ul>
       </ul>
 </div>
