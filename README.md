@@ -295,12 +295,42 @@
     <li><a href="#header-5">Day 5 -Final step for RTL2GDS using tritinRoute and openSTA</a></li>
 	<ul>
         <li><a href="#header-5_1">Routing and design rule check (DRC)</a></li>
+		<ul>
+			<li><a href="#header-5_1_1">Introduction to Maze Routing ÃÂ LeeÃÂs algorithm</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-5_1_2">LeeÃÂs Algorithm conclusion</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-5_1_3">Design Rule Check</a></li>
+		</ul>
       </ul>
       <ul>
         <li><a href="#header-5_2">Power Distribution Network and routing</a></li>
+	      <ul>
+			<li><a href="#header-5_2_1">Lab steps to build power distribution network</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-5_2_2">Lab steps from power straps to std cell power</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-5_2_3">Basics of global and detail routing and configure TritonRoute</a></li>
+		</ul>
       </ul>
 	<ul>
         <li><a href="#header-5_3">TritonRoute Features</a></li>
+		<ul>
+			<li><a href="#header-5_3_1">TritonRoute feature 1 - Honors pre-processed route guides</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-5_3_2">TritonRoute Feature2 & 3 - Inter-guide connectivity and intra- & inter-layer routing</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-5_3_3">TritonRoute method to handle connectivity</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-5_3_4">Routing topology algorithm and final files list post-route</a></li>
+		</ul>
       </ul>
 </div>
 
