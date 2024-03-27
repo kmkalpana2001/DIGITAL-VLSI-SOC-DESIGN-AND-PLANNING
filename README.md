@@ -17,6 +17,18 @@
       </ul>
       <ul>
         <li><a href="#header-1_2">Soc design and OpenLANE</a></li>
+	      <ul>
+			<li><a href="#header-1_2_1">Introduction to all components of open-source digital asic design</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-1_2_2"> Simplified RTL2GDS flow</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-1_2_3">Introduction to OpenLANE and Strive chipsets</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-1_2_4">Introduction to OpenLANE detailed ASIC design flow</a></li>
+		</ul>
       </ul>
 	<ul>
         <li><a href="#header-1_3">Get familiar to open-source EDA tools</a></li>
