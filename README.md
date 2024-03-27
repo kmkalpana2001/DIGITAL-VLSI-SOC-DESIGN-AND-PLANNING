@@ -55,6 +55,30 @@
     <li><a href="#header-2">Day 2 - Good floor planning considerations</a></li>
 	<ul>
         <li><a href="#header-2_1"> Chip Floor planning consideration</a></li>
+		<ul>
+			<li><a href="#header-2_1_1">Utilization factor and aspect ratio</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_1_2">Concept of pre-placed cells</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_1_3">De-coupling capacitors</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-2_1_4">Power planning</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_1_5">Pin placement and logical cell placement blockage</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_1_6">Steps to run floorplan using OpenLANE</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-2_1_7">Review floorplan files and steps to view floorplan/a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-2_1_8">Review floorplan layout in Magic</a></li>
+		</ul>
       </ul>
       <ul>
         <li><a href="#header-2_2">Library building and Placement</a></li>
