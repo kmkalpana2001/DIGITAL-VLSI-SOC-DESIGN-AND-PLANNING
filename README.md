@@ -215,15 +215,78 @@
     <li><a href="#header-4">Day 4 - Pre-layout timing analysis and importance of good clock tree</a></li>
 	<ul>
         <li><a href="#header-4_1">Timing modeling using delay tables</a></li>
+		 <ul>
+			<li><a href="#header-4_1_1">Lab steps to convert grid info to track info</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_1_2">Lab steps to convert magic layout to std cell LEF</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_1_3">Introduction to timing libs and steps to include new cell in synthesis</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-4_1_4">Introduction to delay tables</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_1_5">Delay table usage Part 1</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_1_6">Delay table usage Part 2</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_1_7">Lab steps to configure synthesis settings to fix slack and include vsdinv</a></li>
+		</ul>
       </ul>
       <ul>
         <li><a href="#header-4_2">Timing analysis with ideal clocks using openSTA</a></li>
+	       <ul>
+			<li><a href="#header-4_2_1">Setup timing analysis and introduction to flip-flop setup time</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_2_2">Introduction to clock jitter and uncertainty</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_2_3">Lab steps to configure OpenSTA for post-synth timing analysis</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-4_2_4">Lab steps to optimize synthesis to reduce setup violations</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_2_5">Lab steps to do basic timing ECO</a></li>
+		</ul>
       </ul>
 	<ul>
         <li><a href="#header-4_3">Clock tree synthesis TritonCTS and signal integrity</a></li>
+		  <ul>
+			<li><a href="#header-4_3_1">Clock tree routing and buffering using H-Tree algorithm</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_3_2">Crosstalk and clock net shielding</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_3_3">Lab steps to run CTS using TritonCTS</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-4_3_4">Lab steps to verify CTS runs</a></li>
+		</ul>
       </ul>
 	  <ul>
         <li><a href="#header-4_4">Timing analysis with real clock using openSTA</a></li>
+		  <ul>
+			<li><a href="#header-4_4_1">Setup timing analysis using real clocks</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_4_2"> Hold timing analysis using real clocks</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_4_3">Lab steps to analyze timing with real clocks using OpenSTA</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-4_4_4">Lab steps to execute OpenSTA with right timing libraries and CTS assignment</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-4_4_5">Lab steps to observe impact of bigger CTS buffers on setup and hold timing</a></li>
+		</ul>
       </ul>
 </div>
 	
