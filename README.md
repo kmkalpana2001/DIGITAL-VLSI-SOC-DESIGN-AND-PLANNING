@@ -180,6 +180,33 @@
       </ul>
 	<ul>
         <li><a href="#header-3_3">Sky130 Tech File Labs</a></li>
+		<ul>
+			<li><a href="#header-3_3_1">Lab steps to create final SPICE deck using Sky130 tech</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-3_3_2">Lab steps to characterize inverter using sky130 model files</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-3_3_3"> Lab introduction to Magic tool options and DRC rules</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-3_3_4">Lab introduction to Sky130 pdk's and steps to download labs</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-3_3_5">Lab introduction to Magic and steps to load Sky130 tech-rules</a></li>
+		</ul>
+  		<ul>
+			<li><a href="#header-3_3_6">Lab exercise to fix poly.9 error in Sky130 tech-file</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-3_3_7"> Lab exercise to implement poly resistor spacing to diff and tap</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-3_3_8"> Lab challenge exercise to describe DRC error as geometrical construct</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-3_3_9">Lab challenge to find missing or incorrect rules and fix them</a></li>
+		</ul>
       </ul>
    </div>
 	  
