@@ -32,6 +32,21 @@
       </ul>
 	<ul>
         <li><a href="#header-1_3">Get familiar to open-source EDA tools</a></li>
+		<ul>
+			<li><a href="#header-1_3_1">OpenLANE Directory structure in detail</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-1_3_2">Design Preparation Step</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-1_3_3">Review files after design prep and run synthesis</a></li>
+		</ul>
+	      <ul>
+			<li><a href="#header-1_3_4">OpenLANE Project Git Link Description</a></li>
+		</ul>
+		<ul>
+			<li><a href="#header-1_3_5">Steps to characterize synthesis results</a></li>
+		</ul>
       </ul>
    </div>
   
