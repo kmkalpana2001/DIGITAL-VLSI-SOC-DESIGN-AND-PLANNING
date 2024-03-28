@@ -7,9 +7,6 @@
         <li><a href="#header-1_1"> How to talk to computers</a></li>
 		<ul>
 			<li><a href="#header-1_1_1">Introduction to QFN-48 Package, chip, pads, core, die and IPs</a></li>
-			To perform the intruction, which are given externaly in computers, some hardware is there which convert our external instruction into understandable language of computers. In this hardware, many things are there. For example FPGA board, Arduino board etc. are provides the medium for external inputs and outputs.
-
-Taking the example of Aurdino board. Arduino consists of both a physical programmable circuit board (often referred to as a microcontroller) and a piece of software, or IDE (Integrated Development Environment) that runs on the computer, used to write and upload computer code to the physical board.
 		</ul>
 		<ul>
 			<li><a href="#header-1_1_2">Introduction to RISC-V</a></li>
