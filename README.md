@@ -371,8 +371,11 @@
 
 
 
-## <h1 id="header-1_3">How to talk to computers?</h1>
+## <h1 id="header-1_3">Get familiar to open-source EDA tools</h1>
 ### <h1 id="header-1_3_1">OpenLANE Directory structure in detail</h1>
 
 
 ### <h1 id="header-1_3_2">Design Preparation Step</h1>
+when we enter in the OpenLANE, we have to use flow.tcl because as a name says, it will goes with the flow using the script. And by using interactive switch, we will do step by step process. without interactive switch, it will run complete flow from RTL to GDSII. Now OpenLANE is open and we can see that prompt will change now.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1a2531f3-892b-4d94-8a8c-2f8edb4daabf)
