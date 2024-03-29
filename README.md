@@ -548,6 +548,10 @@ And the power planning is shown below,
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/97e14546-cd7d-4eff-aa10-c93df7ae3562)
 
+### <h2 id="header-2_1_5">Pin placement and logical cell placement blockage</h2>
+
+
+
 
 
 
