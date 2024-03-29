@@ -439,9 +439,9 @@ And in the report, we can see when the actual synthesis has done. and the actual
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a1099ec5-2a9f-434f-af4f-28e34f0eabf5)
 
 
-# <h2 id="header-2">Day 2 - Good floor planning considerations</h1>	 
-## <h2 id="header-2_1">Chip Floor planning consideration</h1>
-### <h2 id="header-2_1_1">Utilization factor and aspect ratio</h1>
+# <h2 id="header-2">Day 2 - Good floor planning considerations</h2>	 
+## <h2 id="header-2_1">Chip Floor planning consideration</h2>
+### <h2 id="header-2_1_1">Utilization factor and aspect ratio</h2>
 
 In this section we will try to cover up the width and height of Core and Die. It is the first step in physical design flow to find out the width and height. Let's begin with a netlist, netlist  is two flipflops and have a simple combination logic in between. A netlist describes the connectivity of an electronic design. Here, we dependent on the dimensions of the logic gates(AND & OR) and particular flipflop. Now, let's convert the symbols into physical dimensions. We are interested in the dimensions of the Core and Die not in the dimensions of the wires. 
 Let's standard cell have dimensions of 1unit*1unit
@@ -477,6 +477,28 @@ For example, Lets take another dimensions of the width= 4unit and height = 2unit
 The leftover area can be used to placed some additional cells like buffers or something else.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/10a1d860-d6c2-4efc-95a7-d5f123cbdca3)
+
+### <h2 id="header-2_1_2">Utilization factor and aspect ratio</h2>
+
+Lets take another example for a square chip wth dimensions 4*4 sq units. We will get utilization factor= 0.25 it means out of the whole chip area only 25% area is utilized by the netlistand 75% is available for additional cells which can be use for routing in which we will have layering. Aspect ratio we get = 1 it means chip is square in shape.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a64a81cd-760a-44b8-a81c-93318bf49746)
+
+**Define locations of Preplaced Cells**:-  Lets take a combinational logic which does some amount of function and assume its a huge circuit having some N Logic gates so let's devide it into some small numbers of gates. We will cut the whole circuit into two parts, and separate both of them into two blocks and both block will be implemented seperately.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/477f5715-38c7-4cb8-ab4f-6b6108839e69)
+
+In both the blocks lets extend the input output pins and now we will black box the boxes and detached them. After black boxing, the upper portion is invisible from the top or invisible to the one , who is looking into the main netlist. now will seperate them out as two different IP's or modules.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/46f293e3-5e1a-470f-99f6-6e067310806e)
+
+Advantage of doing this is we can reuse them multiple times after implimenting once only. Similary there are other IP's also available for eg. Memory, Clock-gating cell, Comporator, MUX  all of these are part of the top level netlist.They recieve some signals and perform functions and deliver the outputs but the functionality of the cell is implemented only once. 
+The arrangement of these IP's in a chip is refferd as **floorplanning**.These IP's have user-defined locations, and hence are placed in chip before automated placement and routing are called **"pre-placed cells"**. These cells are placed in such a way that, the placement and routing tool do not touch the location of the cell.
+
+
+
+
+
 
 
 
