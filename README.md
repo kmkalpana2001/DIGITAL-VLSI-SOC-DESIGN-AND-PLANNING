@@ -366,3 +366,13 @@
 **EX. RISC-V SoC**
 
 ### <h1 id="header-1_1_2">Introduction to RISC-V</h1>
+
+
+
+
+
+## <h1 id="header-1_3">How to talk to computers?</h1>
+### <h1 id="header-1_3_1">OpenLANE Directory structure in detail</h1>
+
+
+### <h1 id="header-1_3_2">Design Preparation Step</h1>
