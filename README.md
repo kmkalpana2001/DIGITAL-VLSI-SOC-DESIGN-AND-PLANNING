@@ -356,3 +356,7 @@
 # <h1 id="header-1">Day 1 -Inception of open-source EDA, OpenLANE and sky130 PDK</h1>	 
 ## <h1 id="header-1_1">How to talk to computers?</h1>
 ### <h1 id="header-1_1_1">Introduction to QFN-48 Package, chip, pads, core, die and IPs</h1>
+#### chip components 
+(1) **Pads:** Through which we can send the signal inside the chip.
+(2) **Core:** Place where all the logic gates are fixed.
+(3) **Die:** Present at the corner. it is the size of the entire chip.
