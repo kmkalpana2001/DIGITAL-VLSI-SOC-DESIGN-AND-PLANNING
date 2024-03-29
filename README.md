@@ -443,7 +443,7 @@ And in the report, we can see when the actual synthesis has done. and the actual
 ## <h1 id="header-1_2">Chip Floor planning consideration</h1>
 ### <h1 id="header-1_2_1">Utilization factor and aspect ratio</h1>
 
-In this section we will try to cover uo the width and height of Core and Die. It is the first step in physical design flow to find out the width and height. Let's begin with a netlist, netlist  is two flipflops and have a simple combination logic in between. A netlist describes the connectivity of an electronic design. Here, we dependent on the dimensions of the logic gates(AND & OR) and particular flipflop. Now, let's convert the symbols into physical dimensions. We are interested in the dimensions of the Core and Die not in the dimensions of the wires. 
+In this section we will try to cover up the width and height of Core and Die. It is the first step in physical design flow to find out the width and height. Let's begin with a netlist, netlist  is two flipflops and have a simple combination logic in between. A netlist describes the connectivity of an electronic design. Here, we dependent on the dimensions of the logic gates(AND & OR) and particular flipflop. Now, let's convert the symbols into physical dimensions. We are interested in the dimensions of the Core and Die not in the dimensions of the wires. 
 Let's standard cell have dimensions of 1unit*1unit
 So, area= 1 Sq. units
 Asuume same area for the flipflop as well = 1 Sq. units
