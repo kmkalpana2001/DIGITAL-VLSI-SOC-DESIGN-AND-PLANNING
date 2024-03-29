@@ -440,8 +440,8 @@ And in the report, we can see when the actual synthesis has done. and the actual
 
 
 # <h1 id="header-1">Day 2 - Good floor planning considerations</h1>	 
-## <h1 id="header-1_1">Chip Floor planning consideration</h1>
-### <h1 id="header-1_1_1">Utilization factor and aspect ratio</h1>
+## <h1 id="header-1_2">Chip Floor planning consideration</h1>
+### <h1 id="header-1_2_1">Utilization factor and aspect ratio</h1>
 
 In this section we will try to cover uo the width and height of Core and Die. It is the first step in physical design flow to find out the width and height. Let's begin with a netlist, netlist  is two flipflops and have a simple combination logic in between. A netlist describes the connectivity of an electronic design. Here, we dependent on the dimensions of the logic gates(AND & OR) and particular flipflop. Now, let's convert the symbols into physical dimensions. We are interested in the dimensions of the Core and Die not in the dimensions of the wires. 
 Let's standard cell have dimensions of 1unit*1unit
@@ -450,15 +450,18 @@ Asuume same area for the flipflop as well = 1 Sq. units
 with help of these dimensions and netlist let's calculate the area occupied by the netlist on a silicon wafer.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/abf79875-e1e3-4faf-87a6-43a12d44db8d)
+
 Befor that will remove all the wires and bring all the flip flops and logic gates in a single plate. So after combining them together width and length will be 2 Sq. units each and if we calculate the total area the it will be 4 Sq. units. So now we have the rough calculation of minimum area occupied by the netlist.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/beb2d87b-db4f-47ac-95db-7a5586018c98)
+
 What is 'Core' and 'Die' section of a chip?
 Let's have a silicon wafer on which all the logics are implemented. In thes one section is refered as 'Die' and inside the Die we have the Core. 
 A **Die** which consists of core, is small semicondcutor material  specimen on which the fundamental circuit is fabricated.
 A '**Core** is the section of the chip where the fundamental logic of the design is placed.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c95ab725-89cb-46eb-929b-c00be187848e)
+
 Now, Let's try to place that particular logic inside the core. The netlist will occupy the whole area inside the core it means it utilizes the core 100%. From this we can calculate the utilisation factor which is given by,
             Utilization Factor = Area occupied by netlist / Total area of the core
 	    lets put the dimensions we have, we get
@@ -469,6 +472,7 @@ Aspect Ratio = Height /  width =  2 unit /  2unit =  1
 Whenever Aspect Ratio is 1 it signifies that chip is square shaped. When it is not 1 it means the chip is in rectangular shape.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/51360246-9ab3-4209-ba7d-d1d99bcd65ef)
+
 For example, Lets take another dimensions of the width= 4unit and height = 2unit. So from the above formula of utilization factor we it equal to 0.5 which means the chip has not covered the whole area of the core and aspect ratio is also 0.5  which means the chip is rectangular in shape.
 The leftover area can be used to placed some additional cells like buffers or something else.
 
