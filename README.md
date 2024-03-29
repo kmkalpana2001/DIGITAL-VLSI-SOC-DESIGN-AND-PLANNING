@@ -493,7 +493,16 @@ In both the blocks lets extend the input output pins and now we will black box t
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/46f293e3-5e1a-470f-99f6-6e067310806e)
 
 Advantage of doing this is we can reuse them multiple times after implimenting once only. Similary there are other IP's also available for eg. Memory, Clock-gating cell, Comporator, MUX  all of these are part of the top level netlist.They recieve some signals and perform functions and deliver the outputs but the functionality of the cell is implemented only once. 
-The arrangement of these IP's in a chip is refferd as **floorplanning**.These IP's have user-defined locations, and hence are placed in chip before automated placement and routing are called **"pre-placed cells"**. These cells are placed in such a way that, the placement and routing tool do not touch the location of the cell.
+The arrangement of these IP's in a chip is refferd as **floorplanning**.
+These IP's have user-defined locations, and hence are placed in chip before automated placement and routing are called **"pre-placed cells"**. 
+These cells are placed in such a way that, the placement and routing tool do not touch the location of the cell.
+
+### <h2 id="header-2_1_3">De-coupling capacitors</h2>
+
+
+
+
+
 
 
 
