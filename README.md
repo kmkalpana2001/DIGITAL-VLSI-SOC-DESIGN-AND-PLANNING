@@ -592,6 +592,10 @@ Now we see, with this settings how floorplan run.
 
 In the run folder, we can see the connfig.tcl file. this file contains all the configuration that are taken by the flow. if we open the config.tcl file, then we can see that which are the parameters are accepted in the current flow.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c17c1b4e-3412-411e-ab43-065f3452ea77) 
+
+
+
 
 
 
