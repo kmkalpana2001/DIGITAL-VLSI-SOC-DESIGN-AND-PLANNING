@@ -439,9 +439,9 @@ And in the report, we can see when the actual synthesis has done. and the actual
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a1099ec5-2a9f-434f-af4f-28e34f0eabf5)
 
 
-# <h1 id="header-1">Day 2 - Good floor planning considerations</h1>	 
-## <h1 id="header-2_1">Chip Floor planning consideration</h1>
-### <h1 id="header-2_1_1">Utilization factor and aspect ratio</h1>
+# <h2 id="header-2">Day 2 - Good floor planning considerations</h1>	 
+## <h2 id="header-2_1">Chip Floor planning consideration</h1>
+### <h2 id="header-2_1_1">Utilization factor and aspect ratio</h1>
 
 In this section we will try to cover up the width and height of Core and Die. It is the first step in physical design flow to find out the width and height. Let's begin with a netlist, netlist  is two flipflops and have a simple combination logic in between. A netlist describes the connectivity of an electronic design. Here, we dependent on the dimensions of the logic gates(AND & OR) and particular flipflop. Now, let's convert the symbols into physical dimensions. We are interested in the dimensions of the Core and Die not in the dimensions of the wires. 
 Let's standard cell have dimensions of 1unit*1unit
