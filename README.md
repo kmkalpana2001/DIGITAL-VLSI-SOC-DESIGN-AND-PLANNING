@@ -390,6 +390,7 @@ Application Software - System Software - Hardware chip
 Apps enters into a block of system software and system sodtware converts the entire program into binary language. There are some layers inside the system software whish are as follows
 
 **Operating System, Compiler, Assembler**
+
  Operating system handles input/output operations and allocate memory also it manage the low level system functions.
 
  Compiler takes the output from the operating system as C,C++,Java and convert them into intsructions. These instructions depends upon hardware.
