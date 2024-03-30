@@ -648,6 +648,12 @@ Stage 4 is bit tricky as compared to other stages.Now we have to check that, wha
 
 ### <h2 id="header-2_2_4">Need for libraries and characterization</h2>
 
+Every ICdesign Flow needs to go through the several steps. First step to go through is Logic Synthesis, let's say if we have a functionality which is coded in a form of an RTL so first we need to convert the functionality into legal hardware is refered to as Logic Synthesis. Ouput of the logic synthesis is arrangement of gates that will represent the original functionality that has been described using an RTL. 
+Next step of logic synthesis is Floorplaning, in this we omport the output of logic synthesis and decide the size of the Core and Die. The next step after floorplaning is Placement, in this we take the particular logic cellsand place them on the chip in such a fashion that initial timing is better. Next step is CTS(Clock tree synthesis), in this we take care that clk should reach each and every signal at the same time also take care of each clk signal has equal rise and fall.Next step is Routing, routing has to go through the certain flow dependendent on the characterization of the flip flop.And now comes the last step STA(Static timing analysis), in this we try to see the set up time, hold time, maximum achieved frequency of the circuit.
+One common thing across all stages 'GATES or Cells'.
+
+### <h2 id="header-2_2_5">Congestion aware placement using RePlAce</h2>
+
 
 
 
