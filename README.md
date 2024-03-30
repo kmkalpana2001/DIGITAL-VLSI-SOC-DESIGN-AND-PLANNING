@@ -807,7 +807,38 @@ out_fall_thr
 ### <h2 id="header-2_4_2">Propagation delay and transition time</h2>
 
 Based on these above values we are going to calculate the further values like propogation delay, current,slews etc.
- If we want to calculate the delay of anything we need to subtract the out_rise_thr from in_rise_thr. Here let's take typical value 50%, let's see on the particular waveform how does it work
+If we want to calculate the delay of anything we need to subtract the out_rise_thr from in_rise_thr. Here let's take typical value 50%, let's see on the particular waveform how does it works
+Time delay = Time(out_thr)-time(in_thr).
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d157a7da-02ba-44d7-9acf-90899273eb7f)
+
+In the above example in_rise_thr and out_fall)thr was kept at 50%. But if the threshold ponit moves to the top the the output comes before the input and we see negative delay and negative delays are not accepted. So the reason behind having this negative delay is poor choice od threshold point so thr choice of the threshold point is really important.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6540a5e2-cf40-4202-994e-e7ff05d6d60f)
+
+Let's take another example where we have choosed threshold point correctly but still can get a negative delay. Because uotput comes before the input that's why we are getting negative delay here, which is not accepted
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/03a0e311-2552-4a40-8345-9075f655fdee)
+
+**Transition time**=  time(slew_high_rise_thr)- time(slew_low_rise_thr)
+
+or
+
+transition time = time(slew_high_fall_thr)- time(slew_low_fall_thr)
+Let's say we have the waveform to understand the slew calculation.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2f7d8314-e195-48fc-98f3-b20441352242)
+
+# <h3 id="header-3">Day 3 - Design library cell using Magic Layout and ngspice characterization</h3>	 
+## <h3 id="header-3_1">Labs for CMOS inverter ngspice simulations</h3>
+### <h3 id="header-3_1_0">IO placer revision</h3>
+
+
+
+
+
+
+
 
 
 
