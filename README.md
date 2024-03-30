@@ -661,6 +661,16 @@ One common thing across all stages 'GATES or Cells'.
 
 
 
+## <h2 id="header-2_3">Cell design and characterization flows</h2>
+### <h2 id="header-2_3_1">Inputs for cell design flow</h2>
+
+
+
+
+
+
+
+
 
 
 
