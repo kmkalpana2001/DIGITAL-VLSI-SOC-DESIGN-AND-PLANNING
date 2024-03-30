@@ -839,6 +839,20 @@ Let's say we have the waveform to understand the slew calculation.
 # <h3 id="header-3">Day 3 - Design library cell using Magic Layout and ngspice characterization</h3>	 
 ## <h3 id="header-3_1">Labs for CMOS inverter ngspice simulations</h3>
 ### <h3 id="header-3_1_0">IO placer revision</h3>
+Till now, we have done floor planning and run placement also. But if we want to change the floorplanning, for example, in our floor planning, pins are at equal distance and if we want to change it then we can also make it by "Set" command.
+
+For that first we have to check the swithes in the configuration and from that we have to take the syntax "env(FP_IO_MODE) 1". and make it to the "env(FP_IO_MODE) 2". then again run the floorplanning.
+
+Then check the changes in the pins location through magic -T.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e547b9d4-7ffe-4f78-a73a-a9178ab72142)
+
+So, here we can see that there are no pins in the upper half side. all pins are in the lower half of the core.
+
+
+### <h3 id="header-3_1_1">SPICE deck creation for CMOS inverter</h3>
+
+
 
 
 
