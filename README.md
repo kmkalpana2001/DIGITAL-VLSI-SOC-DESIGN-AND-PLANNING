@@ -635,30 +635,6 @@ here we can see that first standerd cells is for buffer 1. similarly other cells
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e0624489-5298-45cd-a08d-db2b3ec572b7)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 ## <h2 id="header-2_2">Library building and Placement</h2>
 ### <h2 id="header-2_2_1">Netlist binding and initial place design</h2>
 **Bind netlist with physical cells**:- Lets we have the netlist of gates and shape of these gates represents the functionality of this gates. Foe example we have NOT gate as a tringular shape but in reality it is a box with physical dimensions it has width and height.Similarly for AND gate it also has a box shape in reality, Flipfops are also square boxes.So, we have given the physical dimensions to all the gates and flipflops. For everycomponent of the netlist we will give the particular shape with particular dimensions because ir real world the shapes like AND,OR gates does not exists so we make them as square all the blocks also have the width and height and proper shape.
@@ -711,10 +687,19 @@ One common thing across all stages 'GATES or Cells'.
 
 ### <h2 id="header-2_2_5">Congestion aware placement using RePlAce</h2>
 
+Right now we are not constrain about timing, but constrain about the congestion. so, we are making the congrstion is less.
 
+The placement is donne in two stages. Global and detailed. In global placement, legalization is not happened but after detailed placement legalization will be done.
 
+When we run the placement, first Global placement is happens. main objective of glibal placement is to reducing the length of wires.
 
+Now opening the Magic file to see actual view of standerd cells placement.And the actual view in the magic file is given below.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d7e29ff0-f009-4c72-9129-d7662b46f8b8)
+
+If we zooom into this, we find the buffers, gates, flip flops in this.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/768d1fbd-c7b4-4b15-bbd5-cebd57a1c79a)
 
 
 
