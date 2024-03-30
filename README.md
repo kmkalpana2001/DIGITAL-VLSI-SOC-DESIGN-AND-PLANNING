@@ -611,11 +611,33 @@ And then after pressing the enter, Magic file will open. here we can see the lay
 ### <h2 id="header-2_1_8">Review floorplan layout in Magic</h2>
 In the layout we can see that, input output pins are at equal distance.
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/87ef349b-4e87-434b-b826-b8bb0b390cd3)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f02464f8-3bbc-4475-90a6-1d523ba36857)
+
 
 after selecting (To select object, first click on the object and then press 's' from keyboard. the object will hight lited. to zoom in the object, click on the object and then press 'z' and for zoom out press 'sft+z') one input pin, if we want to check the location or to know at on which layer it is available, we have to open tkcon window and type "what". it will shows all the details about that perticular pin.
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b6e7df6f-518f-45b0-b5ec-1af4fdf1af05)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5dc0a65b-4216-4879-b786-e4de4319dfc4)
+
+
+so, it show that the pin is in the metal 3.similarly doing for the vertical pins, we find that this pin is at metal 2.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b934b69a-5357-4b4d-a51a-e66cd352fb6c)
+
+
+Along with the side rows,the Decap cells are arranged at the border of the side rows.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e5f09e25-ff25-411b-aacc-74ae3df0ae61)
+
+
+
+here we can see that first standerd cells is for buffer 1. similarly other cells are for buffer 2, AND gate etc.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e0624489-5298-45cd-a08d-db2b3ec572b7)
+
+
+
+
+
 
 
 
