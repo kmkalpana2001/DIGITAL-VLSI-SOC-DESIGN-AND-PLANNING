@@ -669,12 +669,16 @@ In Cell Design Flow, Gates, flipflops, buffers are named as 'Standard Cells'. Th
 
 If you lokk into one of the inverter from the library the cell design flowis as follows
 The inverter has to represented in form of the shape, drive strength, power charracteristic and so on. Here cell design flow is devided into three parts.
+
 Inputs
 Design steps
 Outputs
+
 **Inputs**:- Inputs required for cell design is PDKs, DRC and LVS rules SPICE models, library and user defined specs. In DRC& LVS rules tech file is provided which contains design rules and actual values. Rules can be converted in to code. SPICE MODEL tells about threshold voltage equation.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2fb42be5-76e2-4017-9ff9-4fb23306b24e)
+
+### <h2 id="header-2_3_2">Circuit design steps</h2>
 
 
 
