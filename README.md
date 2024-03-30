@@ -730,6 +730,35 @@ Next step is to feed in all this inputs from 1 to 8 in a form of a configuration
 ### <h2 id="header-2_4_1">Timing threshold definitions</h2>
 
 
+As seen in the previous section we have inverter connected back to back, we have power sources, we have the stimulus applied to the inverter all these things brings a very important point of understanding differenet threshold points of a waveform itself and it is called as "Timing threshold definitions'.
+in the figure below the term 'Slew_low_rise-thr' depicts the value close to 0. and the typically value of this is about 20% it could be 30% as well.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3819e09b-be65-480b-b01b-dab709ef687b)
+
+Slew_high_rise_thr
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0de6199e-3430-4a6a-8909-e68e155ec20e)
+
+Slew_low_fall_thr
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/05d26ec0-e901-4a4f-9311-0ebc2ad3573e)
+
+Slew_high_fall_thr
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0b70436b-695b-4006-ae8c-ffd251a4ce29)
+
+NOw, taking the waveform of input stimulus which is input of the first buffer and with that taking output of the first buffer.Similar as a slew, thresolds are for delay also available. for that same as slew, we have to take some rise and fall points from the waveforms. this tresolds are almost 50%.
+
+in_rise_thr
+
+
+
+
+
+
+
+
+
 
 
 
