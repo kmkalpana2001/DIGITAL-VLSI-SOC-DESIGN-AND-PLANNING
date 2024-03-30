@@ -717,6 +717,18 @@ Next and Final step is to extract the parasatics of that particular layout and c
 
 ### <h2 id="header-2_3_4">Typical characterization flow</h2>
 
+Let's try to build the characterization flow based on the inputs we have,
+First step is to read in the model, second step is to read the extracted spice netlist, third step is to define or recognize the behaviour of the buffer, fourth step is to read the subcircuits of the inverter and then in the fifth step need to attach the necessary power supplies, sixth step is to  apply the stimulus then in the seventh step we need to provide the necessary output capacitance then in the final eighth step in which we need to provide necessary simulation command for example if we are doinf transent simulation so we need to give .tran command , if we are doing DC simulation then we give .dc command.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/78e61e38-0569-4ffb-8b67-0d90cefbfe0b)
+
+Next step is to feed in all this inputs from 1 to 8 in a form of a configuration file to the characterization software **"GUNA"** . This software will generate power, noise and timing model.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/19b01aa6-c6ba-4d39-8d10-539a40ab9f39)
+
+## <h2 id="header-2_4">General timing characterization parameters</h2>
+### <h2 id="header-2_4_1">Timing threshold definitions</h2>
+
 
 
 
