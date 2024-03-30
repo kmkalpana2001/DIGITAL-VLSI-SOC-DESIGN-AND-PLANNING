@@ -768,7 +768,7 @@ out_fall_thr
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2cb0db7d-8dcb-41bb-b0d9-b2b10e8eb31b)
 
-Based on these above value we are goin to calculate the further values like propogation delay, current,slews etc.
+Based on these above values we are going to calculate the further values like propogation delay, current,slews etc.
 
 ### <h2 id="header-2_4_2">Propagation delay and transition time</h2>
 
