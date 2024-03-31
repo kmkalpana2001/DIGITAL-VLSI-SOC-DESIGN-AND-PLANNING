@@ -1117,23 +1117,36 @@ The graph Time vs Voltage will be plotted here from where we can calculate the r
 
 ### <h3 id="header-3_1_5"> Lab steps to git clone vsdstdcelldesign</h3>
 
-To get the clone, copy the clone address from resporetery and paste in openlane terminal after the command "git clone" this will create the folder called "DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING" in openlane directory.
+To get the clone, copy the clone address from reporetery and paste in openlane terminal after the command "git clone". this will create the folder called "vsdstdcelldesign" in openlane directory.
 
-now, if we open the openlane directory, we find the DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING folder in the openlane directory.
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a2af6024-46c9-47fd-9662-34a1563cff3c)
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f1149765-3a26-49e2-b2a2-e70566d8c97d)
+now, if we open the openlane directory, we find the vsdstdcelldesing folder in the openlane directory.
 
-Now do copy by "cp" command to the location which is given below,
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3e50b424-ea04-4e7a-bc2c-801f1077e641)
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/67a29237-827d-4da4-b01c-8c1dcb10be62)
+Now if we goe to the vsdstdcelldesign folder and open it, we get the .mag file,libs file etc.
 
-Now, we can see that this file is copied in the DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING folder.
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7e3663c6-5125-45c8-a246-b540e03bbd58)
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/32a679cf-4369-497c-bf28-87e63f662702)
+now, let's open the .mag file and see that which layers are used to build the inverter. But before opening the mag file, we need tech file. so we will copy this file from this given below address,
+And do copy by "cp" command to the location which is given below.Now, we can see that this file is copied in the vsdstdcelldesign folder.
 
-Now, here to see the layout in magic, we don't need to write the whole address because we copy the tech file here.
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/90704094-baa9-437d-ae9b-2587452ca920)
 
-Now, appying the magic comand like this,
+Now, here to see the layout in magic, we don't need to write the whole address because we copy the tech file here.Now, we can see the layout of CMOS inverter in the magic like this.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/43015161-9f70-4793-9c1b-41c743cdb5b3)
+
+
+## <h3 id="header-3_2">Inception of layout ̂A CMOS faabrication process</h3>
+### <h3 id="header-3_2_1">Create Active regions</h3>
+
+
+
+
+
+
 
 
 
