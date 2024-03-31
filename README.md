@@ -1027,6 +1027,22 @@ So, here we can see that there are no pins in the upper half side. all pins are 
 
 ### <h3 id="header-3_1_1">SPICE deck creation for CMOS inverter</h3>
 
+**VTC- SPICE simulations**:-Here first part is to create SPICE deck, it's the connectivity information about the netlist so basically it's a netlist.It has input that are provided to the simulation and the deck points which will take the output.
+
+**Component connectivity**:- In this we need to define the connectivity of the substrate pin. Substrate pin tunes the threshold voltage of the PMOS and NMOS.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5ab978a9-96ae-41ee-80b2-737a01eb26e6)
+
+**Component values**:- Values for the PMOS nad NMOS. We have taken the same size of both PMOS and NMOS.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/be67d51c-8d97-4a09-9007-1a61101112ba)
+
+
+
+
+
+
+
 
 
 
