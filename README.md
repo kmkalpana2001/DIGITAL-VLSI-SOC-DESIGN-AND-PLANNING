@@ -1371,7 +1371,11 @@ here, we can see the all details about the connectivity of the NMOS and PMOS and
 
 X0 is NMOS and X1 is PMOS and both's connectivity is shown as GATE DRAIN SUBSTATE SOURCE.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/62bac9f9-d70f-420f-905d-5a8e50691b16)
 
+Now we have to include the PMOS and NMOS lib files. it is inside the libs folder in the vsdstdcellsdesign folder.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/38f1bf25-4cd7-4d55-a58c-b003322662db)
 
 
 
