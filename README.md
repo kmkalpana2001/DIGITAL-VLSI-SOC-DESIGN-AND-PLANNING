@@ -1117,6 +1117,10 @@ The graph Time vs Voltage will be plotted here from where we can calculate the r
 
 ### <h3 id="header-3_1_5"> Lab steps to git clone vsdstdcelldesign</h3>
 
+To get the clone, copy the clone address from reporetery and paste in openlane terminal after the command "git clone". this will create the folder called "vsdstdcelldesign" in openlane directory.
+
+
+
 
 
 
