@@ -1143,47 +1143,184 @@ Now, here to see the layout in magic, we don't need to write the whole address b
 ## <h3 id="header-3_2">Inception of layout ̂A CMOS faabrication process</h3>
 ### <h3 id="header-3_2_1">Create Active regions</h3>
 
+**1) selecting a substrate**:- we have a p-type silicon substrate having high resistivity(5-50ohm) well dopped, and orintation(100).
+
+**2) creating active region for transistor**:- Region where you see PMOS and NMOS. On p-type substrate we are going to create some small pockets which will be called as active region and in these pockets we are going to create PMOS and NMOS transistor. Will cretae isolation between each and every pockets. 
+
+We create the isolation layer by depositing the Sio2 layer (~40nm) on the substrate. Now, we are depositing the Si3N4 layer (~80 nm) on the Sio2 layer.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9bca2b5b-622a-4d3a-abed-1b0077d44065)
+
+Before creating the pocket identify the region where we need to crete the pocket. Now will deposite a layer of photoresist(~1um) on which we will create some mask1 using UV light.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2ad424e2-c9ab-4e50-8182-9a5f841fcd74)
+
+Unwanted area has been exposed using UV light. And we get pattern the exposed area is getting washed away.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/124dd0ca-4531-4482-b05f-da1585ba2204)
+
+In the next step mask will be removed and doing etching of Si3N4 layer on the exposed area.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/536dc391-5fb5-46c2-9c3c-a14cb2cad640)
+
+Now, next step is to remove photoresist by chamical reaction, because now to Si3N4 layer itslef behaves like good protecting layer for Sio2 layer. now,We will place it in the oxidation furnace. if we do LOCOS (local oxidation of silicon) process, the exposed sio2 part will grow and bird break also form. This grown sio2 will provide the perfect isolation between two PMOS and NMOS. This is how we protect two transistor communicating with each other.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e4f0bf05-69e2-44f2-b3f6-66802a218e2a)
+
+Next step is to remove the Si3N4 using hot phospheric acid.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d3e25e70-6a27-4fe3-a0b6-bd46dc5c028d)
+
+
+### <h3 id="header-3_2_2">Formation of N-well and P-well</h3>
+
+**3) N-well and P-well formation**:- we can not form P-well and N-well at a same time. we have to protect a region while forming one of the region by photoresist. And then using mask 2 and UV light, we will do patterning of photoresist to form P-well.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2ecf0ef6-2c39-42c0-b19c-a82ef972699a)
+
+Now, the area where we want to form the P-well is exposed. now we remove the mask and by applying the ion implantaton method (~200kev)to form P-well using Boron. But still it is P implant. After performing the high temparature anneling, it will become P-well.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/be5f46e2-de29-4039-931d-fa0ed5820f45)
+
+We wiil do a similar process to form N-well by using mask 3 and using Phosphorus ions.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5cea8915-867f-4bbc-a77b-b937fe28bc80)
+
+Till now depth of wells are not define. so, by putting into the high temparature furnace (drive-in diffusion), we will define the depth of wells.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/82f3e2c7-bd33-41aa-991e-b59550e50d99)
+
+
+### <h3 id="header-3_2_3"> Formation of gate terminal</h3>
+
+**4)Gate formation**:- Gate terminal is the most important terminal of the PMOS and NMOS because from the gate terminal only we can control the thresold voltage. doping concentration and oxide capacitance will control the thresold voltage.so, first we are maintain the doping concentration here. for that we use mask 4 and again doing the ion implantation of boron ion at lower energy (~60kev).
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1ccc4ea2-47db-439b-a430-9f1adf241910)
+
+same process we will repeat for N-well also by using mask 5 and Arsenic ion.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/04d59a3e-028c-49c4-81ec-ce06e5e42089)
+
+Next step is that we have to fix the oxide layer. but before that we have to remove the oxide layer because this layer is got dammeged because of the privious processes. so,first we remove the layer using HF solution and again re-grown the high quality oxide layer with same thickness.
+
+The final step is the deposition of polysilicon layer over oxide layer with more impurities for low resistance gate terminal.Then etched out this polysilicon layer by using mask 6 and photoresist.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4b4d2b2c-c42b-431c-b08f-d507229b28ee)
+
+After etching, remove the photoresist and gate terminal looks like,
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/70ac48ac-1626-4cab-b066-ec01b969940b)
+
+
+### <h3 id="header-3_2_4">Lightly doped drain (LDD) formation</h3>
+
+**5) LDD formation**:- Here, we actully want P+,P-,N doping profile in the PMOS and N+,N-,P doping profile for NMOS. Reason for that is
+
+Hot electron effect
+
+short channel effect
+
+For the formation of LDD, we again do ion implantation in P-well by using mask 7 and here we use phosphoros as a ion for light doping.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/637bc28f-5b4e-45ad-9399-e7715837d3a0)
+
+Same process we will repeat for N-well. there we use mask 8 and BOron Ion.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/715a33d9-f6f1-4cd9-a821-b7142a2c8073)
+
+
+Now, by creating the spacers, we can protect the actual structre remain constant of P-implantt and N-implant. For that we deposite a thick Sio2 or Si3N4 layer over the gate tereminal.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/529ec3e5-7f57-4c5b-b30a-eddf10e9f183)
+
+Now, we do Plasma anisotropic etching. By that side-wall spacers are formed.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cc82a672-8f0d-490d-b371-6b70a41ee433)
+
+
+### <h3 id="header-3_2_5">Source ÃÂ drain formation</h3>
+
+**6)source-drain formation**
+
+Next step is deposite the very thin screen oxide layer to avoid the effect of channeling.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/60ebcafa-9b72-4b33-b0c3-8efca8fb0b0f)
+
+Now to form the drain and source, again we do the ion implantation of arsenic at 75kev to create the N+ implant by using mask 9 in the P-well to form PMOS.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4f3edbee-232d-403c-b8b1-d35994ca8bb6)
+
+
+Same process we will repeat for NMOS by using the mask 10 and boron ion in the N-well at 50kev to creat P- implant.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8c6fa089-b4e9-4872-bbf5-e8f1ac2bffd5)
+
+Now we put this Half made CMOS into the high temparature (1000 degree)anneling. So P+ implant and N+ implant now become the source and drain.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/38520c60-20cc-4c83-affc-16876beacab3)
 
 
 
+### <h3 id="header-3_2_6">Local interconnect formation</h3>
+
+**7)steps tp form contacts and local interconnects**:- First step is remove the thin screen oxide layer by etching. Then deposite the titanium (Ti) using sputtering. here Ti is used because Ti has very low resistivity.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2cc79d8a-6cdc-4959-be74-1bcad07909e2)
+
+Next step is to create the reaction between Ti layer and source, gate, drain of CMOS. For that wafer is heated at about 650-700 degree temparature in N2 ambient for about 60 seconds. and after reaction, we can see the titanium siliside over the wafer. One more reaction is heppend there between Ti and N. and it results the TIN which is used for local communication.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3079655b-32a0-4a89-94bd-1d117056d330)
+
+Now by using mask 11 and photoresist, we will etched out the TIN and make perticular contacts. TIN is etched out by using RCA cleaning.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/90d2f632-eda4-477f-8126-73c2f9bb1c46)
+
+Now, local interconnects are formed after etching and removing the photoresist.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8ac4e88d-58b7-4edd-bc40-af6e57f61cf0)
+
+
+### <h3 id="header-3_2_7"> Higher level metal formation</h3>
+
+**8)Higher level metal formation**:- These steps are very semilar like previous steps. First thing that we are noticing is that the surface is non planner. it is not good to use this type of non planner serface for matel interconnects because of the problems regarding the metal disconinuty. so, we have to plannerize the surface by depositing the thick layer of sio2 with some impurity to make less resistive layer. and then we used CMP (chemical mechanical polishing) technique to plannerise the surface.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ef768dbd-78c1-4ab6-b527-418e6e6b3587)
+
+Now using mask 12 and photorsist we etched the sio2 layer to diposite the metal in it.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/412b9665-d2af-4309-a6ea-4055b3aca9a4)
+
+Now remove the photoresist and seposite the thin later of TIN (~10nm) over the wafer. Because TiN is act as very good adession layer for sio2 and also act as a barrier between bottom layer and top layer of metal interconnects.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b2160026-0d08-45bb-a057-284c68107c50)
+
+Next step is to deposite the blanket tungsten (W) layer over the wafer. and then do the CMP here to plannerize the surface.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c7092e04-a09c-48e9-8580-cfc62a394b4f)
+
+This W is act as a contact holes and this holes needs to connect to the Higher metal layer. so we will deposite the Al (aluminium) layer.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/298cc45d-b5c4-44d9-b999-f2ab20d6cf15)
+
+Then by using the mask 13 and photoresist, we etched the W layer out to form the contact at perticular place by Plasma etching.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c0ef4f54-d5d4-4358-acda-ff956151dda3)
+
+This is our first level of metal interconnets. now we again do the same process as above to deposite the second level of metal interconnect by using mask 14 for etched out the sio2 and using mask 15 for etched out Al leyer.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/00e4b8b6-8f80-4f0f-b472-1490674126f7)
+
+The upper layer of Al is bit thicker as compared to lower layer of Al.Now, again deposite the layer of sio2 or si3N4 to protect the chip.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6df94765-37ea-4a47-8931-9381446afd31)
+
+And finally our CMOS is looks like this after the fabrication.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ffcc1402-44ae-4a4c-8a82-06752bdc0fb1)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### <h3 id="header-3_2_8"> Lab introduction to Sky130 basic layers layout and LEF using inverter</h3>
 
 
 
