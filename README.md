@@ -532,11 +532,17 @@ Magic is used for design Rules checking and SPICE Extraction from Layout. Magic 
 ## <h1 id="header-1_3">Get familiar to open-source EDA tools</h1>
 ### <h1 id="header-1_3_1">OpenLANE Directory structure in detail</h1>
 **Basic Linux Commands**
+
 **cd** : opens the particular folder
+
 **ls** : lists the content of the folder
+
 **pwd** : shows the present working directory
+
 **mkdir** : to make a new directory
+
 **command --help** : shows the complete use that command
+
 **clear** : clears the terminal screen
 
 Here we are working in Sky130_fd_sc_hd PDK varient. where, "sky130" is process name or node name."fd" is a foundary name (skyWater foundary)."sc" means standerd cell librery files and the last one "hd" stands for high density(basically one type of varient).
