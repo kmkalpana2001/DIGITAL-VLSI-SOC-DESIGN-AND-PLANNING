@@ -1359,6 +1359,17 @@ so, now we are checking the location and at there spice file has been created.
 
 let's see what inside the spice file by "vim sky130_inv.spice".
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/87e9816d-955a-4039-bb27-3176a5a16fb7)
+
+
+## <h3 id="header-3_3">Sky130 Tech File Labs</h3>
+### <h3 id="header-3_3_1">Lab steps to create final SPICE deck using Sky130 tech</h3>
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f7190142-b08e-49c4-808f-81758b72b54e)
+
+here, we can see the all details about the connectivity of the NMOS and PMOS and about the power supply also.
+
+X0 is NMOS and X1 is PMOS and both's connectivity is shown as GATE DRAIN SUBSTATE SOURCE.
 
 
 
