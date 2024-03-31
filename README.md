@@ -1322,17 +1322,42 @@ And finally our CMOS is looks like this after the fabrication.
 
 ### <h3 id="header-3_2_8"> Lab introduction to Sky130 basic layers layout and LEF using inverter</h3>
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f6e17f1a-9dc0-4718-bb29-87cf3490f61c)
+
+In sky130, every color is showing the different layer. here the first layer is for local interconnect shown by blue_purple color, then second layer is metal 1 which is shown by light purple color, and the metal 2 is shown by pink color. N-well is shown by solide das line. green is N-diffusion region. and red is for polysilicon gate. similarly the brown color is for P-diffusion.
+
+In tckon window, we can see that the selected area is NMOS and similarly we can chech PMOS also. and that is how we can check that the CMOS is working or not.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ecaed121-2348-4cd7-b4fc-e89b64c9a0f1)
+
+similarly we will check for the output terminal also.(by double pressing "S" to select the entire thing at output Y).
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/12f5c601-e2a7-4fe6-815d-bf27d7a8a117)
+
+so, we can see that "Y" is attached to locali in cell def sky130_inv.
+we can check the source of the PMOS is connected to the ground or not. and similarly we can check it for NMOS also.
 
 
 
+### <h3 id="header-3_2_9">Lab steps to create std cell layout and extract spice netlist</h3>
 
+To extract the file from here, we have to write the command in tckon window. and the comand is "extract all".
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/264e9dd3-3ac5-4ede-a898-dd2f1c5ad83e)
 
+Now let's go to this location from the terminal. it is exctracted.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/802fa021-ce0c-4797-a464-157ed84737a4)
 
+we will use this .ext file to create the spice file to be use with our ngspice tool. for that we have apply the comand "ext2spice cthresh 0 rthresh 0". this will not create anything new. now again we have to type "ext2spice" comand in tckon window.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5d92bc3e-ccd2-4629-9944-b67bb6af5d24)
 
+so, now we are checking the location and at there spice file has been created.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/00f61462-b458-4856-92f2-0bf8a487344b)
+
+let's see what inside the spice file by "vim sky130_inv.spice".
 
 
 
