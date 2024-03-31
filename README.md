@@ -1037,6 +1037,99 @@ So, here we can see that there are no pins in the upper half side. all pins are 
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/be67d51c-8d97-4a09-9007-1a61101112ba)
 
+**Identify the nodes**:- Node mean the points between which there is a component.These nodes are required to define the netlist.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1aded7c7-a96f-4dd2-9f63-aea58e2fad16)
+
+**Name the nodes**:- Now we wiil name these nodes as Vin, Vss, Vdd, out.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/315c2ee6-5f34-405c-8791-c44e7e6ebb86)
+
+Now we will start writing the SPICE deck. It's written like shown below
+
+Drain- Gate- Source-  Substrate
+
+For M1 MOSFET drain is connected to out node, gate is connected to in node, PMOS transistor substrate and Source is connected to Vdd node. 
+
+For M2 MOSFET drain is connected to out node, gate is connected to in node, NMOS source and substrate are connected to 0.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3e3fac0c-021e-4b3d-b1ae-11f437bf8f4d)
+
+
+### <h3 id="header-3_1_2">SPICE simulation lab for CMOS inverter</h3>
+
+Till now we have described the connectivity information about CMOS inverter now we will describe the other components connnectivity information like load capacitor, source. Let's seee the connectivity of output load capacitor.
+
+It is connected between out and the node 0. And it's value is 10ff. Supply voltage(Vdd) which is connected between Vdd and node 0 and value of it is 2.5 , Similarly we have input voltage which is connected between Vin and node 0 and its value is 2.5.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/38bf54d3-95cd-4bb4-8bf3-db767a76550c)
+
+Now we have to give the simulation commands in which we are swiping the Vin from 0 to 2.5 with the stepsize of 0.05. Because we want Vout while changing the Vin.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/352b8f5d-5109-4a2c-9c2e-de63c43b2f7f)
+
+Final step is to model files. It has the complete description about NMOS and PMOS.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/03d4797a-3c88-42e2-9202-30f79922f28c)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d8c67c04-a6c8-4016-8d8a-dc89fefbbd41)
+
+Now we will do the SPICE simulation for the particular values. And will get the graph.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/dd03eb88-a3b3-4cc2-9d0f-26fde325e723)
+
+Now, doing other simulation in which we change the PMOS width to 3 times of NMOS width. and after diong the simulation, we get the graph like this shown below
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4a0d7457-cbda-4121-8f4c-3a8dc46f9c55)
+
+The difference between these two graphs is that in the second graph the transfer charactoristic is lies in the ecxact middle of the graph where in the first graph it is lies left from the middle of the graph.
+
+
+### <h3 id="header-3_1_3"> Switching Threshold Vm</h3>
+
+These both model of different width has their own application. By comparing this both waveform, we can see that the shape of the both waveform is same irrespective of the voltage level.It tells that CMOS is a very roboust device. when Vin is at low, output is at high and when Vin is at high, the output is at low. so the charactoristic is maintain at all kind of CMOS with different size of NMOS or PMOS. That is why CMOS logic is very widely used in the design of the gates.
+
+Switching thresold, Vm (the point at which the device switches the level) is the one of the parameter that defined the robustness of the Inverter. Switching thresold is a point at which Vin=Vout.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6b53f54e-b3a3-47ab-b632-a3e734d11615)
+
+In this figure, we can see that at Vm~0.9v, Vin=Vout. This point is very critical point for the CMOS because at this point there is chance that both PMOS and NMOS are turned on. If both are turned on then there are high chances of leakage current(Means current flow direcly from power to ground).
+
+By comparing this both the graph we can understang the concept of switching thresold voltage.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4e6885bc-da70-4f86-8715-451f7e90e1dd)
+
+In the graph below we can identify that the PMOS and NMOS are in which region. The direction of current flowing is different for NMOS nad PMOS.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1e8aa0ce-1524-4c57-9c44-b3162dc94a2c)
+
+
+### <h3 id="header-3_1_4"> Static and dynamic simulation of CMOS inverter</h3>
+
+In Dynamic simulation we will know about the rise and fall delay of CMOS inverter and how does it varying with Vm. In this simulation everything else will remian same except the input which is provided will be a pulse and simulation command will be .tran
+
+The graph Time vs Voltage will be plotted here from where we can calculate the rise and fall delay.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6b3926ab-2fb7-46a2-b1c5-aa65c8105f38)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c26fe6c9-73f1-4e96-9098-708cce913129)
+
+
+### <h3 id="header-3_1_5"> Lab steps to git clone vsdstdcelldesign</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
