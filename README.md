@@ -1117,7 +1117,30 @@ The graph Time vs Voltage will be plotted here from where we can calculate the r
 
 ### <h3 id="header-3_1_5"> Lab steps to git clone vsdstdcelldesign</h3>
 
-To get the clone, copy the clone address from reporetery and paste in openlane terminal after the command "git clone". this will create the folder called "vsdstdcelldesign" in openlane directory.
+To get the clone, copy the clone address from resporetery and paste in openlane terminal after the command "git clone" this will create the folder called "DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING" in openlane directory.
+
+now, if we open the openlane directory, we find the DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING folder in the openlane directory.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f1149765-3a26-49e2-b2a2-e70566d8c97d)
+
+Now do copy by "cp" command to the location which is given below,
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/67a29237-827d-4da4-b01c-8c1dcb10be62)
+
+Now, we can see that this file is copied in the DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING folder.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/32a679cf-4369-497c-bf28-87e63f662702)
+
+Now, here to see the layout in magic, we don't need to write the whole address because we copy the tech file here.
+
+Now, appying the magic comand like this,
+
+
+
+
+
+
+
 
 
 
