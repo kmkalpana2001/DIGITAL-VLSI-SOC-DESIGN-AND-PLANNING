@@ -1391,6 +1391,12 @@ after running this file we get output of ngspice like this,
 
 
 
+### <h3 id="header-3_3_2">Lab steps to characterize inverter using sky130 model files</h3>
+
+
+
+
+
 
 
 
