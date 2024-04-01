@@ -1375,7 +1375,22 @@ X0 is NMOS and X1 is PMOS and both's connectivity is shown as GATE DRAIN SUBSTAT
 
 Now we have to include the PMOS and NMOS lib files. it is inside the libs folder in the vsdstdcellsdesign folder.
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/38f1bf25-4cd7-4d55-a58c-b003322662db)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4369412f-e9bb-4882-93f0-76d2b13b5b43)
+
+so, now we include this file in the terminal by ".include ./libs/pshort.lib" and ".include ./libs/nshort.lib" comand.
+
+And then set the supply voltage "VDD" to 3.3v by "VDD VPWR 0 3.3V" comand. and similarly set the value of VSS also.
+
+Now, we need to specify the input files. by Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 4ns).
+
+Also add the comand for the analysis like, ".tran 1n 20n", ".control" , "run",".endc",".end".
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/16dd72ac-b207-4951-b9f9-e4f028b93036)
+
+after running this file we get output of ngspice like this,
+
+
+
 
 
 
