@@ -1452,3 +1452,68 @@ Our next objective is to create a lef file using the layout and we will plugin t
 
 ### <h3 id="header-3_3_3">Lab introduction to Magic tool options and DRC rules</h3>
 
+To know more about the Magic DRC we can go to the website:- http://opencircuitdesign.com/magic/Technologyfiles/TheMagicTechnologyFileManual/DrcSection 
+
+Link to Google_Skywaters Design Rules: - https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
+For reference , we can use the github repo of Google-Skywater: - https://github.com/google/skywater-pdk
+
+
+### <h3 id="header-3_3_4">Lab introduction to Sky130 pdk's and steps to download labs</h3>
+
+Follow the steps:
+
+First go to the home directory.
+
+To download the lab files for performing DRC corrections:
+
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+
+To extract the lab files from the downloaded file:
+
+tar xfz drc_tests.tgz
+
+Then go inside the lab folder drc_tests.
+
+Then we can list all the directories by using the ls -al command.
+
+Then we will view the .magicrc file by using the gvim .magicrc command.This file is the startup script for magic. It tells magic where to find the technology file. The technology file is already made available locally in the same directory because we may need to make changes to this file.
+
+Then we will open the magic tool by using magic -d XR & command to start the magic in better graphics.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6285501b-7b2e-4b31-9273-5c81a7b4da59)
+
+Content of .magicrc file by using command vi .magicrc
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6668093-e775-418b-a73a-8c2208ba13be)
+
+
+### <h3 id="header-3_3_5">Lab introduction to Magic and steps to load Sky130 tech-rules</h3>
+
+Now use magic -d XR command to open magic tool, 
+Just for example we open the met3.mag file in the magic tool from file then open met3.mag file. Here we will see some different layouts having different DRC value and these layouts are called rule number.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8abdf2a4-2bb2-4e65-820a-3860340e4304)
+
+These rule number can be found at  Google-Skywater documentation.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/26e16828-6711-4e54-97f1-c84571e36b7b)
+
+Now we can select the any layout area and then type drc why in tckon.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8d1517ff-fa73-4350-80b2-6f1106ec6782)
+
+Now we will select any blank area then hovering the mouse pointer over the metal3 contact icon and pressing the p button. type pek in tckon and then we will execute the command cif see VIA2 in the tkcon tab, then we will see bunch of black square appears inside the area.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a9585c99-9a41-4df8-8100-73fc3653a09e)
+
+
+### <h3 id="header-3_3_6">Lab exercise to fix poly.9 error in Sky130 tech-file</h3>
+
+
+
+
+
+
+
+
+
