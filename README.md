@@ -1397,10 +1397,6 @@ Now, ploting the graph here by comand, "plot y vs time a".
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b4e73775-22a1-4e71-8fc0-060117a19586)
 
 
-
-
-
-
 ### <h3 id="header-3_3_2">Lab steps to characterize inverter using sky130 model files</h3>
 
 
