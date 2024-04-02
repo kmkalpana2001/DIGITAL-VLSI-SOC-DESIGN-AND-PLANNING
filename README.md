@@ -1403,10 +1403,49 @@ NOw if we increase the C3 value from 0.024ff to 2ff the graph will look like thi
 
 ### <h3 id="header-3_3_2">Lab steps to characterize inverter using sky130 model files</h3>
 
+Here, we have to find value of 4 parameters.
+	
+<ul>
+	<li><a> rise time</a></li>
+	</ul>
+	
+it is time taken to the output waveform to 20% value to 80% value.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5485cced-e163-44c4-ac83-54a81cc86783)
+
+so, rise time= (2.2489 - 2.1819)e-09 = 66.92 psec.
 
 
+<ul>
+	<li><a> fall time</a></li>
+	</ul>
+ 
+it is the time take by output for transition from 80% to 20%.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/dde449de-7004-459b-b51b-009155b810d6)
+
+so, rise time= (4.09512 - 4.05264)e-09 = 42.51 psec.
+
+<ul>
+	<li><a> propagation delay</a></li>
+	</ul>
+
+it is the time difference between the 50% of input and 50% of the output.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d89e4c30-d806-4907-9ac7-0e1af3d14627)
+
+so, propogation delay =(2.2106 - 2.15012)e-09 =  60.48 psec.
 
 
+<ul>
+	<li><a> cell fall delay</a></li>
+	</ul>
+ 
+it is time for output falling to 50% and input is rising to 50%.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/95652d8b-57cb-4033-8e42-dc4c579a9189)
+
+so, cell fall delay =(4.07735 - 4.04988)e-09 =  27.47 psec.
 
 
 
