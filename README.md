@@ -1447,77 +1447,8 @@ it is time for output falling to 50% and input is rising to 50%.
 
 so, cell fall delay =(4.07735 - 4.04988)e-09 =  27.47 psec.
 
+We have successfully characterized our inverter.
+Our next objective is to create a lef file using the layout and we will plugin this lef file in the picorv32a core
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### <h3 id="header-3_3_3">Lab introduction to Magic tool options and DRC rules</h3>
 
