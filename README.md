@@ -1396,8 +1396,13 @@ Now, ploting the graph here by comand, "plot y vs time a".
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b4e73775-22a1-4e71-8fc0-060117a19586)
 
+NOw if we increase the C3 value from 0.024ff to 2ff the graph will look like this, graph become more smoother.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6d5afd2f-2b06-4a7f-bf5c-8b62f5dab03c)
+
 
 ### <h3 id="header-3_3_2">Lab steps to characterize inverter using sky130 model files</h3>
+
 
 
 
