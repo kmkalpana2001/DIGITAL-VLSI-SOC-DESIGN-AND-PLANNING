@@ -1385,9 +1385,19 @@ Now, we need to specify the input files. by Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 
 
 Also add the comand for the analysis like, ".tran 1n 20n", ".control" , "run",".endc",".end".
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/16dd72ac-b207-4951-b9f9-e4f028b93036)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f2eb9aa9-9b83-4f86-b6ae-f380c555fc86)
+
 
 after running this file we get output of ngspice like this,
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3734948c-65e5-425f-91a5-ab26b908789f)
+
+Now, ploting the graph here by comand, "plot y vs time a".
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b4e73775-22a1-4e71-8fc0-060117a19586)
+
+
+
 
 
 
