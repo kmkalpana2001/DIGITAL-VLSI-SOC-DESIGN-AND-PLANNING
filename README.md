@@ -1643,7 +1643,8 @@ We need to modify the config.tcl file of picorv32a directory,
  
 So open the config.tcl file of picorv32a directory in any editor and add the commands shown in below image :
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cc63f9e4-177d-4132-81f6-e583210ba9d7)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5a729a04-1651-454b-a900-d6fb64e12794)
+
 
 **OPENLANE :-** Go to the open lane directory and execute the docker command.
 
@@ -1655,3 +1656,5 @@ Execute the following commands :
     set lefs [glob $::env(DESIGN_DIR)/src/*.lef]      
     add_lefs -src $lefs
     run_synthesis
+
+    
