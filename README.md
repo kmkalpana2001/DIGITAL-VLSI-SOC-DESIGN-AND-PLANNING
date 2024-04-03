@@ -1557,3 +1557,32 @@ We can select the area having drc error and then run the drc why command in the 
 
 ### <h3 id="header-3_3_8">Lab challenge exercise to describe DRC error as geometrical construct</h3>
 
+The changes we need to make in sky130A.tech file are as follows:
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c8a20821-704e-4b85-b7b8-14c223b6da27)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c8268fbb-cdd7-4b52-bed1-77a104bdd8ff)
+
+
+open the nwell.mag file in the magic tool and look for the nwell.6 model error. Here in thw given figure the deep nwell is shown in the yellow stripes and the nwell is shown in dotted green pattern.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5e705fcf-fdfc-4c4c-a6f6-1ff185f49e4a)
+
+We can check this error on the site as well
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/56ac4c1b-7476-4d59-a548-dcd22b9e7ee2)
+
+### <h3 id="header-3_3_9">Lab challenge to find missing or incorrect rules and fix them</h3>
+
+Now  open the magic tool and then execute the commands drc style drc(full) and drc check.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e98833bd-d19b-4772-a814-bb3487723bb8)
+
+
+# <h4 id="header-4">Day 4 - Pre-layout timing analysis and importance of good clock tree</h4>	 
+## <h4 id="header-4_1">Timing modeling using delay tables</h4>
+### <h4 id="header-4_1_1">Lab steps to convert grid info to track info</h4>
+
+
+
+
