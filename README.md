@@ -1608,5 +1608,23 @@ Then again write comand according to the track file.
 
 Here we can see that, as per the guideline the ports are placed at the intersection of the tracks. Now, between the boundaries, 3 boxes are coverd. so our second requirment also satisfied here.
 
-### <h4 id="header-4_1_1">Lab steps to convert magic layout to std cell LEF</h4>
+### <h4 id="header-4_1_2">Lab steps to convert magic layout to std cell LEF</h4>
+
+Now we will decide the port name and its values as follows. We can set the values for different ports and for power and ground port we need to do the changes in attach tolayer as Metal1.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e65285fd-fbd2-479a-a461-2e1d257253d3)
+
+Once these parameters are set we are ready to extract the lef file from the mag
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2d838026-3faf-4b08-a09b-1be08506dc5e)
+
+Now, we open this file in the magic by using comand "magic -T sky130A.tech sky130_vsdinv.mag &".Now to extract the lef file we have to write the comand in the tckon window "lef write". so it will create a lef file and we can check it in the vsdstdcellsdesign folder.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/288b219e-2720-4f54-b5ce-f08ba9fe3a1f)
+
+
+### <h4 id="header-4_1_3">Introduction to timing libs and steps to include new cell in synthesis</h4>
+
+
+
 
