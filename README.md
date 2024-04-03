@@ -1603,7 +1603,8 @@ In layout, we can see that the ports are on the li1 layer. so we need to insure 
 
 Then again write comand according to the track file.
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8996ea5e-9d69-4718-92ae-5e67fe451c01)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/344a1e23-8710-42cf-8e2e-7eeb5e3a5276)
+
 
 Here we can see that, as per the guideline the ports are placed at the intersection of the tracks. Now, between the boundaries, 3 boxes are coverd. so our second requirment also satisfied here.
 
