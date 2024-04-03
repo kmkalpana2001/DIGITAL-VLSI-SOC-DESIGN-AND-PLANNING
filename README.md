@@ -1583,6 +1583,29 @@ Now  open the magic tool and then execute the commands drc style drc(full) and d
 ## <h4 id="header-4_1">Timing modeling using delay tables</h4>
 ### <h4 id="header-4_1_1">Lab steps to convert grid info to track info</h4>
 
+Now the concept of 'lef' file will comes into the picture. it contains all the information which we discuss earlier. so our next objective is to extract the '.lef' file out of the '.mag' file. and next step is that extracted file could be placed into the picorv32a flow.
 
+you need to folow certain guideline while making standerd cells.the guidelines are
 
+The input and output port must lie on the intersection of the verticle and horizontal tracks
+The width of the satnderd cell should be odd multiple of the track pitch and the height should be odd multiple of track verticle pitch
+Now oprning the track file from the pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info. where we get the info like this,
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/86282d04-0357-4906-b2f6-882a65f43624)
+
+so, the track is basically nothing but it is used during the routing stage.Rout will be go over the tracks. tracks are basically trases of matel layers.i.e., metal 1, matel 2, etc.
+
+PNR is a automated. so we need to specified, where from we want routs to go. this specification is given by tracks. here we can see that each of the tracks are placed at (0.23 0.46)um horizontaly and (0.17 0.34)um vertically for li1, metal 1, metal 2 layer.
+
+In layout, we can see that the ports are on the li1 layer. so we need to insure that the ports are on the intersection of the tracks or not. For that we have to cinvert the grid into the tracks. for that we have to first into the tracks file and the open the tckon window and type the "help grid" command.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cad6a58e-5e45-4f84-93aa-b636c6c001e1)
+
+Then again write comand according to the track file.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8996ea5e-9d69-4718-92ae-5e67fe451c01)
+
+Here we can see that, as per the guideline the ports are placed at the intersection of the tracks. Now, between the boundaries, 3 boxes are coverd. so our second requirment also satisfied here.
+
+### <h4 id="header-4_1_1">Lab steps to convert magic layout to std cell LEF</h4>
 
