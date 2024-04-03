@@ -1509,11 +1509,51 @@ Now we will select any blank area then hovering the mouse pointer over the metal
 
 ### <h3 id="header-3_3_6">Lab exercise to fix poly.9 error in Sky130 tech-file</h3>
 
+Now, we will open the poly.mag file in the magic tool by typing the command  load poly.mag in the tkcon terminal.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4528478e-58cd-46bb-a99e-63ecb5f31c3a)
+
+Now let's consider the rule poly.9 then check the website for that rule.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/10ad235a-a615-4167-9cb8-68e8d8971b41)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cb3bf544-4e0f-4aa8-968e-49e6cea7a1f6)
+
+Now to find the error look at the file vi sky130A.tech  we will open the file sky130A.tech file which is present in the drc_tests directory with the text editor of linux itself.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/32cd1437-efd3-4cff-b84c-56b133443de0)
+
+We will search for poly.9 in this file by using the Find option. We find it in 2 places . First one in the POLY section and the second one in the uhrpoly(polyresistor) section. The rules are not set properly in both these places. So we will add a change in both of these sections.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/99981782-d58f-40a9-aea7-3d6496098367)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/eaa26fe7-6583-460c-8562-08c1f77b9eea)
+
+Click on Save and close the editor file.
+
+Then we will execute the commands tech load sky130A.tech in the tkcon terminal. Then drc check as shown below
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/93876300-43b9-4748-82cb-24bb98c0df14)
 
 
+### <h3 id="header-3_3_7">Lab exercise to implement poly resistor spacing to diff and tap</h3>
+
+ To correctly implement poly resistor spacing we need to again make the changes in the sky130A.tech file.
+
+ ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d1f1d0bd-993b-44a1-937b-0dd68d9c9af7)
+
+ Now execute in Tkon after saving it
+
+ ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/58c628ba-e309-4ebb-a24c-900e9dc80f47)
+
+We can make the copy of the poly.9 model of poly.mag file in the magic window itself and check for errors:
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/11af550e-0fe6-44d2-ab97-51974382d9a3)
+
+We can select the area having drc error and then run the drc why command in the tkcon terminal to find the description of that error.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1ba9feba-382e-46a5-817f-b9c861116af3)
 
 
-
-
-
+### <h3 id="header-3_3_8">Lab challenge exercise to describe DRC error as geometrical construct</h3>
 
