@@ -1625,6 +1625,33 @@ Now, we open this file in the magic by using comand "magic -T sky130A.tech sky13
 
 ### <h4 id="header-4_1_3">Introduction to timing libs and steps to include new cell in synthesis</h4>
 
+Now, lef file is created and now step is plug this lef file in picorv32a. before that we move our files to src folder where all the design files are available at one location.
 
+for that we are copiying this file in the src folder by 'cp' command.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/10c7a3da-fe77-4df2-9ca8-446d89e59951)
 
+this is how the library file looks like. We have different library files named as typical,slow ,fast.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5744e9b7-522d-4d66-98ff-6903ee1d7fe6)
+
+Now we will copy it to the src folder
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4cbadeda-835d-42ca-b190-5c98510f4d21)
+
+We need to modify the config.tcl file of picorv32a directory,
+ 
+So open the config.tcl file of picorv32a directory in any editor and add the commands shown in below image :
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cc63f9e4-177d-4132-81f6-e583210ba9d7)
+
+**OPENLANE :-** Go to the open lane directory and execute the docker command.
+
+Execute the following commands :
+
+    ./flow.tcl -interactive
+    package require openlane 0.9
+    prep -design picorv32a
+    set lefs [glob $::env(DESIGN_DIR)/src/*.lef]      
+    add_lefs -src $lefs
+    run_synthesis
