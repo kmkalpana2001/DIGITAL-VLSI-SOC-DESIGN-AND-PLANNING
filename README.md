@@ -1846,3 +1846,30 @@ Now,we have to identify the combinational path delay for the both logics.
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6560c3db-2bdb-4233-b8ec-58fff0c27d89)
 
 ### <h4 id="header-4_2_3">Lab steps to configure OpenSTA for post-synth timing analysis</h4>
+
+We will do STA on the initial picorv32a design which had timing violations.First we need to run the synthesis using the following commands in openlane directory:
+
+    docker
+    ./flow.tcl -interactive
+    package require openlane 0.9
+    prep -design picorv32a
+    set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+    add_lefs -src $lefs
+    set ::env(SYNTH_SIZING) 1
+    run_synthesis
+
+ ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5498fefc-0656-48a2-a04b-dd40c9424c2d)
+
+Now we need to make a new pre_sta.conf file. We can do this by vim editor.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d0885737-368b-4ee7-8ba3-2707aa5be258)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/da429e3b-ca3d-47e8-b389-856fad2f5d74)
+
+We need to remember that when we are outside openlane , we cannot use the definitions of environmental variables which were used during synthesis. So, we will create a my_base.sdc file which will contain the definitions of environment variables.
+
+Now, we also need to create my_base.sdc file containing the content shown in below image in openlane/designs/picorv32a/src directory :
+
+
+
+
