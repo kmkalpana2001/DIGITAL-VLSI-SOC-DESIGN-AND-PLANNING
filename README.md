@@ -1663,4 +1663,81 @@ Execute the following commands :
 
   ### <h4 id="header-4_1_4">Introduction to delay tables</h4>
 
-  
+**Power Aware CTS**:- If we make enable pin at logic '1' in the AND gate, then clock will propagate and if we make it 'logic 0' it will block the clock. Similarly in 'OR' gate if we make enable as 'logic 0' it will propagate and on making it 'logic 1' it will block the clock.
+
+So the advantage of this blocking period is that we can save lot of power in clock tree.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7ee8dd3f-1766-4341-93f2-fe32eb98de7e)
+
+Let's say we have a clock tree, The buffer present at the first input is driving the load of second two buffers. We have splited the buffer and in clock gating technique we have just swaped the buffer with and gate so now will all the other characteristic will be same or will get changed will see in coming steps.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/638b696f-516a-473f-b78f-6748220c4b89)
+
+Before swaping the buffer with gate we have made some assumptions which are follows
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5d7dff63-31be-4e77-bd22-d44cf85fdb50)
+
+
+<ul>
+	<li><a> Assume c1=c2=c3=c4=25fF</a></li>
+	</ul>
+<ul>
+	<li><a>Assume Cbuf1=Cbuf2=30fF</a></li>
+	</ul>
+<ul>
+	<li><a>Total Cap at node 'A'=> 60fF</a></li>
+	</ul>
+<ul>
+	<li><a>Total Cap at node 'B'=> 50fF</a></li>
+	</ul>
+ <ul>
+	<li><a>Total Cap at node 'C'=> 50fF</a></li>
+	</ul>
+ 
+ We have made some observations from here which are as follows
+
+ <ul>
+	<li><a>2 levels of buffering</a></li>
+	</ul>
+<ul>
+	<li><a>At every level,each node driving same load</a></li>
+	</ul>
+ <ul>
+	<li><a>Identical buffer at same level</a></li>
+	</ul>
+
+So the output capacitance of the buffer for the entire circuit is not constant, load at the output will be varying and since the load is varying so input transition is also varying. 
+
+So becuase of this variation in output and input we will have varity of delays so how to capture that delay we will see with delay tables
+
+**How delay tables are prepared?**
+
+For this purpose we have carried out the one buffer from the circuit and and seperately varying its input transition within some range of let's say 10ps-100ps than the output load will also vary so we willl characterise the delay and put the data in tabular format.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8adffa38-98d2-4787-9bb1-52062de98557)
+
+
+### <h4 id="header-4_1_5">Delay table usage Part 1</h4>
+
+Let's take the example for other buffers.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4a39b172-b1d4-47be-986f-e3264ce2fe2a)
+
+For practical example let's say we have the input transition of 40ps of buffer1 the output capacitance of this particular buffer is 60ff. The delay of the cell in this case is lies between x9-x10.
+
+So the values which are not available in the delay table those are extrapolated from the given data so we can take the range in that case.
+
+
+### <h4 id="header-4_1_6">Delay table usage Part 2</h4>
+
+Now we have to calculate the delay of buffer 2 and after that we can find the latency at the 4 clock end points.
+
+Here input transition is common for both the buffers. now assuming that the transition is around the 60psec and load at both the buffers is 50fF. so it will give the delay of y15.
+
+The total delay from input to the output is= x9' + y15.(here we are ignoring the delay of the wires). that means the skew at the any output point is zero.
+
+If load is not same at the every nodes, the skew will not be the zero.
+
+### <h4 id="header-4_1_7">Lab steps to configure synthesis settings to fix slack and include vsdinv</h4>
+
+
