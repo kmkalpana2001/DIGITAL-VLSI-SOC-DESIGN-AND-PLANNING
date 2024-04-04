@@ -1659,6 +1659,8 @@ Execute the following commands :
 
   ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4da8bf77-2951-4076-a97c-4640b4d3e88c)
 
+  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f61778fe-7c40-4bf2-ac50-86c1921b84a2)
+
   ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/944ee857-ecd4-4ca4-8442-4c6953bd035d)
 
   ### <h4 id="header-4_1_4">Introduction to delay tables</h4>
@@ -1740,4 +1742,64 @@ If load is not same at the every nodes, the skew will not be the zero.
 
 ### <h4 id="header-4_1_7">Lab steps to configure synthesis settings to fix slack and include vsdinv</h4>
 
+We will try to modify the parameters of our cell by referring the README.md file in the configuration folder in openlane directory :
+The README.md file contains information about the parameters of the cell. 
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/21ad1228-9f16-4044-adc2-044eac7af2a5)
+
+We will give the following commmands in the terminal in openlane directory
+
+  prep -design picorv32a -tag 01-04_12-54 -overwrite
+  set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+  add_lefs -src $lefs
+
+  echo $::env(SYNTH_STRATEGY)
+  set ::env(SYNTH_STRATEGY) "DELAY 3"
+  echo $::env(SYNTH_BUFFERING)
+  echo $::env(SYNTH_SIZING)
+  set ::env(SYNTH_SIZING) 1
+  echo $::env(SYNTH_DRIVING_CELL)
+  run_synthesis
+  
+ prep -design picorv32a -tag 01-04_12-54 -overwrite is used to overwrite the existing files with previous values of simulations.
+
+After synthesis, we observed that the slack is nagative here. wns(worst negative slack)= -23.89 and tns(total negative slack)= -711.59.
+
+ ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/864c6c75-b5af-42aa-9a81-179be228c4e0)
+
+ ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/82bb71ed-436a-4d35-a90e-bb90281c15ca)
+
+Now run_synthesis, here chip area will increas and the value of slack will reduce.
+Since synthesis of the picorv32a using our custom designed cell is successful, so we will run the floorplan using command run_floorplan
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9f44d8b7-3abe-443c-ab6d-fb1714ff2ca9)
+
+Since, we are getting the error so first again do the synthesis using above commands and then we will use following commands to do the floorplan:
+
+  init_floorplan
+  place_io
+  tap_decap_or
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/48adf433-267b-4f73-9a38-6d3adbdfb3d3)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0f743f80-ec2f-48d9-a641-e7f112b383f4)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/856fb2fa-02f1-482f-b39e-9611f45fa1a1)
+
+so now we can run the placement using command run_placement
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/65232f8d-540e-408c-9d3e-0f28c9a42411)
+
+SO placement is succesfull now.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6d637fc9-823e-4516-887e-ee6bbee1c481)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/984c78a9-ec2c-4e29-add1-ffc157e30bbd)
+
+We can run the expand command in the tkcon window 
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1cfe664d-85f4-47cf-bb25-560962f5931e)
+
+## <h4 id="header-4_2">Timing analysis with ideal clocks using openSTA</h4>
+### <h4 id="header-4_2_1">Setup timing analysis and introduction to flip-flop setup time</h4>
 
