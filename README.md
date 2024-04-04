@@ -1985,3 +1985,81 @@ Let's identify the timing paths from design, with single clock
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0dbf4092-b74c-4c5a-89d8-5b94e5dff59f)  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b2597a4f-b999-4d48-a1fa-d6bb7c9985e9)
 
 ### <h4 id="header-4_4_3">Lab steps to analyze timing with real clocks using OpenSTA</h4>
+
+
+# <h5 id="header-5">Day 5 -Final step for RTL2GDS using tritinRoute and openSTA</h5>	 
+## <h5 id="header-5_1">Routing and design rule check (DRC)</h5>
+### <h5 id="header-5_1_1">Introduction to Maze Routing ÃÂ LeeÃÂs algorithm</h5>
+
+So the next and final stage in the physical design is Routing and DRC. 
+
+**Routing:-** It is finding the best shortest possible connection between two end points with one point being the source and other point being the target and with less number of twist and turns.
+
+**Maze-Routing(Lee's Algorithm):-** Therse should not be zig-zag lines of connections most of the connections should be in L shape or in Z shape. So according to algorithm first it create some grids and grids are routing at the backend. It's called as routing grid. There are some numbers of grids on this routig having some dimensions. SO here we are having two points one is 'Source' and the other is 'Target'. With the help of this routing grid algorithm has to find out the best possible way between them.
+
+First step is algorithm tries to lable all of the grids surrounded. Only the adjacent horizontal and vertical grids are labeled not the digonal one as shown in the image below.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0628c349-0714-417d-9c31-4d9b64b3c18f)
+
+### <h5 id="header-5_1_2">LeeÃÂs Algorithm conclusion</h5>
+
+Now we will lable the grids to the next integer untill we reach to the target. In the example we reacged the target after integer 9.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c5620bca-5d4b-4533-8c8a-6823ff932c66)
+
+SO now there are so many ways to reach  to target from source but we have to choose the best shortest possible way to reach the target.And we need to avoid the zig-zag way better to cghoose 'L' shape routing'
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/968051c8-d8c7-4819-8481-dc6501f5261b)
+
+Now take one more example for routing, and will follow the exact same step as follows in the above example.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/75d8cd15-4621-40cc-aaca-feb77b155496)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e4844e57-b8da-4a9e-82a0-b27e65aa66e3)
+
+### <h5 id="header-5_1_3">Design Rule Check</h5>
+
+So in order to go to DRC we need to follow some steps which are called drc cleaning.
+
+Let's take the example of the above circuit. Let's we have two parallel wires so the rule says that whenever we choose two wires there should be minimum distance between these two wires.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0ef82844-21b1-4963-b620-30de435a27bb)
+
+**Rule 1) Wire width:-** Width of the wire should be minimum that derived from the optical wavelenth of lithography technique applied.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/57519723-b095-42a3-9bf3-6d3ec0993094)
+
+**Rule 2) Wire Pitch:-** The minimum pitch between two wire should be this much as shown in the figure below.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/141d1b66-0efd-466c-a7cc-aa5941710e7c)
+
+**Rule 3) Wire Spacing:-** The wire spacing between two wires should be as shown in the image below.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/433af510-0dcb-4eac-9ac3-5c864dee9a42)
+
+Let's take the other part for design rule check from the same example .
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/766c4c20-2500-43c7-9969-acbf27d60047)
+
+Solution of this signal short problem is take one of the wire and put it on the other metal layer. usually upper metal is wider than the lower metal.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a88f8467-912b-4fbf-84ad-fd063c3545d5)
+
+After this solution, we add two new DRC rules should be check.
+
+**Rule 1) Via Width:-** via width should be some minimum value.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/acfb8c4b-adf7-494e-a948-012ee6d40415)
+
+**Rule 2) Via Spacing:-** Via spacing should be minimum value.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/91595b25-a47e-4c9d-944b-273b868940eb)
+
+After routing and DRC the next step is Parasitic extraction. Resistance and capacitance present on every wire should be extracted and use for further process.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a002217b-0866-4ab4-a603-454ad0bb0adf)
+
+
+## <h5 id="header-5_2">Power Distribution Network and routing</h5>
+### <h5 id="header-5_2_1">Lab steps to build power distribution network</h5>
+
