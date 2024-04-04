@@ -1794,11 +1794,13 @@ SO placement is succesfull now.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6d637fc9-823e-4516-887e-ee6bbee1c481)
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/984c78a9-ec2c-4e29-add1-ffc157e30bbd)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/dab482cb-950a-451d-9747-3d9d21b3b836)
+
 
 We can run the expand command in the tkcon window 
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1cfe664d-85f4-47cf-bb25-560962f5931e)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a5103878-a12a-4d8b-b93c-2bc44c9f2e14)
+
 
 ## <h4 id="header-4_2">Timing analysis with ideal clocks using openSTA</h4>
 ### <h4 id="header-4_2_1">Setup timing analysis and introduction to flip-flop setup time</h4>
