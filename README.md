@@ -1831,4 +1831,18 @@ So, we can write that the internal delay of the MUX1 = set up time(S).
 
 So, now θ<T becomes θ<(T-S).
 
-### <h4 id="header-4_2_2">Setup timing analysis and introduction to flip-flop setup time</h4>
+### <h4 id="header-4_2_2">Introduction to clock jitter and uncertainty</h4>
+
+So in Jitter the clock is being created by PLL(phase-locked loops) and the clk source is expected to sent the clk signal at exactly 0,T,2T,....But that clk source might or might ot be able to generate the clk exactly at 0 or any other certain time because of it's inbuilt variations that is called **jitter.** Jitter is refered as temporary variation of the clk pulse.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/46f48919-5c6a-4c63-8c50-b358710b4bc7)
+
+Let's consider this uncertantity time(US) in consideration. So, now equation will become θ<(T-S-US). Now assuming  'S'=0.01ns and 'US'=0.09ns. by taking this, Let's identify the timing path in our circuit stage 1 and stage 3 logic path has single clock.
+
+Now,we have to identify the combinational path delay for the both logics.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ce3d7d96-f5c2-44a6-ad38-78c1cc4f2fc7)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6560c3db-2bdb-4233-b8ec-58fff0c27d89)
+
+### <h4 id="header-4_2_3">Lab steps to configure OpenSTA for post-synth timing analysis</h4>
