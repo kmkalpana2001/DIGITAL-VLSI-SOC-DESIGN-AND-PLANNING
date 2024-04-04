@@ -1868,7 +1868,13 @@ Now we need to make a new pre_sta.conf file. We can do this by vim editor.
 
 We need to remember that when we are outside openlane , we cannot use the definitions of environmental variables which were used during synthesis. So, we will create a my_base.sdc file which will contain the definitions of environment variables.
 
-Now, we also need to create my_base.sdc file containing the content shown in below image in openlane/designs/picorv32a/src directory :
+Now, we also need to create my_base.sdc file containing the content shown in below image in openlane/designs/picorv32a/src directory
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cf294e81-401c-45f7-9d0f-48501f07faee)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b841d16a-bced-44b4-b05c-dad5df2c4ba6)
+
+
 
 
 
