@@ -1936,3 +1936,52 @@ By shielding we are breaking the coupling capacitance between the aggraser and v
 
 
 ### <h4 id="header-4_3_3">Lab steps to run CTS using Triton</h4>
+
+### <h4 id="header-4_3_4">Lab steps to verify CTS runs</h4>
+
+
+## <h4 id="header-4_4">Timing analysis with real clock using openSTA</h4>
+### <h4 id="header-4_4_1">Setup timing analysis using real clocks</h4>
+
+Circuit tree looks little bit different than ideal clock with real clock here we have buffers,wires etc Clock reach to launch flop and capture flop through a set of buffers.So clock signal will not reach to the buffer at t=0 time due to these buffers. So the combinational circuit equation will be  (θ+1+2)<(T+1+3+4). Initially it was θ<T.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7b0dab5b-f9ee-4f81-9f5b-06308a3cd79b)
+
+Let's called "1+2"=∆1 and "1+3+4"=∆2 and (∆1-∆2)=skew
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8d64a80a-7b5c-4031-aa87-ad0a54ab8baf)
+
+And here also, we have to consider the propogation skew (s) and uncertainty delay (US). so final equaltion becomes like, (θ+∆1)<(T+∆2-S-US).
+
+we can also say that (θ+∆1)= data arrival time and (T+∆2-S-US)=data required time.
+If (Data required time)- (Data arrival time) = +ve then it is fine. If it is -Ve then it is called 'slack'.
+
+**Hold timing analysis:-** It is littel bit different then setup timing analysis. here we are sending the first pulse to the both launch FLop and capture flop.
+
+Hold condition state that, Hold time (H)< combinational delay (θ). So, (θ>H).
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/21a17bf8-5526-4c9b-8a89-09d432e52af5)
+
+Hence, finite time 'H' required for 'Qm' to reach Q i.e., internal delay of mux2= hold time.
+
+Now, if we add the real time clock, the equation will be change. now equation becomes (θ+∆1)>(H+∆2).
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b2978f1d-6743-40af-b522-2a1497df0929)
+
+### <h4 id="header-4_4_2">Hold timing analysis using real clocks</h4>
+
+Combinational delay should be grater then the hold time of the capture flip flop. Once the clk reaches the launch flop it takes ariund 2buffer delay(∆1) and when it reaches to the capture flip flop it takes around 3 buffer delay(∆2). Uncertainity will be same for both the flip flops becaiuse clock applied to both the flops from the same edge only. Now let's add the uncertainity value to it.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1ef562f2-8943-4657-aa3b-0e4116c9a696)
+
+Slack= Data ariival time - data required time. Slck either should be positive or 0. If slack goes to negative  it is refer to as voilation
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f4e02f66-f9cb-458e-8ab9-7ddebf33f32a)
+
+Let's identify the timing paths from design, with single clock 
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2989418f-52ae-4108-83c8-7dbf9efc5114)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0dbf4092-b74c-4c5a-89d8-5b94e5dff59f)  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b2597a4f-b999-4d48-a1fa-d6bb7c9985e9)
+
+### <h4 id="header-4_4_3">Lab steps to analyze timing with real clocks using OpenSTA</h4>
