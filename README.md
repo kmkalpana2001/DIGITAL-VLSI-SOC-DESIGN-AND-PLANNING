@@ -1657,4 +1657,10 @@ Execute the following commands :
     add_lefs -src $lefs
     run_synthesis
 
-    
+  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4da8bf77-2951-4076-a97c-4640b4d3e88c)
+
+  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/944ee857-ecd4-4ca4-8442-4c6953bd035d)
+
+  ### <h4 id="header-4_1_4">Introduction to delay tables</h4>
+
+  
