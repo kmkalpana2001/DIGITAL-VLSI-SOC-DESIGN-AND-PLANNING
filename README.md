@@ -1874,8 +1874,65 @@ Now, we also need to create my_base.sdc file containing the content shown in bel
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b841d16a-bced-44b4-b05c-dad5df2c4ba6)
 
+Now go to the openlane directory in a new terminal and execute the sta pre_sta.conf command.
+
+
+### <h4 id="header-4_2_4">Lab steps to optimize synthesis to reduce setup violations</h4>
 
 
 
+### <h4 id="header-4_2_5">Lab steps to do basic timing ECO</h4>
 
 
+
+## <h4 id="header-4_3">Clock tree synthesis TritonCTS and signal integrity</h4>
+### <h4 id="header-4_3_1">Clock tree routing and buffering using H-Tree algorithm</h4>
+
+**Clock tree synthesis:-**  Let's connect clk1 to FF1 & FF2 of stage 1 and FF1 of stage 3 and FF2 of stage 4 with physical wire.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/70e302e7-a5be-4faa-bb5c-9b879a08dbc2)
+
+Now let's see what is the problem with this? Let's consider some physical distance from clk to FF1 and FF2 , so due to this t2>t1. 
+
+Skew= t2-t1,  and skew should be 0ps
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c85bc4c8-78b1-4eb8-937f-7eb9ecacf680)
+
+Previously we have build bad tree now we will try to modify that in a smarter way. Hrre clk will come in somewhere mid points with this clk will reach to every flip flop at almost same time. In the same way we will connect the clk2 with flip flops like midpoint manner.
+ 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/08ee4831-32c9-48d0-9356-18564ba45735)
+
+Now will se clock tree synthesis(Buffering), Let's we have some clock route through which it has to reach to particular locations and clock end points and in the path many capacitance, resitors are there.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/26cccdd6-9698-41c6-9cf7-92d7470b5c1a)
+
+Because of the wire length we did not get the same wave form at ouput as input and bcz of RC networks , so to resolve this problem we use repeaters.
+The only difference between the repeaters we use for clock or for data path is that clock repeaters repeaters will have equal rise and fall time.
+
+First step is we will remove the clock route and place 2 repeaters and allow the clock to go through this particular repeater, in this case whatever wave form is generated here will go to the output. So we can as many as repeaters we want to make the continuous flow of th clock till the output.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/65462f38-a26a-4d3e-8054-bb7203685d74)
+
+### <h4 id="header-4_3_2">Crosstalk and clock net shielding</h4>
+
+**Clock Net Shielding:-** Till now we have built the clk tree in such a fashion that the skew between the launch flop and capture flop  is 0. Skew means the latency difference between clk ports of the flop pins.
+Clk net shielding is the critical net scene in the design. We take the particular clk net and shield it means we protect the clk from the outside world, it's like house for tha clk. 
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9fa477bb-3cba-4f3e-bda1-e25fc7e984f4)
+
+If we do not protect the clk then two types of problem we can face **Glitch** and **Delta delay**
+
+Let's consider on of the clk net. So whenever there is switching activity happening at the aggraser because of the coupling capacitance between the wires and this capacitance is so strong that any activity happening at the aggraser will directly impact the net which is close. 
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6b516ccc-1aed-491e-9050-6cf912619f24)
+
+The shielding is the technique, by which we can protect the net from these problems. In a shielding, we put wire between the either two wire where coupling capacitance is generate. This extra wire is grounded or connected to VDD.
+
+We see the amount of delta delay because of the bump when we are switching from logic '1' to logic '0'. And skew is not anymore 0 here. So the impact of crosstalk delta delay is that it make the skew value non-zero.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4f2fcb95-f28d-42a0-a58c-836f981f00f9)
+
+By shielding we are breaking the coupling capacitance between the aggraser and victim. Shields don't switch.
+
+
+### <h4 id="header-4_3_3">Lab steps to run CTS using Triton</h4>
