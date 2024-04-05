@@ -332,24 +332,18 @@
 			<li><a href="#header-5_3_4">Routing topology algorithm and final files list post-route</a></li>
 		</ul>
       </ul>
-</div>
 
-<div class="toc">
-  <ul>
-    <li><a href="#header-6">All commands to run the openlane flow</a></li>
-  </ul>
-</div>
 
 	
 <div class="toc">
   <ul>
-    <li><a href="#header-7">References</a></li>
+    <li><a href="#header-6">References</a></li>
   </ul>
 </div>
 
 <div class="toc">
   <ul>
-    <li><a href="#header-8">Acknowledgement</a></li>
+    <li><a href="#header-7">Acknowledgement</a></li>
   </ul>
 </div>
 
@@ -600,7 +594,7 @@ now here also one config.tcl file is available similar like design folder. But t
 
 when we make some change in the origional configuration and then we run, for example if we make a change in core utilization in the floorplanning and then we run the floorplanning, at this time in the congig.tcl file, the core utility will change and by cross checking it we can check that the modification is reflected in the exicution or not.
 
-Now coming to the openlane, we are going to run the synthesis. for that command is "run_synthesis". It will take some 3-4 mnts to run the synthesis and finally synthesis will complited.
+Now coming to the openlane, we are going to run the synthesis. for that command is ```run_synthesis``` It will take some 3-4 mnts to run the synthesis and finally synthesis will complited.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/885b133d-49a3-4a32-86a3-4829a096e4e8)
 
@@ -630,9 +624,13 @@ And in the report, we can see when the actual synthesis has done. and the actual
 ### <h2 id="header-2_1_1">Utilization factor and aspect ratio</h2>
 
 In this section we will try to cover up the width and height of Core and Die. It is the first step in physical design flow to find out the width and height. Let's begin with a netlist, netlist  is two flipflops and have a simple combination logic in between. A netlist describes the connectivity of an electronic design. Here, we dependent on the dimensions of the logic gates(AND & OR) and particular flipflop. Now, let's convert the symbols into physical dimensions. We are interested in the dimensions of the Core and Die not in the dimensions of the wires. 
+
 Let's standard cell have dimensions of 1unit*1unit
+
 So, area= 1 Sq. units
+
 Asuume same area for the flipflop as well = 1 Sq. units
+
 with help of these dimensions and netlist let's calculate the area occupied by the netlist on a silicon wafer.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/abf79875-e1e3-4faf-87a6-43a12d44db8d)
@@ -642,24 +640,35 @@ Befor that will remove all the wires and bring all the flip flops and logic gate
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/beb2d87b-db4f-47ac-95db-7a5586018c98)
 
 What is 'Core' and 'Die' section of a chip?
+
 Let's have a silicon wafer on which all the logics are implemented. In thes one section is refered as 'Die' and inside the Die we have the Core. 
+
 A **Die** which consists of core, is small semicondcutor material  specimen on which the fundamental circuit is fabricated.
+
 A '**Core** is the section of the chip where the fundamental logic of the design is placed.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c95ab725-89cb-46eb-929b-c00be187848e)
 
 Now, Let's try to place that particular logic inside the core. The netlist will occupy the whole area inside the core it means it utilizes the core 100%. From this we can calculate the utilisation factor which is given by,
+
             Utilization Factor = Area occupied by netlist / Total area of the core
-	    lets put the dimensions we have, we get
+	   
+     lets put the dimensions we have, we get
+     
      Utilization factor = 4*1sq.unit / 2unit *2unit
-                        = 4sq unit /  4sq unit
+     
+			= 4sq unit /  4sq unit
+
 So, utilization factor = 1 (It means core has utilized all the area and no spane left)
+
 Aspect Ratio = Height /  width =  2 unit /  2unit =  1
+
 Whenever Aspect Ratio is 1 it signifies that chip is square shaped. When it is not 1 it means the chip is in rectangular shape.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/51360246-9ab3-4209-ba7d-d1d99bcd65ef)
 
 For example, Lets take another dimensions of the width= 4unit and height = 2unit. So from the above formula of utilization factor we it equal to 0.5 which means the chip has not covered the whole area of the core and aspect ratio is also 0.5  which means the chip is rectangular in shape.
+
 The leftover area can be used to placed some additional cells like buffers or something else.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/10a1d860-d6c2-4efc-95a7-d5f123cbdca3)
@@ -680,12 +689,16 @@ In both the blocks lets extend the input output pins and now we will black box t
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/46f293e3-5e1a-470f-99f6-6e067310806e)
 
 Advantage of doing this is we can reuse them multiple times after implimenting once only. Similary there are other IP's also available for eg. Memory, Clock-gating cell, Comporator, MUX  all of these are part of the top level netlist.They recieve some signals and perform functions and deliver the outputs but the functionality of the cell is implemented only once. 
+
 The arrangement of these IP's in a chip is refferd as **floorplanning**.
+
 These IP's have user-defined locations, and hence are placed in chip before automated placement and routing are called **"pre-placed cells"**. 
+
 These cells are placed in such a way that, the placement and routing tool do not touch the location of the cell.
 
 
 ### <h2 id="header-2_1_3">De-coupling capacitors</h2>
+
 **surround pre-placed cells with Decoupling capacitor**:- Let consider some circuit, which is the part of the blocks which has been described earlier. When some gate (let consider AND gate) switched from 0 to 1 or 1 to 0, considered amount of the switching current required because of available small capacitance . This capacitor should be completely charged to represent logic 1 and completly discharged to represent logic 0. Consider capacitance to be 0. Rdd,Ldd,and Lss are well defoned values. During switvhing operation, the circuit demands switching current i.e. peak current. Now, due to the presence of Rdd and Ldd, there will be a voltage drop across them and the voltage at Node 'A' would be Vdd' instead of Vdd.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b8b1d031-c395-4fde-8c28-25a7f2f7cfcc)
@@ -705,7 +718,7 @@ In the chip it will look something like shown below Decoupling capacitors are pl
 
 ### <h2 id="header-2_1_4">Power planning</h2>
 
- Now let's consider that local circuitory and keep it as a black box and it can be repeat multiple times and there is some logic present at the boundaries also and the problem of current demand was solved by de-coupling capacitor. There is signal which is send from driver to load and the signal is basically logic 0 to logic 1. Here we need to maintain the particular driver to load line with same signal so that the load recieves the same. Now power supply is applied. Now assume 16 bit bus has to retain the same signal from driver to the load. so it should get the sufficient power from the supply. But at this bus, there is no de-coupling capacitor is available because it is not physible to put capacitor at all over the place. now, power supply is far away from the bus, that is why some voltage drop between them will occur definetly.
+Now let's consider that local circuitory and keep it as a black box and it can be repeat multiple times and there is some logic present at the boundaries also and the problem of current demand was solved by de-coupling capacitor. There is signal which is send from driver to load and the signal is basically logic 0 to logic 1. Here we need to maintain the particular driver to load line with same signal so that the load recieves the same. Now power supply is applied. Now assume 16 bit bus has to retain the same signal from driver to the load. so it should get the sufficient power from the supply. But at this bus, there is no de-coupling capacitor is available because it is not physible to put capacitor at all over the place. now, power supply is far away from the bus, that is why some voltage drop between them will occur definetly.
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7c9f6257-fb53-43e6-a5d2-bb37e703f943)
 
@@ -737,6 +750,7 @@ And the power planning is shown below,
 ### <h2 id="header-2_1_5">Pin placement and logical cell placement blockage</h2>
 
 **Pin Placement**
+
 Lets take below designs for example that needs to be implemented. Here first circuit is driven by clk1  and second circuit is driven by clk2 and both has different inputs Din1 and Din2 respectively and outputs as Dout1 and Dout2.Along with that we have some preplaced cells as well as Blocka which recieves inputs from Din1 second input from Din2. We have another preplced cell as Blockb Which recieves input from clk1 and clk2 and provides a clk output. So currently we have 4 input ports Din1,Din2,Clk1,Clk2 and 3 output ports Dout1,ClkOut,Dout2
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0e1bf8ee-1b0e-452e-8a05-6b7dbbce57c7)
@@ -754,6 +768,7 @@ Let's put this netlist in the core which we have designed before and let's try t
 Here one thing that we noticed is that clock-in and clock-out pins are bigger in size as compared to input and output pins. reason behind this is that, input clocks are conntinuously provides the signal to the every elements of the chip and output clock should out the signal as fast as possible. So, we need least resistance path for the clocks inputs and clocks outputs. So, bigger the size, lower the resistance.
 
 One more thing is need to take care about is that, this pin placement area is blocked for routing and cell placements. so we nned to do logical cell placement blockage. this blockage is shoown in above image in between pins.
+
 So, floor plan is ready for Placement and Routing step.
 
 ### <h2 id="header-2_1_6">Steps to run floorplan using OpenLANE</h2>
@@ -787,7 +802,8 @@ To watch how floorplane looks, we have to go in the results. in the result, one 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cb35a72a-6fa7-402b-a0ed-8010ffdcccd3)
 
 so, the width of chip is 660.685 micrometer and height of the chip is 671.405 micrometer.
-To see the actual layout after the flow, we have to open the magic file by adding the command magic -T /home/kunalg123/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def
+
+To see the actual layout after the flow, we have to open the magic file by adding the command ```magic -T /home/kunalg123/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def```
 
 And then after pressing the enter, Magic file will open. here we can see the layout.
 
@@ -795,6 +811,7 @@ And then after pressing the enter, Magic file will open. here we can see the lay
 
 
 ### <h2 id="header-2_1_8">Review floorplan layout in Magic</h2>
+
 In the layout we can see that, input output pins are at equal distance.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f02464f8-3bbc-4475-90a6-1d523ba36857)
@@ -823,11 +840,14 @@ here we can see that first standerd cells is for buffer 1. similarly other cells
 
 ## <h2 id="header-2_2">Library building and Placement</h2>
 ### <h2 id="header-2_2_1">Netlist binding and initial place design</h2>
+
 **Bind netlist with physical cells**:- Lets we have the netlist of gates and shape of these gates represents the functionality of this gates. Foe example we have NOT gate as a tringular shape but in reality it is a box with physical dimensions it has width and height.Similarly for AND gate it also has a box shape in reality, Flipfops are also square boxes.So, we have given the physical dimensions to all the gates and flipflops. For everycomponent of the netlist we will give the particular shape with particular dimensions because ir real world the shapes like AND,OR gates does not exists so we make them as square all the blocks also have the width and height and proper shape.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/687b1d86-e4aa-48d6-9cec-f354f5b2c5eb) 
 
-Now we will remove the wires,all the gates, flipflops and blocks are present in the shelf which is called as **Library**. A library is a place where you can find all kind of books all the gates,f/f are books here. Library also has the timing information of the perticular book like delay of the gates. Library can be devides into two sublibraries, One library consist of shape and size and other library might consist only of the delay information. Library has the various flavours of each and  every cell. Like same cell can have bigger in size in different self, bigger the size of cell lesser the resestnce path so it will work faster and will have lesser delay. We can pick up from these what we want based on the timing condition and available space on the floorplan.
+Now we will remove the wires,all the gates, flipflops and blocks are present in the shelf which is called as **Library**.
+
+A library is a place where you can find all kind of books all the gates,f/f are books here. Library also has the timing information of the perticular book like delay of the gates. Library can be devides into two sublibraries, One library consist of shape and size and other library might consist only of the delay information. Library has the various flavours of each and  every cell. Like same cell can have bigger in size in different self, bigger the size of cell lesser the resestnce path so it will work faster and will have lesser delay. We can pick up from these what we want based on the timing condition and available space on the floorplan.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8871a0f8-ddd0-419c-bbf5-fe09fe42fb49)
 
@@ -847,6 +867,7 @@ But, the distance of FF1 of Stage 4 and Din4 is still far them others. By optimi
 
 
 ### <h2 id="header-2_2_2">Optimize placement using estimated wire-length and capacitance</h2>
+
 **Optimize Plecement:-** In optimize placement we will resolve the problem of distancing.Lrt's take the example of FF1 to Din2. There must be a wire going from Din2 to FF1 but before going into routing the desing or wiring we will try to estimate the capacitances. If we lokk the capacitance from Din2 to FF1 it is every huge because wire length is huge in that case even the resutance will also be huge because of that length. If we send the signal from Din2 then it will be difficult for FF1 to catch that input because distance is large. So we can place some intermediate steps to maitain the Signal integrity. By this the input is succesfully driven to the FF1 from Din2. These intermediate steps are called here Repeaters , Repeaters are basically buffers that will recondition the original signal and make a bew signal which replicate the original signal and send it forward this process repeates untill we reach to the actual cell where we want to send the input in this way signal integrity is maintained. By using repeaters we resolve the problem of signal integrity but there will be a loose of area because more and more repeaters are used more area will be used of the particular floorplan.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f47771b4-b28a-47db-b0dc-e5f13dd4c1b1)
@@ -868,7 +889,7 @@ Stage 4 is bit tricky as compared to other stages.Now we have to check that, wha
 ### <h2 id="header-2_2_4">Need for libraries and characterization</h2>
 
 Every ICdesign Flow needs to go through the several steps. First step to go through is Logic Synthesis, let's say if we have a functionality which is coded in a form of an RTL so first we need to convert the functionality into legal hardware is refered to as Logic Synthesis. Ouput of the logic synthesis is arrangement of gates that will represent the original functionality that has been described using an RTL. 
-Next step of logic synthesis is Floorplaning, in this we omport the output of logic synthesis and decide the size of the Core and Die. The next step after floorplaning is Placement, in this we take the particular logic cellsand place them on the chip in such a fashion that initial timing is better. Next step is CTS(Clock tree synthesis), in this we take care that clk should reach each and every signal at the same time also take care of each clk signal has equal rise and fall.Next step is Routing, routing has to go through the certain flow dependendent on the characterization of the flip flop.And now comes the last step STA(Static timing analysis), in this we try to see the set up time, hold time, maximum achieved frequency of the circuit.
+Next step of logic synthesis is Floorplaning, in this we omport the output of logic synthesis and decide the size of the Core and Die. The next step after floorplaning is Placement, in this we take the particular logic cell send place them on the chip in such a fashion that initial timing is better. Next step is CTS(Clock tree synthesis), in this we take care that clk should reach each and every signal at the same time also take care of each clk signal has equal rise and fall.Next step is Routing, routing has to go through the certain flow dependendent on the characterization of the flip flop.And now comes the last step STA(Static timing analysis), in this we try to see the set up time, hold time, maximum achieved frequency of the circuit.
 One common thing across all stages 'GATES or Cells'.
 
 ### <h2 id="header-2_2_5">Congestion aware placement using RePlAce</h2>
@@ -891,11 +912,13 @@ If we zooom into this, we find the buffers, gates, flip flops in this.
 
 ## <h2 id="header-2_3">Cell design and characterization flows</h2>
 ### <h2 id="header-2_3_1">Inputs for cell design flow</h2>
+
 In Cell Design Flow, Gates, flipflops, buffers are named as 'Standard Cells'. These standard cells are being placed in the section called as 'Library'.And in the library many other cells are available which have same functionality but the size is different.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/22c0c83e-e32e-453b-ad64-b5cef4c4d6af)
 
 If you lokk into one of the inverter from the library the cell design flowis as follows
+
 The inverter has to represented in form of the shape, drive strength, power charracteristic and so on. Here cell design flow is devided into three parts.
 
 1. Inputs
@@ -909,12 +932,17 @@ The inverter has to represented in form of the shape, drive strength, power char
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2fb42be5-76e2-4017-9ff9-4fb23306b24e)
 
 ### <h2 id="header-2_3_2">Circuit design steps</h2>
+
 The seperation between the power rail and the ground rail defines the cell height. Cell width depends upon the timing and drive strength.
 
 **2)design steps**:- Design involves three steps which are circuit design, layout design, characterization.
+
 **In circuit Design** there are two steps.
+
 First step is to implement the function itself and second step is to model the PMOS nad NMOS transistor in such a fashion in order to meet the libraray.
+
 **3)Outputs**
+
 The typical output what we get from the circuit design is CDL(circuit description language) file,GDSII,LEF,extracted spice netlist(.cir).
 
 
@@ -946,11 +974,14 @@ Next and Final step is to extract the parasatics of that particular layout and c
 ### <h2 id="header-2_3_4">Typical characterization flow</h2>
 
 Let's try to build the characterization flow based on the inputs we have,
-First step is to read in the model, second step is to read the extracted spice netlist, third step is to define or recognize the behaviour of the buffer, fourth step is to read the subcircuits of the inverter and then in the fifth step need to attach the necessary power supplies, sixth step is to  apply the stimulus then in the seventh step we need to provide the necessary output capacitance then in the final eighth step in which we need to provide necessary simulation command for example if we are doinf transent simulation so we need to give .tran command , if we are doing DC simulation then we give .dc command.
+
+First step is to read in the model, second step is to read the extracted spice netlist, third step is to define or recognize the behaviour of the buffer, fourth step is to read the subcircuits of the inverter and then in the fifth step need to attach the necessary power supplies, sixth step is to  apply the stimulus then in the seventh step we need to provide the necessary output capacitance then in the final eighth step in which we need to provide necessary simulation command for example if we are doing transent simulation so we need to give ```.tran``` command , if we are doing DC simulation then we give ```.dc``` command.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/78e61e38-0569-4ffb-8b67-0d90cefbfe0b)
 
-Next step is to feed in all this inputs from 1 to 8 in a form of a configuration file to the characterization software **"GUNA"** . This software will generate power, noise and timing model.
+Next step is to feed in all this inputs from 1 to 8 in a form of a configuration file to the characterization software **"GUNA"** .
+
+This software will generate power, noise and timing model.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/19b01aa6-c6ba-4d39-8d10-539a40ab9f39)
 
@@ -959,6 +990,7 @@ Next step is to feed in all this inputs from 1 to 8 in a form of a configuration
 
 
 As seen in the previous section we have inverter connected back to back, we have power sources, we have the stimulus applied to the inverter all these things brings a very important point of understanding differenet threshold points of a waveform itself and it is called as "Timing threshold definitions'.
+
 in the figure below the term 'Slew_low_rise-thr' depicts the value close to 0. and the typically value of this is about 20% it could be 30% as well.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3819e09b-be65-480b-b01b-dab709ef687b)
@@ -1000,6 +1032,7 @@ out_fall_thr
 ### <h2 id="header-2_4_2">Propagation delay and transition time</h2>
 
 Based on these above values we are going to calculate the further values like propogation delay, current,slews etc.
+
 If we want to calculate the delay of anything we need to subtract the out_rise_thr from in_rise_thr. Here let's take typical value 50%, let's see on the particular waveform how does it works
 Time delay = Time(out_thr)-time(in_thr).
 
@@ -1018,6 +1051,7 @@ Let's take another example where we have choosed threshold point correctly but s
 or
 
 transition time = time(slew_high_fall_thr)- time(slew_low_fall_thr)
+
 Let's say we have the waveform to understand the slew calculation.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2f7d8314-e195-48fc-98f3-b20441352242)
@@ -1025,7 +1059,8 @@ Let's say we have the waveform to understand the slew calculation.
 # <h3 id="header-3">Day 3 - Design library cell using Magic Layout and ngspice characterization</h3>	 
 ## <h3 id="header-3_1">Labs for CMOS inverter ngspice simulations</h3>
 ### <h3 id="header-3_1_0">IO placer revision</h3>
-Till now, we have done floor planning and run placement also. But if we want to change the floorplanning, for example, in our floor planning, pins are at equal distance and if we want to change it then we can also make it by "Set" command.
+
+Till now, we have done floor planning and run placement also. But if we want to change the floorplanning, for example, in our floor planning, pins are at equal distance and if we want to change it then we can also make it by ```Set``` command.
 
 For that first we have to check the swithes in the configuration and from that we have to take the syntax "env(FP_IO_MODE) 1". and make it to the "env(FP_IO_MODE) 2". then again run the floorplanning.
 
@@ -1129,7 +1164,7 @@ The graph Time vs Voltage will be plotted here from where we can calculate the r
 
 ### <h3 id="header-3_1_5"> Lab steps to git clone vsdstdcelldesign</h3>
 
-To get the clone, copy the clone address from reporetery and paste in openlane terminal after the command "git clone". this will create the folder called "vsdstdcelldesign" in openlane directory.
+To get the clone, copy the clone address from reporetery and paste in openlane terminal after the command ```git clone```. this will create the folder called "vsdstdcelldesign" in openlane directory.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a2af6024-46c9-47fd-9662-34a1563cff3c)
 
@@ -1142,7 +1177,7 @@ Now if we goe to the vsdstdcelldesign folder and open it, we get the .mag file,l
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7e3663c6-5125-45c8-a246-b540e03bbd58)
 
 now, let's open the .mag file and see that which layers are used to build the inverter. But before opening the mag file, we need tech file. so we will copy this file from this given below address,
-And do copy by "cp" command to the location which is given below.Now, we can see that this file is copied in the vsdstdcelldesign folder.
+And do copy by ```cp``` command to the location which is given below.Now, we can see that this file is copied in the vsdstdcelldesign folder.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/90704094-baa9-437d-ae9b-2587452ca920)
 
@@ -1346,13 +1381,14 @@ similarly we will check for the output terminal also.(by double pressing "S" to 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/12f5c601-e2a7-4fe6-815d-bf27d7a8a117)
 
 so, we can see that "Y" is attached to locali in cell def sky130_inv.
+
 we can check the source of the PMOS is connected to the ground or not. and similarly we can check it for NMOS also.
 
 
 
 ### <h3 id="header-3_2_9">Lab steps to create std cell layout and extract spice netlist</h3>
 
-To extract the file from here, we have to write the command in tckon window. and the comand is "extract all".
+To extract the file from here, we have to write the command in tckon window. and the comand is ```extract all```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/264e9dd3-3ac5-4ede-a898-dd2f1c5ad83e)
 
@@ -1360,7 +1396,7 @@ Now let's go to this location from the terminal. it is exctracted.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/802fa021-ce0c-4797-a464-157ed84737a4)
 
-we will use this .ext file to create the spice file to be use with our ngspice tool. for that we have apply the comand "ext2spice cthresh 0 rthresh 0". this will not create anything new. now again we have to type "ext2spice" comand in tckon window.
+we will use this .ext file to create the spice file to be use with our ngspice tool. for that we have apply the command ```ext2spice cthresh 0 rthresh 0```. this will not create anything new. now again we have to type ```ext2spice``` command in tckon window.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5d92bc3e-ccd2-4629-9944-b67bb6af5d24)
 
@@ -1388,13 +1424,13 @@ Now we have to include the PMOS and NMOS lib files. it is inside the libs folder
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4369412f-e9bb-4882-93f0-76d2b13b5b43)
 
-so, now we include this file in the terminal by ".include ./libs/pshort.lib" and ".include ./libs/nshort.lib" comand.
+so, now we include this file in the terminal by ```.include ./libs/pshort.lib``` and ```.include ./libs/nshort.lib``` command.
 
-And then set the supply voltage "VDD" to 3.3v by "VDD VPWR 0 3.3V" comand. and similarly set the value of VSS also.
+And then set the supply voltage "VDD" to 3.3v by ```VDD VPWR 0 3.3V``` command. and similarly set the value of VSS also.
 
-Now, we need to specify the input files. by Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 4ns).
+Now, we need to specify the input files. by ```Va A VGND PULSE(0V 3.3V 0 0.1ns 2ns 4ns)```.
 
-Also add the comand for the analysis like, ".tran 1n 20n", ".control" , "run",".endc",".end".
+Also add the command for the analysis like, ```.tran 1n 20n```, ```.control``` , ```run```,```.endc```,```.end```.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f2eb9aa9-9b83-4f86-b6ae-f380c555fc86)
 
@@ -1403,7 +1439,7 @@ after running this file we get output of ngspice like this,
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3734948c-65e5-425f-91a5-ab26b908789f)
 
-Now, ploting the graph here by comand, "plot y vs time a".
+Now, ploting the graph here by command, ```plot y vs time a```.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b4e73775-22a1-4e71-8fc0-060117a19586)
 
@@ -1466,6 +1502,7 @@ Our next objective is to create a lef file using the layout and we will plugin t
 To know more about the Magic DRC we can go to the website:- http://opencircuitdesign.com/magic/Technologyfiles/TheMagicTechnologyFileManual/DrcSection 
 
 Link to Google_Skywaters Design Rules: - https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
+
 For reference , we can use the github repo of Google-Skywater: - https://github.com/google/skywater-pdk
 
 
@@ -1487,20 +1524,21 @@ Then go inside the lab folder drc_tests.
 
 Then we can list all the directories by using the ls -al command.
 
-Then we will view the .magicrc file by using the gvim .magicrc command.This file is the startup script for magic. It tells magic where to find the technology file. The technology file is already made available locally in the same directory because we may need to make changes to this file.
+Then we will view the .magicrc file by using the ```gvim .magicrc``` command.This file is the startup script for magic. It tells magic where to find the technology file. The technology file is already made available locally in the same directory because we may need to make changes to this file.
 
-Then we will open the magic tool by using ``magic -d XR &`` command to start the magic in better graphics.
+Then we will open the magic tool by using ```magic -d XR &``` command to start the magic in better graphics.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6285501b-7b2e-4b31-9273-5c81a7b4da59)
 
-Content of .magicrc file by using command ``vi .magicrc``
+Content of .magicrc file by using command ```vi .magicrc```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6668093-e775-418b-a73a-8c2208ba13be)
 
 
 ### <h3 id="header-3_3_5">Lab introduction to Magic and steps to load Sky130 tech-rules</h3>
 
-Now use magic -d XR command to open magic tool, 
+Now use ```magic -d XR``` command to open magic tool, 
+
 Just for example we open the met3.mag file in the magic tool from file then open met3.mag file. Here we will see some different layouts having different DRC value and these layouts are called rule number.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8abdf2a4-2bb2-4e65-820a-3860340e4304)
@@ -1513,14 +1551,14 @@ Now we can select the any layout area and then type drc why in tckon.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8d1517ff-fa73-4350-80b2-6f1106ec6782)
 
-Now we will select any blank area then hovering the mouse pointer over the metal3 contact icon and pressing the p button. type pek in tckon and then we will execute the command cif see VIA2 in the tkcon tab, then we will see bunch of black square appears inside the area.
+Now we will select any blank area then hovering the mouse pointer over the metal3 contact icon and pressing the p button. type pek in tckon and then we will execute the command ```cif see VIA2``` in the tkcon tab, then we will see bunch of black square appears inside the area.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a9585c99-9a41-4df8-8100-73fc3653a09e)
 
 
 ### <h3 id="header-3_3_6">Lab exercise to fix poly.9 error in Sky130 tech-file</h3>
 
-Now, we will open the poly.mag file in the magic tool by typing the command  load poly.mag in the tkcon terminal.
+Now, we will open the poly.mag file in the magic tool by typing the command  ```load poly.mag``` in the tkcon terminal.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4528478e-58cd-46bb-a99e-63ecb5f31c3a)
 
@@ -1542,7 +1580,7 @@ We will search for poly.9 in this file by using the Find option. We find it in 2
 
 Click on Save and close the editor file.
 
-Then we will execute the commands tech load sky130A.tech in the tkcon terminal. Then drc check as shown below
+Then we will execute the commands ```tech load sky130A.tech``` in the tkcon terminal. Then drc check as shown below
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/93876300-43b9-4748-82cb-24bb98c0df14)
 
@@ -1561,7 +1599,7 @@ We can make the copy of the poly.9 model of poly.mag file in the magic window it
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/11af550e-0fe6-44d2-ab97-51974382d9a3)
 
-We can select the area having drc error and then run the drc why command in the tkcon terminal to find the description of that error.
+We can select the area having drc error and then run the ```drc why``` command in the tkcon terminal to find the description of that error.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1ba9feba-382e-46a5-817f-b9c861116af3)
 
@@ -1575,7 +1613,7 @@ The changes we need to make in sky130A.tech file are as follows:
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c8268fbb-cdd7-4b52-bed1-77a104bdd8ff)
 
 
-open the nwell.mag file in the magic tool and look for the nwell.6 model error. Here in thw given figure the deep nwell is shown in the yellow stripes and the nwell is shown in dotted green pattern.
+open the nwell.mag file in the magic tool and look for the nwell.6 model error. Here in the given figure the deep nwell is shown in the yellow stripes and the nwell is shown in dotted green pattern.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5e705fcf-fdfc-4c4c-a6f6-1ff185f49e4a)
 
@@ -1585,7 +1623,7 @@ We can check this error on the site as well
 
 ### <h3 id="header-3_3_9">Lab challenge to find missing or incorrect rules and fix them</h3>
 
-Now  open the magic tool and then execute the commands drc style drc(full) and drc check.
+Now  open the magic tool and then execute the commands ```drc style drc(full)``` and ```drc check```.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e98833bd-d19b-4772-a814-bb3487723bb8)
 
@@ -1618,7 +1656,7 @@ In layout, we can see that the ports are on the li1 layer. so we need to insure 
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cad6a58e-5e45-4f84-93aa-b636c6c001e1)
 
-Then again write comand according to the track file.
+Then again write command according to the track file.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/344a1e23-8710-42cf-8e2e-7eeb5e3a5276)
 
@@ -1637,7 +1675,7 @@ Once these parameters are set we are ready to extract the lef file from the mag
 
 Now, we open this file in the magic by using command 
 
-```magic -T sky130A.tech sky130_vsdinv.mag &```.
+```magic -T sky130A.tech sky130_vsdinv.mag &```
 
 Now to extract the lef file we have to write the command in the tckon window,
 
@@ -1767,7 +1805,8 @@ If load is not same at the every nodes, the skew will not be the zero.
 
 ### <h4 id="header-4_1_7">Lab steps to configure synthesis settings to fix slack and include vsdinv</h4>
 
-We will try to modify the parameters of our cell by referring the README.md file in the configuration folder in openlane directory :
+We will try to modify the parameters of our cell by referring the README.md file in the configuration folder in openlane directory
+
 The README.md file contains information about the parameters of the cell. 
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/21ad1228-9f16-4044-adc2-044eac7af2a5)
@@ -1794,17 +1833,21 @@ We will give the following commmands in the terminal in openlane directory
   
   ```run_synthesis```
   
- prep -design picorv32a -tag 01-04_12-54 -overwrite is used to overwrite the existing files with previous values of simulations.
+ ```prep -design picorv32a -tag 01-04_12-54 -overwrite``` is used to overwrite the existing files with previous values of simulations.
 
-After synthesis, we observed that the slack is nagative here. wns(worst negative slack)= -23.89 and tns(total negative slack)= -711.59.
+After synthesis, we observed that the slack is nagative here. 
+
+wns(worst negative slack)= -23.89 
+
+tns(total negative slack)= -711.59.
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/864c6c75-b5af-42aa-9a81-179be228c4e0)
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/82bb71ed-436a-4d35-a90e-bb90281c15ca)
 
-Now run_synthesis, here chip area will increas and the value of slack will reduce.
+Now ```run_synthesis``` here chip area will increas and the value of slack will reduce.
 
-Since synthesis of the picorv32a using our custom designed cell is successful, so we will run the floorplan using command run_floorplan
+Since synthesis of the picorv32a using our custom designed cell is successful, so we will run the floorplan using command ```run_floorplan```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9f44d8b7-3abe-443c-ab6d-fb1714ff2ca9)
 
@@ -1910,7 +1953,7 @@ Now, we also need to create my_base.sdc file containing the content shown in bel
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b841d16a-bced-44b4-b05c-dad5df2c4ba6)
 
-Now go to the openlane directory in a new terminal and execute the sta pre_sta.conf command.
+Now go to the openlane directory in a new terminal and execute the ```sta pre_sta.conf``` command.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/309447be-b3ae-4b33-9b36-43d82e738fa0)
 
@@ -1923,19 +1966,25 @@ Now go to the openlane directory in a new terminal and execute the sta pre_sta.c
 
  Now we will try to change the FANOUT parameter and again do the synthesis by executing the following commands:
 
-prep -design picorv32a -tag 02-04_05-27 -overwrite
-set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
-add_lefs -src $lefs
-set ::env(SYNTH_SIZING) 1
-set ::env(SYNTH_MAX_FANOUT) 4
-echo $::env(SYNTH_DRIVING_CELL)
-run_synthesis
+```prep -design picorv32a -tag 02-04_05-27 -overwrite```
+
+```set lefs [glob $::env(DESIGN_DIR)/src/*.lef]```
+
+```add_lefs -src $lefs```
+
+```set ::env(SYNTH_SIZING) 1```
+
+```set ::env(SYNTH_MAX_FANOUT) 4```
+
+```echo $::env(SYNTH_DRIVING_CELL)```
+
+```run_synthesis```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/003f8f6d-d126-40a4-ab51-491698e10cdf)
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9199ddfe-ed3a-4eab-b489-5afd3b240e38)
 
-Now, run the sta pre_sta.conf command in a new terminal in openlane directory :
+Now, run the ```sta pre_sta.conf``` command in a new terminal in openlane directory :
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f883522d-8b5a-4cb6-b7e6-72a07b179c0e)
 
@@ -2548,41 +2597,8 @@ This is the generated layout.
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/bac89f5c-1109-4cfa-8f89-64b412d51448)
 
 
-# <h6 id="header-6">All commands to run the openlane flow</h6>	
 
-```docker```
-
-```./flow.tcl -interactive```
-
-```package require openlane 0.9```
-
-```prep -design picorv32a```
-
-```set ::env(SYNTH_STRATEGY) "DELAY 0"```
-
-```run_synthesis```
-
-```init_floorplan```
-
-```place_io```
-
-```global_placement_or```
-
-```detailed_placement```
-
-```tap_decap_or```
-
-```detailed_placement```
-
-```run_cts```
-
-```gen_pdn```
-
-```run_routing```
-
-```run_magic```
-
-# <h7 id="header-7">References</h7>	
+# <h6 id="header-6">References</h6>	
 
  <ul>
 	<li><a>Workshop Github material</a></li>
@@ -2609,6 +2625,6 @@ This is the generated layout.
 	</ul>
 
 
- # <h8 id="header-8">Acknowledgement</h8>	
+ # <h7 id="header-7">Acknowledgement</h7>	
 
  I would like to express my special thanks and gratitude to Mr. kunal ghosh (co.-founder of VLSIsystem design (VSD) corp.pvt.ltd.) and Mr.Nickson Jose for their guidance and temendously presenting this workshop on DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING. The Workshop was excellent and well designed. I have learned a lot of new things from this workshop about the physical chip design using OpenLANE software and many more.
