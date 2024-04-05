@@ -2390,3 +2390,76 @@ We have vertical and horizontal tracks which ensures that the power is being tra
 
 The final step of physical design is Routing.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8b259ae2-7cd4-4b30-b9e2-8cad278acd1f)
+
+The current def command in the above image is used to tell that the most recent step done was generation of PDN.
+
+The 17-pdn.def file generated after this step contains the content of cts.def along with the power distribution network.
+
+To know about the different switches available for routing, we can refer the README.md file present in the configuration folder of openlane directory.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d39a7922-5993-4447-b9cf-6564e1ee6126)
+
+By using the following commands we can know, which type of global and detailed routing is going to be performed. We can change the type by using set commands along with the parameter names present in the routing seciton of the README.md file. Here, we have just used the default types
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7fdd1b5a-b901-49a9-8a76-6bce8f30b512)
+
+Now, we can proceed for routing by using the command
+
+```run_routing```
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ab6780a0-decb-4445-af5e-15bd36f8a565)
+
+
+The total process of routing is devided into two part.
+
+<ul>
+	<li><a>Fast route (Global route)</a></li>
+	</ul>
+ 
+<ul>
+	<li><a>Detailed Route</a></li>
+	</ul>
+
+ ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/085e01f0-0979-47f4-9833-4a0e40d4fce1)
+
+In the Global route, the routing region is devided into the rectangular grids cells as shown in the figure above. And it is represented as cores 3D routing graph. Global route is done by FAST route engine.The detailed route is done by TritonRoute engine. A,B,C,D are four pins which we want to connect through routing. and this whole image of A,B,C,D shows the net.
+
+
+## <h5 id="header-5_3">TritonRoute Features</h5>
+### <h5 id="header-5_3_1">TritonRoute feature 1 - Honors pre-processed route guides</h5>
+
+<ul>
+	<li><a>Performs initial detailed route</a></li>
+	</ul>
+
+ <ul>
+	<li><a>Hounors the prepocessed route guides(obtained after fast route)</a></li>
+	</ul>
+
+ ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/54b2b430-782f-4a48-a4b8-e168c57d5cd8)
+
+**Requirements of preprocessed guides**
+
+1) Should havw unit width
+
+2) Should be in preferred direction
+
+ <ul>
+	<li><a>Assumes route guides for each net satisfy inter-guide connectivity</a></li>
+	</ul>
+
+ **Two guides are connected if**
+
+ 1) They are on the same metal layer with touching edges.
+
+ 2) They are on neighbouring metal layers with a non-zero vertically overlapped area.
+
+ <ul>
+	<li><a>Works on proposed MILP-based panel-routing scheme with intra-layer parallel and inter-layer sequential routing framework</a></li>
+	</ul>
+
+ 
+### <h5 id="header-5_3_2">TritonRoute Feature2 & 3 - Inter-guide connectivity and intra- & inter-layer routing</h5>
+
+
