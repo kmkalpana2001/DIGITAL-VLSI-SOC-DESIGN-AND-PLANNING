@@ -1588,8 +1588,10 @@ Now the concept of 'lef' file will comes into the picture. it contains all the i
 you need to folow certain guideline while making standerd cells.the guidelines are
 
 The input and output port must lie on the intersection of the verticle and horizontal tracks
+
 The width of the satnderd cell should be odd multiple of the track pitch and the height should be odd multiple of track verticle pitch
-Now oprning the track file from the pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info. where we get the info like this,
+
+Now oprning the track file from the ```pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info.``` where we get the info like this,
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/86282d04-0357-4906-b2f6-882a65f43624)
 
@@ -1618,7 +1620,15 @@ Once these parameters are set we are ready to extract the lef file from the mag
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2d838026-3faf-4b08-a09b-1be08506dc5e)
 
-Now, we open this file in the magic by using comand "magic -T sky130A.tech sky130_vsdinv.mag &".Now to extract the lef file we have to write the comand in the tckon window "lef write". so it will create a lef file and we can check it in the vsdstdcellsdesign folder.
+Now, we open this file in the magic by using command 
+
+```magic -T sky130A.tech sky130_vsdinv.mag &```.
+
+Now to extract the lef file we have to write the command in the tckon window,
+
+```lef write``` 
+
+so it will create a lef file and we can check it in the vsdstdcellsdesign folder.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/288b219e-2720-4f54-b5ce-f08ba9fe3a1f)
 
