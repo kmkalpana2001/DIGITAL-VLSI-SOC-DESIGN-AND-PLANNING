@@ -1464,13 +1464,13 @@ Follow the steps:
 
 First go to the home directory.
 
-To download the lab files for performing DRC corrections:
+**To download the lab files for performing DRC corrections**:
 
-wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+```wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz```
 
-To extract the lab files from the downloaded file:
+**To extract the lab files from the downloaded file:**
 
-tar xfz drc_tests.tgz
+```tar xfz drc_tests.tgz```
 
 Then go inside the lab folder drc_tests.
 
@@ -1478,11 +1478,11 @@ Then we can list all the directories by using the ls -al command.
 
 Then we will view the .magicrc file by using the gvim .magicrc command.This file is the startup script for magic. It tells magic where to find the technology file. The technology file is already made available locally in the same directory because we may need to make changes to this file.
 
-Then we will open the magic tool by using magic -d XR & command to start the magic in better graphics.
+Then we will open the magic tool by using ``magic -d XR &`` command to start the magic in better graphics.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6285501b-7b2e-4b31-9273-5c81a7b4da59)
 
-Content of .magicrc file by using command vi .magicrc
+Content of .magicrc file by using command ``vi .magicrc``
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6668093-e775-418b-a73a-8c2208ba13be)
 
@@ -1770,15 +1770,18 @@ After synthesis, we observed that the slack is nagative here. wns(worst negative
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/82bb71ed-436a-4d35-a90e-bb90281c15ca)
 
 Now run_synthesis, here chip area will increas and the value of slack will reduce.
+
 Since synthesis of the picorv32a using our custom designed cell is successful, so we will run the floorplan using command run_floorplan
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9f44d8b7-3abe-443c-ab6d-fb1714ff2ca9)
 
 Since, we are getting the error so first again do the synthesis using above commands and then we will use following commands to do the floorplan:
 
-  init_floorplan
-  place_io
-  tap_decap_or
+  ```init_floorplan```
+  
+  ```place_io```
+  
+  ```tap_decap_or```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/48adf433-267b-4f73-9a38-6d3adbdfb3d3)
 
