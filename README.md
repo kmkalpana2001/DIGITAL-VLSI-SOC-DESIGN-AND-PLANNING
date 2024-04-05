@@ -1876,9 +1876,34 @@ Now, we also need to create my_base.sdc file containing the content shown in bel
 
 Now go to the openlane directory in a new terminal and execute the sta pre_sta.conf command.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/309447be-b3ae-4b33-9b36-43d82e738fa0)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e1a1977b-ce38-43aa-8a34-b844f5d6ff4d)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/146e218e-a4a5-4f37-9ca2-088d74eb5d99)
+
 
 ### <h4 id="header-4_2_4">Lab steps to optimize synthesis to reduce setup violations</h4>
 
+ Now we will try to change the FANOUT parameter and again do the synthesis by executing the following commands:
+
+prep -design picorv32a -tag 02-04_05-27 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+set ::env(SYNTH_SIZING) 1
+set ::env(SYNTH_MAX_FANOUT) 4
+echo $::env(SYNTH_DRIVING_CELL)
+run_synthesis
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/003f8f6d-d126-40a4-ab51-491698e10cdf)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9199ddfe-ed3a-4eab-b489-5afd3b240e38)
+
+Now, run the sta pre_sta.conf command in a new terminal in openlane directory :
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f883522d-8b5a-4cb6-b7e6-72a07b179c0e)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/abc6aad2-ba40-42a2-b59b-ad78d3eb3392)
 
 
 ### <h4 id="header-4_2_5">Lab steps to do basic timing ECO</h4>
