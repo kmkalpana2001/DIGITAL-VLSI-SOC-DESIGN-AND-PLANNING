@@ -356,6 +356,7 @@
 # <h1 id="header-1">Day 1 -Inception of open-source EDA, OpenLANE and sky130 PDK</h1>	 
 ## <h1 id="header-1_1">How to talk to computers?</h1>
 ### <h1 id="header-1_1_1">Introduction to QFN-48 Package, chip, pads, core, die and IPs</h1>
+
 **Arduino Board**:- This is an arduino microcontroller board. The encircled area shows the chip(microprocessor) which is interfaced with other components of the board. The designing of this chip from abstract level all the way down to the fabrication is done by RTL to GDSll flow.Arduino consists of both a physical programmable circuit board (often referred to as a microcontroller) and a piece of software, or IDE (Integrated Development Environment) that runs on the computer, used to write and upload computer code to the physical board.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ff3696b5-cf69-41dd-86e5-160875e8eaba)
@@ -396,6 +397,7 @@ Apps enters into a block of system software and system sodtware converts the ent
  Compiler takes the output from the operating system as C,C++,Java and convert them into intsructions. These instructions depends upon hardware.
 
  Assembler take the instructions from compiler and convert them into respective binary numbers. This binary language now send to hardware and hardware performs ouput based on the function it recieve and gives the output.
+ 
 Instruction acts as abstract interface between C-language and the hardware.
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/681544f8-bc0b-4967-85f3-96cb2e764adb)
@@ -422,7 +424,9 @@ Digital standerd cell libreries
 i/o librerirs
 etc.....
 which are used to model a fabrication process for the EDA tools used to design an ICs. for example, in 2020, google release the open source PDK for FOSS 130nm production with the skywater technology. But right now it is at cutting age of the 5 nm also. But in many applications, the advance node is not required, and the cost of advanced node is also high as compared to 130nm processors. This 130nm processors are also fast processor. for example,
+
 intel: P4EE @3.46 GHz(Q4'o4)
+
 sky130_OSU (single cycle RV32i CPU) pipeline version can achieve more than 1 GHz clock.
 
 ### <h1 id="header-1_2_2"> Simplified RTL2GDS flow</h1>
@@ -455,6 +459,7 @@ Power/Ground nets
 The sky130 PDK defines the 6 routing leyers. the lowest leyer is called local interconnect layer (titanium nitride layer). Other five layers are alluminium layersIn the proccess of routing, metal trackes forms a routing grids and these grids are huge. so, devide and conquer approach is use for routing. The two types of routing is used:
 
 **Global routing:** Generates the routing guides
+
 **Detailed Routing:** Uses the routing guides to implement the actual wiring.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ec0b01e0-046f-47e2-b2f3-e91582e4f9e4)
@@ -475,12 +480,18 @@ striVe SoC Family
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1e6d2791-89d0-419d-b392-c35ddadc356d)
 
 The main goal of OPENLANE is to produce a clean GDSII with no human intervation (no-human-in-the-loop). here the meaning of clean is that:
+
 No LVS violations
+
 No DRC Violations
+
 No timing Violations
+
 OPENLANE is tuned for skyWter130nm open PDK. it can be used to harden Macros and chips.there is two mode of operation
 Autonomus : it is the push botton flow. with the push botton , it is a some time base design and due to this push botton, we get final GDSII
+
 interactive : here we can run comamds and steps one by one.
+
 It has large number of design examples(43 designs with their best configurations).
 
 
@@ -567,7 +578,7 @@ Now, if we are going into the design folder in openlane, there are nearly 30-40 
 
 Here we can see that the time period is set to the 5.00 nsec. but is we see in the openlane sky130_fd_sc_hd folder, the period is set about 24 nsec. so it is not override to the main file. If it override then give first priority to the main folder.
 
-Now, in openlane, we are going to run the synthesis, but before synthesis, we have to prepare design setup stage. for that command is " prep -design picorv32a".
+Now, in openlane, we are going to run the synthesis, but before synthesis, we have to prepare design setup stage. for that command is ``` prep -design picorv32a```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7d6d587c-da4f-4c47-8f69-07f4e5abfcc8)
 
