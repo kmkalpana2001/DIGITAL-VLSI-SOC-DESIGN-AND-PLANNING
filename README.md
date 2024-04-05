@@ -1914,16 +1914,16 @@ Since OR gate which has a drive strength of 2 is driving 4 fanout.
 
 So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
 
-  # Reports all the connections to a net
+**Reports all the connections to a net**
    report_net -connections _11672_
 
-   # Checking command syntax
+**Checking command syntax**
    help replace_cell
 
-   # Replacing cell
+**Replacing cell**
    replace_cell _14510_ sky130_fd_sc_hd__or3_4
 
-   # Generating custom timing report
+**Generating custom timing report**
    report_checks -fields {net cap slew input_pins} -digits 4
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f8952929-9168-43c2-9106-41286e767531)
@@ -1938,13 +1938,13 @@ In above case also OR gate which has a drive strength of 2 is driving 4 fanout.
 
 So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
 
-# Reports all the connections to a net
+**Reports all the connections to a net**
  report_net -connections _11675_
 
- # Replacing cell
+**Replacing cell**
  replace_cell _14514_ sky130_fd_sc_hd__or3_4
 
- # Generating custom timing report
+**Generating custom timing report**
  report_checks -fields {net cap slew input_pins} -digits 4
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/283b697a-cdd2-4c32-8891-b50cde6ad387)
@@ -2027,7 +2027,7 @@ So we can make the copy by writing the following code.
     # Listing contents of the directory
       ls -ltr
 
-      ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6b1ae85-de88-426a-ac5f-580aacb66b7f)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6b1ae85-de88-426a-ac5f-580aacb66b7f)
 
 Now we will do synthesis , floorplan , placement and cts. Go to the openlane directoer and execute the following commands:
 
@@ -2046,9 +2046,42 @@ Now we will do synthesis , floorplan , placement and cts. Go to the openlane dir
        unset ::env(LIB_CTS)
 
        run_cts
-       
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1bd252e6-4b2d-4448-b196-b7d4f0c57b0c)
+  
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/56e89074-4249-4f3a-ade8-c4aaf93cec1e)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d790b197-e6e7-4927-8dee-c3f4a0fa82d8)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/bd8c2df4-fbc5-4b13-97d7-75133b3d33c8)
+
+Now a .cts file is created in the location shown below,
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/74f39494-576c-4713-bb13-f11a8736d46b)
+
 
 ### <h4 id="header-4_3_4">Lab steps to verify CTS runs</h4>
+**OPENROAD**
+OPENROAD is readily integrated in the OPENLANE so there is no need of defining the environmental variables explicitly.
+
+Command to run OpenROAD tool
+openroad
+In OPENROAD, timing analysis requires the creation og db(database) using lef and tmp file.
+
+db creation is a one time process. Once we have created it, we can use it anytime when we want to do analysis.
+
+db creation in commands :
+
+**Reading lef file**
+read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef
+
+**Reading def file**
+read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def
+
+**Creating an OpenROAD database file named pico_cts.db**
+write_db pico_cts.db
+
+This database file is present in openlane directory.
 
 
 ## <h4 id="header-4_4">Timing analysis with real clock using openSTA</h4>
@@ -2096,6 +2129,89 @@ Let's identify the timing paths from design, with single clock
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0dbf4092-b74c-4c5a-89d8-5b94e5dff59f)  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b2597a4f-b999-4d48-a1fa-d6bb7c9985e9)
 
 ### <h4 id="header-4_4_3">Lab steps to analyze timing with real clocks using OpenSTA</h4>
+Then we can execute the following commands:
+
+**For loading the created db file in Openroad**
+read_db pico_cts.db
+
+**For reading netlist post CTS**
+read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v
+
+**For reading the library for design**
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+
+**For linking design and library**
+link_design picorv32a
+
+**For reading the custom sdc we created**
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+
+**For setting all clocks as propagated clocks**
+set_propagated_clock [all_clocks]
+
+**Generating custom timing report**
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+**To exit to Openlane flow**
+exit
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e929d3b4-bd01-49f6-912a-0aa58ba0bab8)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8f4d5a3c-e92e-47fc-a7a2-3c82418349d8)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e3c765f7-d84b-46a9-b6de-0622afb46838)
+
+### <h4 id="header-4_4_4">Lab steps to execute OpenSTA with right timing libraries and CTS assignment</h4>
+
+**For removing sky130_fd_sc_hd__clkbuf_1 from the list use the command**
+
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+
+**For checking current value of CTS_CLK_BUFFER_LIST use the command**
+
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+**For checking current value of CURRENT_DEF use the command**
+
+echo $::env(CURRENT_DEF)
+
+**For setting def as placement def use the command**
+
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/placement/picorv32a.placement.def
+
+**Then we will run cts using**
+
+run_cts
+
+**For checking current value of CTS_CLK_BUFFER_LIST use the command**
+
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+### <h4 id="header-4_4_5">Lab steps to observe impact of bigger CTS buffers on setup and hold timing</h4>
+Now we will follow the similar commands we used earlier to run OPENROAD,
+
+openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def
+write_db pico_cts1.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+report_clock_skew -hold
+report_clock_skew -setup
+exit
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9db1d081-2a2d-47d4-9453-97b5ce4e8549)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/3cd0e050-c633-488d-b652-9c9fc85af7c0)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/fdd4bccc-f6e3-42d8-8354-e3d4be5c7677)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/ca54028f-b40c-4c7c-84c4-35b74da6e1d0)
 
 
 # <h5 id="header-5">Day 5 -Final step for RTL2GDS using tritinRoute and openSTA</h5>	 
@@ -2114,7 +2230,7 @@ First step is algorithm tries to lable all of the grids surrounded. Only the adj
 
 ### <h5 id="header-5_1_2">LeeÃÂs Algorithm conclusion</h5>
 
-Now we will lable the grids to the next integer untill we reach to the target. In the example we reacged the target after integer 9.
+Now we will lable the grids to the next integer untill we reach to the target. In the example we reached the target after integer 9.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c5620bca-5d4b-4533-8c8a-6823ff932c66)
 
