@@ -2462,4 +2462,142 @@ In the Global route, the routing region is devided into the rectangular grids ce
  
 ### <h5 id="header-5_3_2">TritonRoute Feature2 & 3 - Inter-guide connectivity and intra- & inter-layer routing</h5>
 
+Each unconnected terminal i.e, pin of a standerd-cell instance should have its pin shape overlapped by a route guide.
 
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8490de4d-d212-489f-a7d5-817f6b0c46f2)
+
+Here we can see that black dots are pins of the cells and it is overlapped by route guide. if you have pins on the intersection of the vertical and horizontal tracks that will ensure that it will be overlapped by route guides.
+
+**Intra-layer parallel and inter-layer sequential panel routing**
+
+Intra layer means within the layers and inter layear means between the layers.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/22f389db-8138-4848-9744-bb2c56b0edc6)
+
+In this figure we can see the 4 layers of metal. each of these layers are devided in to the "--" lines. lets focus on metal 2 layer. here we assume the routing direction vertical. These "--" lines are called pannels. each pannels assigns the routing guides. here we can see the blue arrows. here routing is heppenes in the even index. it means that intra layer parallel routing. first it is heppenes in the even index and the it will heppen in the odd index. but it is heppening in the parallel in this perticular layer.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f088b923-5b40-42d7-bb2b-070fdf4965f6)
+
+(a) figure shows the parallel routing of panels on M2.
+
+(b) figure, we can see the parallel routing of even panels on M3 and (c) shows the parallel routing of odd panels on M3.
+
+
+### <h5 id="header-5_3_3">TritonRoute method to handle connectivity</h5>
+
+ <ul>
+	<li><a>INPUTS:-LEF</a></li>
+	</ul>
+
+  <ul>
+	<li><a>OUTPUTS:-detailed routing solution with optimized wore-length and via count</a></li>
+	</ul>
+
+  <ul>
+	<li><a>CONSTRAINTS:-Route guide honouring, connectivity constraonts and design rukes</a></li>
+	</ul>
+
+ Now we have to defined the space where detailed routing take spaced.
+ 
+**Handling connectivity:-** 
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c7011000-f3b6-4c9d-98a5-fb2dcd90cdb1)
+
+**Access point(Ap):-** An on-gride point on the metal layer of the route guide, and is used to connect to lower-layer segments, upper-layer segments, pins or IO ports.
+
+**Access point cluster (APC):-** A union of all access points derived from same lower-layer segment,upper-layer guide, a pin or an IO port.
+
+Here in the figure shown above, the illustration of access points: 
+
+(a)To a lower-layer segment
+
+(b)To a pin shape
+
+(c)To upper layer
+
+
+### <h5 id="header-5_3_4">Routing topology algorithm and final files list post-route</h5>
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/dbb89c03-9263-4598-afc5-385488da6e7d)
+
+The algorithm says that for each APCs we have to find the cost associated with it and we have to do minimum spaning tree betweem the APCs and the cost. finally the conclusion of the algorithm is that we have to find the minimul and the most optimal poits between two APCs.
+
+Now, remaning things is the post routing STA analysis. for that the first goal is to extract the perasetic (SPEF). This SPEF extraction is done outside the openlane because openlane does not have SPEF extraction tool.
+
+The .spef file can be found under the routing folder under the results folder.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/74a8e898-1ddb-43fd-bb45-11e4826a000f)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5b70990e-6022-46ec-97c9-20692e1fd78e)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/023e79df-af7e-4522-bcd7-3f9c3a5b8bcb)
+
+This is the generated layout.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/bac89f5c-1109-4cfa-8f89-64b412d51448)
+
+
+# <h6 id="header-6">All commands to run the openlane flow</h6>	
+
+```docker```
+
+```./flow.tcl -interactive```
+
+```package require openlane 0.9```
+
+```prep -design picorv32a```
+
+```set ::env(SYNTH_STRATEGY) "DELAY 0"```
+
+```run_synthesis```
+
+```init_floorplan```
+
+```place_io```
+
+```global_placement_or```
+
+```detailed_placement```
+
+```tap_decap_or```
+
+```detailed_placement```
+
+```run_cts```
+
+```gen_pdn```
+
+```run_routing```
+
+```run_magic```
+
+# <h7 id="header-7">References</h7>	
+
+ <ul>
+	<li><a>Workshop Github material</a></li>
+	</ul>
+
+  <ul>
+	<li><a>[INPUTS:-LEF](https://github.com/google/skywater-pdk)</a></li>
+	</ul>
+
+  <ul>
+	<li><a>[INPUTS:-LEF](https://github.com/nickson-jose/vsdstdcelldesign)</a></li>
+	</ul>
+
+  <ul>
+	<li><a>[INPUTS:-LEF](https://sourceforge.net/projects/ngspice/)</a></li>
+	</ul>
+
+  <ul>
+	<li><a>[INPUTS:-LEF](https://github.com/)</a></li>
+	</ul>
+
+  <ul>
+	<li><a>[INPUTS:-LEF](https://www.vlsisystemdesign.com/wp-content/uploads/2017/07/Introduction-to-Industrial-Physical-Design-Flow.pdf)</a></li>
+	</ul>
+
+
+ # <h8 id="header-8">Acknowledgement</h8>	
+
+ I would like to express my special thanks and gratitude to Mr. kunal ghosh (co.-founder of VLSIsystem design (VSD) corp.pvt.ltd.) and Mr.Nickson Jose and Mr. SUMANTO KAR (Sr. Project Technical Assistant, IIT BOMBAY) for their guidance and temendous presenting this workshop on DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING. The Workshop was excellent and well designed. This workshop taught me a lot of new things about the physical chip design using OpenLANE software and many more.
