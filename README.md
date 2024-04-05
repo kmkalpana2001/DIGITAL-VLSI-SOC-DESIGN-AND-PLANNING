@@ -1908,6 +1908,49 @@ Now, run the sta pre_sta.conf command in a new terminal in openlane directory :
 
 ### <h4 id="header-4_2_5">Lab steps to do basic timing ECO</h4>
 
+Since OR gate which has a drive strength of 2 is driving 4 fanout.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cad5f4ed-cb13-46e2-9e1b-5f5831d1685f)
+
+So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
+
+  # Reports all the connections to a net
+   report_net -connections _11672_
+
+   # Checking command syntax
+   help replace_cell
+
+   # Replacing cell
+   replace_cell _14510_ sky130_fd_sc_hd__or3_4
+
+   # Generating custom timing report
+   report_checks -fields {net cap slew input_pins} -digits 4
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f8952929-9168-43c2-9106-41286e767531)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5a253e66-d65f-4d02-a561-f5eb918c5676)
+ 
+ Now slack has reduced from -23.89 to -23.51
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6adc8248-5736-4820-a274-aebe9713b996)
+
+In above case also OR gate which has a drive strength of 2 is driving 4 fanout.
+
+So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
+
+# Reports all the connections to a net
+ report_net -connections _11675_
+
+ # Replacing cell
+ replace_cell _14514_ sky130_fd_sc_hd__or3_4
+
+ # Generating custom timing report
+ report_checks -fields {net cap slew input_pins} -digits 4
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/283b697a-cdd2-4c32-8891-b50cde6ad387)
+
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/00b91394-02e1-48af-aa7f-0c249923b657)
 
 
 ## <h4 id="header-4_3">Clock tree synthesis TritonCTS and signal integrity</h4>
@@ -1961,6 +2004,49 @@ By shielding we are breaking the coupling capacitance between the aggraser and v
 
 
 ### <h4 id="header-4_3_3">Lab steps to run CTS using Triton</h4>
+
+Now we will replace the old netlist with this newly generated netlist which was generated after reducing slack. And then we will run floorplan , placement and CTS.
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/62b0d153-fecf-4081-9d02-f27589d428dd)
+
+The image shown above contains the netlist before making the modifications.
+
+So, we will make a copy of this old netlist and then we will add the newly generated netlist to be used in our openlane flow.
+
+So we can make the copy by writing the following code.
+
+    # First go to the following location
+    cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/02-04_05-27/results/synthesis/
+
+    # Listing contents of the directory
+     ls -ltr
+
+    # For copying the netlist with particular name 
+     cp picorv32a.synthesis.v picorv32a.synthesis_old.v
+
+    # Listing contents of the directory
+      ls -ltr
+
+      ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6b1ae85-de88-426a-ac5f-580aacb66b7f)
+
+Now we will do synthesis , floorplan , placement and cts. Go to the openlane directoer and execute the following commands:
+
+       prep -design picorv32a -tag 02-04_05-27 -overwrite
+       set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+       add_lefs -src $lefs
+       set ::env(SYNTH_STRATEGY) "DELAY 3"
+       set ::env(SYNTH_SIZING) 1
+       run_synthesis
+       init_floorplan
+       place_io
+       tap_decap_or
+       run_placement
+
+       # Incase getting error
+       unset ::env(LIB_CTS)
+
+       run_cts
+       
 
 ### <h4 id="header-4_3_4">Lab steps to verify CTS runs</h4>
 
