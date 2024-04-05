@@ -2192,17 +2192,29 @@ Now we will follow the similar commands we used earlier to run OPENROAD,
 
 openroad
 read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef
+
 read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def
+
 write_db pico_cts1.db
+
 read_db pico_cts.db
+
 read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v
+
 read_liberty $::env(LIB_SYNTH_COMPLETE)
+
 link_design picorv32a
+
 read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+
 set_propagated_clock [all_clocks]
+
 report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
 report_clock_skew -hold
+
 report_clock_skew -setup
+
 exit
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9db1d081-2a2d-47d4-9453-97b5ce4e8549)
