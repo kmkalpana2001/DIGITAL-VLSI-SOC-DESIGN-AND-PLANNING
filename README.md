@@ -1915,16 +1915,20 @@ Since OR gate which has a drive strength of 2 is driving 4 fanout.
 So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
 
 **Reports all the connections to a net**
-   report_net -connections _11672_
+
+  ```report_net -connections _11672_```
 
 **Checking command syntax**
-   help replace_cell
+
+   ```help replace_cell```
 
 **Replacing cell**
-   replace_cell _14510_ sky130_fd_sc_hd__or3_4
+
+   ```replace_cell _14510_ sky130_fd_sc_hd__or3_4```
 
 **Generating custom timing report**
-   report_checks -fields {net cap slew input_pins} -digits 4
+
+   ```report_checks -fields {net cap slew input_pins} -digits 4```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f8952929-9168-43c2-9106-41286e767531)
 
@@ -1939,13 +1943,16 @@ In above case also OR gate which has a drive strength of 2 is driving 4 fanout.
 So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
 
 **Reports all the connections to a net**
- report_net -connections _11675_
+
+ ```report_net -connections _11675_```
 
 **Replacing cell**
- replace_cell _14514_ sky130_fd_sc_hd__or3_4
+
+ ```replace_cell _14514_ sky130_fd_sc_hd__or3_4```
 
 **Generating custom timing report**
- report_checks -fields {net cap slew input_pins} -digits 4
+
+ ```report_checks -fields {net cap slew input_pins} -digits 4```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/283b697a-cdd2-4c32-8891-b50cde6ad387)
 
@@ -2015,17 +2022,21 @@ So, we will make a copy of this old netlist and then we will add the newly gener
 
 So we can make the copy by writing the following code.
 
-    # First go to the following location
-    cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/02-04_05-27/results/synthesis/
+**First go to the following location**
+   
+```cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/02-04_05-27/results/synthesis/```
 
-    # Listing contents of the directory
-     ls -ltr
+**Listing contents of the directory**
 
-    # For copying the netlist with particular name 
-     cp picorv32a.synthesis.v picorv32a.synthesis_old.v
+```ls -ltr```
 
-    # Listing contents of the directory
-      ls -ltr
+**For copying the netlist with particular name**
+
+ ```cp picorv32a.synthesis.v picorv32a.synthesis_old.v```
+
+**Listing contents of the directory**
+
+```ls -ltr```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6b1ae85-de88-426a-ac5f-580aacb66b7f)
 
@@ -2073,13 +2084,16 @@ db creation is a one time process. Once we have created it, we can use it anytim
 db creation in commands :
 
 **Reading lef file**
-read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef
+
+```read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef```
 
 **Reading def file**
-read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def
+
+```read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def```
 
 **Creating an OpenROAD database file named pico_cts.db**
-write_db pico_cts.db
+
+```write_db pico_cts.db```
 
 This database file is present in openlane directory.
 
@@ -2132,28 +2146,36 @@ Let's identify the timing paths from design, with single clock
 Then we can execute the following commands:
 
 **For loading the created db file in Openroad**
-read_db pico_cts.db
+
+```read_db pico_cts.db```
 
 **For reading netlist post CTS**
-read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v
+
+```read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v```
 
 **For reading the library for design**
-read_liberty $::env(LIB_SYNTH_COMPLETE)
+
+```read_liberty $::env(LIB_SYNTH_COMPLETE)```
 
 **For linking design and library**
-link_design picorv32a
+
+```link_design picorv32a```
 
 **For reading the custom sdc we created**
-read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+
+```read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc```
 
 **For setting all clocks as propagated clocks**
-set_propagated_clock [all_clocks]
+
+```set_propagated_clock [all_clocks]```
 
 **Generating custom timing report**
-report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+```report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4```
 
 **To exit to Openlane flow**
-exit
+
+```exit```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e929d3b4-bd01-49f6-912a-0aa58ba0bab8)
 
@@ -2165,57 +2187,58 @@ exit
 
 **For removing sky130_fd_sc_hd__clkbuf_1 from the list use the command**
 
-set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+```set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]```
 
 **For checking current value of CTS_CLK_BUFFER_LIST use the command**
 
-echo $::env(CTS_CLK_BUFFER_LIST)
+```echo $::env(CTS_CLK_BUFFER_LIST)```
 
 **For checking current value of CURRENT_DEF use the command**
 
-echo $::env(CURRENT_DEF)
+```echo $::env(CURRENT_DEF)```
 
 **For setting def as placement def use the command**
 
-set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/placement/picorv32a.placement.def
+```set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/placement/picorv32a.placement.def```
 
 **Then we will run cts using**
 
-run_cts
+```run_cts```
 
 **For checking current value of CTS_CLK_BUFFER_LIST use the command**
 
-echo $::env(CTS_CLK_BUFFER_LIST)
+```echo $::env(CTS_CLK_BUFFER_LIST)```
 
 ### <h4 id="header-4_4_5">Lab steps to observe impact of bigger CTS buffers on setup and hold timing</h4>
 Now we will follow the similar commands we used earlier to run OPENROAD,
 
-openroad
-read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef
+```openroad```
 
-read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def
+```read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef```
 
-write_db pico_cts1.db
+```read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def```
 
-read_db pico_cts.db
+```write_db pico_cts1.db```
 
-read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v
+```read_db pico_cts.db```
 
-read_liberty $::env(LIB_SYNTH_COMPLETE)
+```read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v```
 
-link_design picorv32a
+```read_liberty $::env(LIB_SYNTH_COMPLETE)```
 
-read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+```link_design picorv32a```
 
-set_propagated_clock [all_clocks]
+```read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc```
 
-report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+```set_propagated_clock [all_clocks]```
 
-report_clock_skew -hold
+```report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4```
 
-report_clock_skew -setup
+```report_clock_skew -hold```
 
-exit
+```report_clock_skew -setup```
+
+```exit```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9db1d081-2a2d-47d4-9453-97b5ce4e8549)
 
