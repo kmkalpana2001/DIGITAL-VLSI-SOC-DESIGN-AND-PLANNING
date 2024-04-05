@@ -2578,23 +2578,23 @@ This is the generated layout.
 	</ul>
 
   <ul>
-	<li><a>[INPUTS:-LEF](https://github.com/google/skywater-pdk)</a></li>
+	<li><a>https://github.com/google/skywater-pdk</a></li>
 	</ul>
 
   <ul>
-	<li><a>[INPUTS:-LEF](https://github.com/nickson-jose/vsdstdcelldesign)</a></li>
+	<li><a>https://github.com/nickson-jose/vsdstdcelldesign</a></li>
 	</ul>
 
   <ul>
-	<li><a>[INPUTS:-LEF](https://sourceforge.net/projects/ngspice/)</a></li>
+	<li><a>ttps://sourceforge.net/projects/ngspice/</a></li>
 	</ul>
 
   <ul>
-	<li><a>[INPUTS:-LEF](https://github.com/)</a></li>
+	<li><a>https://github.com/</a></li>
 	</ul>
 
   <ul>
-	<li><a>[INPUTS:-LEF](https://www.vlsisystemdesign.com/wp-content/uploads/2017/07/Introduction-to-Industrial-Physical-Design-Flow.pdf)</a></li>
+	<li><a>https://www.vlsisystemdesign.com/wp-content/uploads/2017/07/Introduction-to-Industrial-Physical-Design-Flow.pdf</a></li>
 	</ul>
 
 
