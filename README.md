@@ -2350,3 +2350,43 @@ After routing and DRC the next step is Parasitic extraction. Resistance and capa
 ## <h5 id="header-5_2">Power Distribution Network and routing</h5>
 ### <h5 id="header-5_2_1">Lab steps to build power distribution network</h5>
 
+Command for the previous terminal are given bellow
+
+```docker```
+
+```./flow.tcl -interactive```
+
+```package require openlane 0.9```
+
+```prep -design picorv32a -tag 30-03)20-42```
+
+```echo $::env(CURRENT_DEF)```
+
+So, till now we have done CTS and now we are going to do the routing. but before routing we have to generate the PDN(power distribution network)file. 
+
+```gen_pdn```
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6fa57fc5-597c-48e5-b4eb-13636fe25ce1)
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6d9e7a95-cc11-4a9a-b93a-3bc2105a1d13)
+
+Here total number of nodes on the net VGND are shown which means the grid matrix has been created.
+
+The chip get the power from VDD and GND pads and from the pads it goes to the tracks and from tracks finally cells get the power.
+
+
+### <h5 id="header-5_2_2">Lab steps from power straps to std cell power</h5>
+
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/be9f8cc9-8ebd-4d04-8919-ac7088485be9)
+
+Here green color is representing the chip, and yellow, red and blue boxes are the I/O pins,power and ground pads respectively.
+
+Power is transfered to the rings from the pads through the black dots shown in the image on the cross section points of the ring and pads.
+
+We have vertical and horizontal tracks which ensures that the power is being transfered from the ring to chip this is shown by the red and blue color. This is how power planing works in physical design of any device.
+
+
+### <h5 id="header-5_2_3">Basics of global and detail routing and configure TritonRoute</h5>
+
+The final step of physical design is Routing.
+
