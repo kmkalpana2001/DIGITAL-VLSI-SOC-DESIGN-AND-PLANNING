@@ -77,6 +77,7 @@
 			<li><a href="#header-2_1_7">Review floorplan files and steps to view floorplan/a></li>
 		</ul>
 	      <ul>
+		      
 			<li><a href="#header-2_1_8">Review floorplan layout in Magic</a></li>
 		</ul>
       </ul>
