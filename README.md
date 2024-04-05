@@ -2600,4 +2600,4 @@ This is the generated layout.
 
  # <h8 id="header-8">Acknowledgement</h8>	
 
- I would like to express my special thanks and gratitude to Mr. kunal ghosh (co.-founder of VLSIsystem design (VSD) corp.pvt.ltd.) and Mr.Nickson Jose and Mr. SUMANTO KAR (Sr. Project Technical Assistant, IIT BOMBAY) for their guidance and temendous presenting this workshop on DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING. The Workshop was excellent and well designed. This workshop taught me a lot of new things about the physical chip design using OpenLANE software and many more.
+ I would like to express my special thanks and gratitude to Mr. kunal ghosh (co.-founder of VLSIsystem design (VSD) corp.pvt.ltd.) and Mr.Nickson Jose for their guidance and temendously presenting this workshop on DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING. The Workshop was excellent and well designed. I have learned a lot of new things from this workshop about the physical chip design using OpenLANE software and many more.
