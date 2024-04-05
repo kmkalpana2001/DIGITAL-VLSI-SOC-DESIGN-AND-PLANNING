@@ -1591,7 +1591,11 @@ The input and output port must lie on the intersection of the verticle and horiz
 
 The width of the satnderd cell should be odd multiple of the track pitch and the height should be odd multiple of track verticle pitch
 
-Now oprning the track file from the ```pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info.``` where we get the info like this,
+Now oprning the track file from 
+
+```pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info.```
+
+where we get the info like this,
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/86282d04-0357-4906-b2f6-882a65f43624)
 
@@ -1759,17 +1763,25 @@ The README.md file contains information about the parameters of the cell.
 
 We will give the following commmands in the terminal in openlane directory
 
-  prep -design picorv32a -tag 01-04_12-54 -overwrite
-  set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
-  add_lefs -src $lefs
+  ```prep -design picorv32a -tag 01-04_12-54 -overwrite```
+  
+  ```set lefs [glob $::env(DESIGN_DIR)/src/*.lef]```
+  
+  ```add_lefs -src $lefs```
 
-  echo $::env(SYNTH_STRATEGY)
-  set ::env(SYNTH_STRATEGY) "DELAY 3"
-  echo $::env(SYNTH_BUFFERING)
-  echo $::env(SYNTH_SIZING)
-  set ::env(SYNTH_SIZING) 1
-  echo $::env(SYNTH_DRIVING_CELL)
-  run_synthesis
+  ```echo $::env(SYNTH_STRATEGY)```
+  
+  ```set ::env(SYNTH_STRATEGY) "DELAY 3"```
+  
+  ```echo $::env(SYNTH_BUFFERING)```
+  
+  ```echo $::env(SYNTH_SIZING)```
+  
+  ```set ::env(SYNTH_SIZING) 1```
+  
+  ```echo $::env(SYNTH_DRIVING_CELL)```
+  
+  ```run_synthesis```
   
  prep -design picorv32a -tag 01-04_12-54 -overwrite is used to overwrite the existing files with previous values of simulations.
 
@@ -1799,7 +1811,7 @@ Since, we are getting the error so first again do the synthesis using above comm
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/856fb2fa-02f1-482f-b39e-9611f45fa1a1)
 
-so now we can run the placement using command run_placement
+so now we can run the placement using command ```run_placement```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/65232f8d-540e-408c-9d3e-0f28c9a42411)
 
