@@ -2008,15 +2008,15 @@ So we have to replace this OR Gate with another OR Gate having Drive strength of
 
   ```report_net -connections _11672_```
 
-**To Checki the command syntax**
+**To Check the command syntax**
 
    ```help replace_cell```
 
-**To Replacing the cell**
+**To Replace the cell**
 
    ```replace_cell _14510_ sky130_fd_sc_hd__or3_4```
 
-**To Generating the custom timing report**
+**To Generate the custom timing report**
 
    ```report_checks -fields {net cap slew input_pins} -digits 4```
 
@@ -2036,11 +2036,11 @@ So we have toreplace this OR Gate with another OR Gate having Drive strength of 
 
  ```report_net -connections _11675_```
 
-**To Replacing cell**
+**To Replace the cell**
 
  ```replace_cell _14514_ sky130_fd_sc_hd__or3_4```
 
-**To Generating custom timing report**
+**To Generate the custom timing report**
 
  ```report_checks -fields {net cap slew input_pins} -digits 4```
 
@@ -2116,7 +2116,7 @@ So we will make the copy by following commands.
    
 ```cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/02-04_05-27/results/synthesis/```
 
-**To Listing contents of the directory**
+**To List the contents**
 
 ```ls -ltr```
 
@@ -2124,7 +2124,7 @@ So we will make the copy by following commands.
 
  ```cp picorv32a.synthesis.v picorv32a.synthesis_old.v```
 
-**For Listing contents of the directory**
+**To List the contents**
 
 ```ls -ltr```
 
