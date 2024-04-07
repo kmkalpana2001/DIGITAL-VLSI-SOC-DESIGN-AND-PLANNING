@@ -2601,7 +2601,8 @@ The resulting .spef file can be located in the routing folder under the results 
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/74a8e898-1ddb-43fd-bb45-11e4826a000f)
 
-![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5b70990e-6022-46ec-97c9-20692e1fd78e)
+![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d41078bf-0ef3-41c6-bf77-157c469649be)
+
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/023e79df-af7e-4522-bcd7-3f9c3a5b8bcb)
 
