@@ -1522,11 +1522,11 @@ First go to the home directory.
 
 Then go inside the lab folder drc_tests.
 
-Then we can list all the directories by using the ls -al command.
+To list all the directories, we can use the command ```ls -al```.
 
-Then we will view the .magicrc file by using the ```gvim .magicrc``` command.This file is the startup script for magic. It tells magic where to find the technology file. The technology file is already made available locally in the same directory because we may need to make changes to this file.
+To view the .magicrc file, we can use the command ```gvim .magicrc```. This file serves as the startup script for magic and tells it where to find the technology file. The technology file is already available locally in the same directory, so we can make changes to it if needed.
 
-Then we will open the magic tool by using ```magic -d XR &``` command to start the magic in better graphics.
+To start the magic tool with better graphics, we can use the command ```magic -d XR &```.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6285501b-7b2e-4b31-9273-5c81a7b4da59)
 
@@ -1537,93 +1537,98 @@ Content of .magicrc file by using command ```vi .magicrc```
 
 ### <h3 id="header-3_3_5">Lab introduction to Magic and steps to load Sky130 tech-rules</h3>
 
-Now use ```magic -d XR``` command to open magic tool, 
+Use the command ```magic -d XR```
 
-Just for example we open the met3.mag file in the magic tool from file then open met3.mag file. Here we will see some different layouts having different DRC value and these layouts are called rule number.
+to open the magic tool. Open the met3.mag file from the file menu. we will see different layouts with different DRC values, called rule numbers.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8abdf2a4-2bb2-4e65-820a-3860340e4304)
 
-These rule number can be found at  Google-Skywater documentation.
+These rule number we can found at  Google-Skywater documentation.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/26e16828-6711-4e54-97f1-c84571e36b7b)
 
-Now we can select the any layout area and then type drc why in tckon.
+Now we will select the any layout area and check drc why in tckon.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8d1517ff-fa73-4350-80b2-6f1106ec6782)
 
-Now we will select any blank area then hovering the mouse pointer over the metal3 contact icon and pressing the p button. type pek in tckon and then we will execute the command ```cif see VIA2``` in the tkcon tab, then we will see bunch of black square appears inside the area.
+Next, select a blank area and hover the mouse pointer over the metal3 contact icon. Press the p button and type 'pek' in the tkcon. Then execute the command ```cif see VIA2``` in the tkcon tab. 
+
+we will see a bunch of black squares appear inside the area.
+
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a9585c99-9a41-4df8-8100-73fc3653a09e)
 
 
 ### <h3 id="header-3_3_6">Lab exercise to fix poly.9 error in Sky130 tech-file</h3>
 
-Now, we will open the poly.mag file in the magic tool by typing the command  ```load poly.mag``` in the tkcon terminal.
+Now, we will open the poly.mag file in the magic tool with the helo of the command  ```load poly.mag``` in the tkcon terminal.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4528478e-58cd-46bb-a99e-63ecb5f31c3a)
 
-Now let's consider the rule poly.9 then check the website for that rule.
+Now consider the rule poly.9 then check the website for that particular rule.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/10ad235a-a615-4167-9cb8-68e8d8971b41)
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cb3bf544-4e0f-4aa8-968e-49e6cea7a1f6)
 
-Now to find the error look at the file vi sky130A.tech  we will open the file sky130A.tech file which is present in the drc_tests directory with the text editor of linux itself.
+To find the error, we can look at the sky130A.tech file which is present in the drc_tests directory. we can open this file with the text editor of Linux itself.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/32cd1437-efd3-4cff-b84c-56b133443de0)
 
-We will search for poly.9 in this file by using the Find option. We find it in 2 places . First one in the POLY section and the second one in the uhrpoly(polyresistor) section. The rules are not set properly in both these places. So we will add a change in both of these sections.
+Search for 'poly.9' in the sky130A.tech file. It appears in both the POLY and uhrpoly sections, where the rules are not set properly. Add a change in both sections.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/99981782-d58f-40a9-aea7-3d6496098367)
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/eaa26fe7-6583-460c-8562-08c1f77b9eea)
 
-Click on Save and close the editor file.
+After making changes to the sky130A.tech file, click on Save and close the editor file.
 
-Then we will execute the commands ```tech load sky130A.tech``` in the tkcon terminal. Then drc check as shown below
+Next, execute the command ```tech load sky130A.tech``` in the tkcon terminal. Then, run the drc check as shown below.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/93876300-43b9-4748-82cb-24bb98c0df14)
 
 
 ### <h3 id="header-3_3_7">Lab exercise to implement poly resistor spacing to diff and tap</h3>
 
- To correctly implement poly resistor spacing we need to again make the changes in the sky130A.tech file.
+To correctly implement poly resistor spacing, we will need to make changes to the sky130A.tech file again.
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d1f1d0bd-993b-44a1-937b-0dd68d9c9af7)
 
- Now execute in Tkon after saving it
+ Now will execute in Tkon after saving.
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/58c628ba-e309-4ebb-a24c-900e9dc80f47)
 
-We can make the copy of the poly.9 model of poly.mag file in the magic window itself and check for errors:
+To check for errors, we can make a copy of the poly.9 model from the poly.mag file in the magic window.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/11af550e-0fe6-44d2-ab97-51974382d9a3)
 
-We can select the area having drc error and then run the ```drc why``` command in the tkcon terminal to find the description of that error.
+To find the description of a DRC error, we can select the area with the error in the magic window and then run the command ```drc why``` in the tkcon terminal.
+
+This will give a description of the error.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/1ba9feba-382e-46a5-817f-b9c861116af3)
 
 
 ### <h3 id="header-3_3_8">Lab challenge exercise to describe DRC error as geometrical construct</h3>
 
-The changes we need to make in sky130A.tech file are as follows:
+Now we will make some changes in sky130A.tech file which are as follows:
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c8a20821-704e-4b85-b7b8-14c223b6da27)
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/c8268fbb-cdd7-4b52-bed1-77a104bdd8ff)
 
 
-open the nwell.mag file in the magic tool and look for the nwell.6 model error. Here in the given figure the deep nwell is shown in the yellow stripes and the nwell is shown in dotted green pattern.
+To find the nwell.6 model error, open the nwell.mag file in the magic tool. In the figure, the deep nwell is shown in yellow stripes and the nwell is shown in dotted green pattern.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5e705fcf-fdfc-4c4c-a6f6-1ff185f49e4a)
 
-We can check this error on the site as well
+This error can be seen at the site as well.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/56ac4c1b-7476-4d59-a548-dcd22b9e7ee2)
 
 ### <h3 id="header-3_3_9">Lab challenge to find missing or incorrect rules and fix them</h3>
 
-Now  open the magic tool and then execute the commands ```drc style drc(full)``` and ```drc check```.
+Now we will open the magic tool and execute the commands ```drc style drc(full)``` and ```drc check```.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e98833bd-d19b-4772-a814-bb3487723bb8)
 
@@ -1632,65 +1637,65 @@ Now  open the magic tool and then execute the commands ```drc style drc(full)```
 ## <h4 id="header-4_1">Timing modeling using delay tables</h4>
 ### <h4 id="header-4_1_1">Lab steps to convert grid info to track info</h4>
 
-Now the concept of 'lef' file will comes into the picture. it contains all the information which we discuss earlier. so our next objective is to extract the '.lef' file out of the '.mag' file. and next step is that extracted file could be placed into the picorv32a flow.
+Now, we need to extract the '.lef' file from the '.mag' file to place it into the picorv32a flow.
 
-you need to folow certain guideline while making standerd cells.the guidelines are
+There are certain guidelines to follow while making standard cells:
 
-The input and output port must lie on the intersection of the verticle and horizontal tracks
+- The input and output ports must lie on the intersection of the vertical and horizontal tracks.
+ 
+- The width of the standard cell should be an odd multiple of the track pitch, and the height should be an odd multiple of the track vertical pitch.
 
-The width of the satnderd cell should be odd multiple of the track pitch and the height should be odd multiple of track verticle pitch
+Now we can open the track file from ```pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info``` to get more information on this.
 
-Now oprning the track file from 
-
-```pdk/sky130/libs.tech /openlane/sky130_fd_sc_hd/track.info.```
-
-where we get the info like this,
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/86282d04-0357-4906-b2f6-882a65f43624)
 
-so, the track is basically nothing but it is used during the routing stage.Rout will be go over the tracks. tracks are basically trases of matel layers.i.e., metal 1, matel 2, etc.
 
-PNR is a automated. so we need to specified, where from we want routs to go. this specification is given by tracks. here we can see that each of the tracks are placed at (0.23 0.46)um horizontaly and (0.17 0.34)um vertically for li1, metal 1, metal 2 layer.
+The track is used during the routing stage and is essentially a trace of metal layers such as metal 1, metal 2, etc.
 
-In layout, we can see that the ports are on the li1 layer. so we need to insure that the ports are on the intersection of the tracks or not. For that we have to cinvert the grid into the tracks. for that we have to first into the tracks file and the open the tckon window and type the "help grid" command.
+PNR is automated, so we need to specify where we want the routes to go. This specification is given by tracks. Each of the tracks is placed at (0.23, 0.46)um horizontally and (0.17, 0.34)um vertically for li1, metal 1, and metal 2 layers.
+
+In the layout, the ports are on the li1 layer. To ensure that the ports are on the intersection of the tracks, we will need to convert the grid into the tracks.
+
+To do this, we can first open the tracks file and then open the tkcon window and type the ```help grid``` command.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cad6a58e-5e45-4f84-93aa-b636c6c001e1)
 
-Then again write command according to the track file.
+Then again will write command according to the track file required.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/344a1e23-8710-42cf-8e2e-7eeb5e3a5276)
 
 
-Here we can see that, as per the guideline the ports are placed at the intersection of the tracks. Now, between the boundaries, 3 boxes are coverd. so our second requirment also satisfied here.
+Now we can see that, the ports has been placed at the intersection of the tracks. But between the boundaries, 3 boxes are covered. so our second requirment also satisfies here.
 
 ### <h4 id="header-4_1_2">Lab steps to convert magic layout to std cell LEF</h4>
 
-Now we will decide the port name and its values as follows. We can set the values for different ports and for power and ground port we need to do the changes in attach tolayer as Metal1.
+Now, we will need to decide on the port name and its values. we can set the values for different ports, and for the power and ground port, we will need to make changes in the 'attach to layer' as Metal1.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/e65285fd-fbd2-479a-a461-2e1d257253d3)
 
-Once these parameters are set we are ready to extract the lef file from the mag
+After these parameters are set once, we are ready to extract the lef file from the mag
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/2d838026-3faf-4b08-a09b-1be08506dc5e)
 
-Now, we open this file in the magic by using command 
+Now, we open this file in the magic by the command 
 
 ```magic -T sky130A.tech sky130_vsdinv.mag &```
 
-Now to extract the lef file we have to write the command in the tckon window,
+To extract the lef file we have to write the command in the tckon window as given below,
 
 ```lef write``` 
 
-so it will create a lef file and we can check it in the vsdstdcellsdesign folder.
+so it will create a lef file and we can check it in the vsdstdcellsdesign folder by using command ```ls -ltr```.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/288b219e-2720-4f54-b5ce-f08ba9fe3a1f)
 
 
 ### <h4 id="header-4_1_3">Introduction to timing libs and steps to include new cell in synthesis</h4>
 
-Now, lef file is created and now step is plug this lef file in picorv32a. before that we move our files to src folder where all the design files are available at one location.
+Now that the .lef file has been created, the next step is to plug this file into picorv32a. Before that, we will need to move the files to the src folder where all the design files are available at one location.
 
-for that we are copiying this file in the src folder by 'cp' command.
+To do this, we can copy the file using the ```cp``` command.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/10c7a3da-fe77-4df2-9ca8-446d89e59951)
 
@@ -1702,16 +1707,16 @@ Now we will copy it to the src folder
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/4cbadeda-835d-42ca-b190-5c98510f4d21)
 
-We need to modify the config.tcl file of picorv32a directory,
+Here We need to modify the config.tcl file of picorv32a directory,
  
-So open the config.tcl file of picorv32a directory in any editor and add the commands shown in below image :
+So open the config.tcl file of picorv32a directory and add the commands shown in below image :
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5a729a04-1651-454b-a900-d6fb64e12794)
 
 
-**OPENLANE :-** Go to the open lane directory and execute the docker command.
+**OPENLANE :-** Now we will go to the open lane directory and execute the docker command.
 
-Execute the following commands :
+Will Execute the following commands in a line
 
     ./flow.tcl -interactive
     package require openlane 0.9
@@ -1835,7 +1840,7 @@ We will give the following commmands in the terminal in openlane directory
   
  ```prep -design picorv32a -tag 01-04_12-54 -overwrite``` is used to overwrite the existing files with previous values of simulations.
 
-After synthesis, we observed that the slack is nagative here. 
+After synthesis, we have observed that the slack is nagative. 
 
 wns(worst negative slack)= -23.89 
 
@@ -1845,13 +1850,13 @@ tns(total negative slack)= -711.59.
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/82bb71ed-436a-4d35-a90e-bb90281c15ca)
 
-Now ```run_synthesis``` here chip area will increas and the value of slack will reduce.
+Now ```run_synthesis``` we will see chip area has incresed and the value of slack has reduced.
 
-Since synthesis of the picorv32a using our custom designed cell is successful, so we will run the floorplan using command ```run_floorplan```
+Since synthesis of the picorv32a is successful, so we will run the floorplan using command ```run_floorplan```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9f44d8b7-3abe-443c-ab6d-fb1714ff2ca9)
 
-Since, we are getting the error so first again do the synthesis using above commands and then we will use following commands to do the floorplan:
+Since, we are getting the error so first again we have to do the synthesis using the commands mentioned earlier and then we will use following commands to do the floorplan,
 
   ```init_floorplan```
   
@@ -1865,18 +1870,18 @@ Since, we are getting the error so first again do the synthesis using above comm
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/856fb2fa-02f1-482f-b39e-9611f45fa1a1)
 
-so now we can run the placement using command ```run_placement```
+so now we are good to run the placement using command ```run_placement```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/65232f8d-540e-408c-9d3e-0f28c9a42411)
 
-SO placement is succesfull now.
+Here placement is succesfull now without any error.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6d637fc9-823e-4516-887e-ee6bbee1c481)
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/dab482cb-950a-451d-9747-3d9d21b3b836)
 
 
-We can run the expand command in the tkcon window 
+We will run the expand command in the tkcon window 
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/a5103878-a12a-4d8b-b93c-2bc44c9f2e14)
 
@@ -1926,7 +1931,7 @@ Now,we have to identify the combinational path delay for the both logics.
 
 ### <h4 id="header-4_2_3">Lab steps to configure OpenSTA for post-synth timing analysis</h4>
 
-We will do STA on the initial picorv32a design which had timing violations.First we need to run the synthesis using the following commands in openlane directory:
+We have do STA on the picorv32a design which had timing violations.First we will run the synthesis using the following commands in openlane directory
 
     docker
     ./flow.tcl -interactive
@@ -1939,21 +1944,21 @@ We will do STA on the initial picorv32a design which had timing violations.First
 
  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5498fefc-0656-48a2-a04b-dd40c9424c2d)
 
-Now we need to make a new pre_sta.conf file. We can do this by vim editor.
+Now we have to make a new ```pre_sta.conf``` file. We can do this by vim editor or in simple text editor also.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d0885737-368b-4ee7-8ba3-2707aa5be258)
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/da429e3b-ca3d-47e8-b389-856fad2f5d74)
 
-We need to remember that when we are outside openlane , we cannot use the definitions of environmental variables which were used during synthesis. So, we will create a my_base.sdc file which will contain the definitions of environment variables.
+Now we will create a my_base.sdc file which will have the definitions of environment variables.
 
-Now, we also need to create my_base.sdc file containing the content shown in below image in openlane/designs/picorv32a/src directory
+Now, we also need to create my_base.sdc file having the data shown in below image in openlane/designs/picorv32a/src directory
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cf294e81-401c-45f7-9d0f-48501f07faee)
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b841d16a-bced-44b4-b05c-dad5df2c4ba6)
 
-Now go to the openlane directory in a new terminal and execute the ```sta pre_sta.conf``` command.
+Now will go to the openlane directory in a new terminal and execute the ```sta pre_sta.conf``` command.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/309447be-b3ae-4b33-9b36-43d82e738fa0)
 
@@ -1964,7 +1969,7 @@ Now go to the openlane directory in a new terminal and execute the ```sta pre_st
 
 ### <h4 id="header-4_2_4">Lab steps to optimize synthesis to reduce setup violations</h4>
 
- Now we will try to change the FANOUT parameter and again do the synthesis by executing the following commands:
+ Now we will change the FANOUT parameter and again do the synthesis,
 
 ```prep -design picorv32a -tag 02-04_05-27 -overwrite```
 
@@ -1984,7 +1989,7 @@ Now go to the openlane directory in a new terminal and execute the ```sta pre_st
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/9199ddfe-ed3a-4eab-b489-5afd3b240e38)
 
-Now, run the ```sta pre_sta.conf``` command in a new terminal in openlane directory :
+Now, run the ```sta pre_sta.conf``` command in a new terminal in openlane directory itself,
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/f883522d-8b5a-4cb6-b7e6-72a07b179c0e)
 
@@ -1993,25 +1998,25 @@ Now, run the ```sta pre_sta.conf``` command in a new terminal in openlane direct
 
 ### <h4 id="header-4_2_5">Lab steps to do basic timing ECO</h4>
 
-Since OR gate which has a drive strength of 2 is driving 4 fanout.
+OR gate which has a drive strength of 2 is driving 4 fanout.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/cad5f4ed-cb13-46e2-9e1b-5f5831d1685f)
 
-So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
+So we have to replace this OR Gate with another OR Gate having Drive strength of 4 by executing the commands given below,
 
-**Reports all the connections to a net**
+**To Reports all the connections to a net**
 
   ```report_net -connections _11672_```
 
-**Checking command syntax**
+**To Checki the command syntax**
 
    ```help replace_cell```
 
-**Replacing cell**
+**To Replacing the cell**
 
    ```replace_cell _14510_ sky130_fd_sc_hd__or3_4```
 
-**Generating custom timing report**
+**To Generating the custom timing report**
 
    ```report_checks -fields {net cap slew input_pins} -digits 4```
 
@@ -2019,23 +2024,23 @@ So we will replace this OR Gate with another OR Gate having Drive strength of 4 
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/5a253e66-d65f-4d02-a561-f5eb918c5676)
  
- Now slack has reduced from -23.89 to -23.51
+ Now we can see theslack has been reduced from -23.89 to -23.51
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6adc8248-5736-4820-a274-aebe9713b996)
 
 In above case also OR gate which has a drive strength of 2 is driving 4 fanout.
 
-So we will replace this OR Gate with another OR Gate having Drive strength of 4 by executing the following commands.
+So we have toreplace this OR Gate with another OR Gate having Drive strength of 4 by following these commands
 
-**Reports all the connections to a net**
+**To Reports all the connections to a net**
 
  ```report_net -connections _11675_```
 
-**Replacing cell**
+**To Replacing cell**
 
  ```replace_cell _14514_ sky130_fd_sc_hd__or3_4```
 
-**Generating custom timing report**
+**To Generating custom timing report**
 
  ```report_checks -fields {net cap slew input_pins} -digits 4```
 
@@ -2097,35 +2102,35 @@ By shielding we are breaking the coupling capacitance between the aggraser and v
 
 ### <h4 id="header-4_3_3">Lab steps to run CTS using Triton</h4>
 
-Now we will replace the old netlist with this newly generated netlist which was generated after reducing slack. And then we will run floorplan , placement and CTS.
+Now we need to replace the old netlist with newly generated netlist which has generated after reducing the slack. And then we will run floorplan , placement and CTS.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/62b0d153-fecf-4081-9d02-f27589d428dd)
 
-The image shown above contains the netlist before making the modifications.
+The image shown above has the netlist before making the modifications.
 
-So, we will make a copy of this old netlist and then we will add the newly generated netlist to be used in our openlane flow.
+So, we need to make a copy of this old netlist and then we will add the newly generated netlist to be used in our openlane flow for further process.
 
-So we can make the copy by writing the following code.
+So we will make the copy by following commands.
 
-**First go to the following location**
+**To go to the following location**
    
 ```cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/02-04_05-27/results/synthesis/```
 
-**Listing contents of the directory**
+**To Listing contents of the directory**
 
 ```ls -ltr```
 
-**For copying the netlist with particular name**
+**To copy the netlist with particular name**
 
  ```cp picorv32a.synthesis.v picorv32a.synthesis_old.v```
 
-**Listing contents of the directory**
+**For Listing contents of the directory**
 
 ```ls -ltr```
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d6b1ae85-de88-426a-ac5f-580aacb66b7f)
 
-Now we will do synthesis , floorplan , placement and cts. Go to the openlane directoer and execute the following commands:
+Now we will do synthesis again then floorplan , placement and cts in the openlane directory itself by the following commands,
 
        prep -design picorv32a -tag 02-04_05-27 -overwrite
        set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
@@ -2138,7 +2143,7 @@ Now we will do synthesis , floorplan , placement and cts. Go to the openlane dir
        tap_decap_or
        run_placement
 
-       # Incase getting error
+       # Incase getting error will use this command
        unset ::env(LIB_CTS)
 
        run_cts
@@ -2151,36 +2156,36 @@ Now we will do synthesis , floorplan , placement and cts. Go to the openlane dir
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/bd8c2df4-fbc5-4b13-97d7-75133b3d33c8)
 
-Now a .cts file is created in the location shown below,
+Now  .cts file has created in the location as shown the image below,
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/74f39494-576c-4713-bb13-f11a8736d46b)
 
 
 ### <h4 id="header-4_3_4">Lab steps to verify CTS runs</h4>
 **OPENROAD**
-OPENROAD is readily integrated in the OPENLANE so there is no need of defining the environmental variables explicitly.
+To create a database in OPENROAD using LEF and TMP files, we can use the following commands:
 
-Command to run OpenROAD tool
-openroad
-In OPENROAD, timing analysis requires the creation og db(database) using lef and tmp file.
+1. First, make sure we are in the directory where the LEF and TMP files are located.
 
-db creation is a one time process. Once we have created it, we can use it anytime when we want to do analysis.
+2. Then, enter the following command to start the OPENROAD tool,
 
-db creation in commands :
+    openroad
 
-**Reading lef file**
+3. Once you are in the OPENROAD tool, enter the following command to create the database,
+
+**To Read lef file**
 
 ```read_lef /openLANE_flow/designs/picorv32a/runs/02-04_05-27/tmp/merged.lef```
 
-**Reading def file**
+**To Read def file**
 
 ```read_def /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/cts/picorv32a.cts.def```
 
-**Creating an OpenROAD database file named pico_cts.db**
+**To Create an OpenROAD database file named pico_cts.db**
 
 ```write_db pico_cts.db```
 
-This database file is present in openlane directory.
+Now we can see this database file is present in openlane directory.
 
 
 ## <h4 id="header-4_4">Timing analysis with real clock using openSTA</h4>
@@ -2228,37 +2233,37 @@ Let's identify the timing paths from design, with single clock
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/0dbf4092-b74c-4c5a-89d8-5b94e5dff59f)  ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/b2597a4f-b999-4d48-a1fa-d6bb7c9985e9)
 
 ### <h4 id="header-4_4_3">Lab steps to analyze timing with real clocks using OpenSTA</h4>
-Then we can execute the following commands:
+Now we can execute the following commands,
 
-**For loading the created db file in Openroad**
+**To load the created db file in Openroad**
 
 ```read_db pico_cts.db```
 
-**For reading netlist post CTS**
+**To read the netlist post CTS**
 
 ```read_verilog /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/synthesis/picorv32a.synthesis_cts.v```
 
-**For reading the library for design**
+**To read the library for design**
 
 ```read_liberty $::env(LIB_SYNTH_COMPLETE)```
 
-**For linking design and library**
+**To link the design and library**
 
 ```link_design picorv32a```
 
-**For reading the custom sdc we created**
+**To read the custom sdc we have created**
 
 ```read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc```
 
-**For setting all clocks as propagated clocks**
+**To setting all clocks as propagated clocks**
 
 ```set_propagated_clock [all_clocks]```
 
-**Generating custom timing report**
+**To Generate the custom timing report**
 
 ```report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4```
 
-**To exit to Openlane flow**
+**To exit from Openlane flow**
 
 ```exit```
 
@@ -2270,32 +2275,33 @@ Then we can execute the following commands:
 
 ### <h4 id="header-4_4_4">Lab steps to execute OpenSTA with right timing libraries and CTS assignment</h4>
 
-**For removing sky130_fd_sc_hd__clkbuf_1 from the list use the command**
+**To remove sky130_fd_sc_hd__clkbuf_1 from the list**
 
 ```set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]```
 
-**For checking current value of CTS_CLK_BUFFER_LIST use the command**
+**To check the current value of CTS_CLK_BUFFER_LIST**
 
 ```echo $::env(CTS_CLK_BUFFER_LIST)```
 
-**For checking current value of CURRENT_DEF use the command**
+**To check the current value of CURRENT_DEF**
 
 ```echo $::env(CURRENT_DEF)```
 
-**For setting def as placement def use the command**
+**To set def as placement def**
 
 ```set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/placement/picorv32a.placement.def```
 
-**Then we will run cts using**
+**To run cts**
 
 ```run_cts```
 
-**For checking current value of CTS_CLK_BUFFER_LIST use the command**
+**To check the current value of CTS_CLK_BUFFER_LIST**
 
 ```echo $::env(CTS_CLK_BUFFER_LIST)```
 
 ### <h4 id="header-4_4_5">Lab steps to observe impact of bigger CTS buffers on setup and hold timing</h4>
-Now we will follow the similar commands we used earlier to run OPENROAD,
+
+Now we will follow the same commands we have used earlier to run OPENROAD,
 
 ```openroad```
 
@@ -2422,7 +2428,7 @@ Command for the previous terminal are given bellow
 
 ```echo $::env(CURRENT_DEF)```
 
-So, till now we have done CTS and now we are going to do the routing. but before routing we have to generate the PDN(power distribution network)file. 
+So, till here we have done CTS and now we are going to do the routing. but before routing we have to generate the PDN(power distribution network)file by using the command. 
 
 ```gen_pdn```
 
@@ -2430,9 +2436,10 @@ So, till now we have done CTS and now we are going to do the routing. but before
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/6d9e7a95-cc11-4a9a-b93a-3bc2105a1d13)
 
-Here total number of nodes on the net VGND are shown which means the grid matrix has been created.
+It seems like the net VGND displays the total number of nodes on the grid matrix, indicating that it has been successfully created. 
 
-The chip get the power from VDD and GND pads and from the pads it goes to the tracks and from tracks finally cells get the power.
+The chip receives power from the VDD and GND pads, which then travels through the tracks and ultimately reaches the cells to power them.
+
 
 
 ### <h5 id="header-5_2_2">Lab steps from power straps to std cell power</h5>
@@ -2452,19 +2459,23 @@ The final step of physical design is Routing.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/8b259ae2-7cd4-4b30-b9e2-8cad278acd1f)
 
-The current def command in the above image is used to tell that the most recent step done was generation of PDN.
+The usage of the ```def``` command in the image above is to indicate that the latest completed step was the generation of PDN. 
 
-The 17-pdn.def file generated after this step contains the content of cts.def along with the power distribution network.
+The resulting file ```17-pdn.def``` contains the information from ```cts.def``` as well as the power distribution network. 
 
-To know about the different switches available for routing, we can refer the README.md file present in the configuration folder of openlane directory.
+If one wants to learn about the various switches available for routing, they can refer to the README.md file located in the configuration folder of the OpenLANE directory.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/d39a7922-5993-4447-b9cf-6564e1ee6126)
 
-By using the following commands we can know, which type of global and detailed routing is going to be performed. We can change the type by using set commands along with the parameter names present in the routing seciton of the README.md file. Here, we have just used the default types
+By executing specific commands, we can determine the type of global and detailed routing that will be performed.
+
+In case we want to change the routing type, we can use the ```set``` command followed by the parameter names mentioned in the routing section of the README.md file. 
+
+However, in this instance, the default routing types have been utilized.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/7fdd1b5a-b901-49a9-8a76-6bce8f30b512)
 
-Now, we can proceed for routing by using the command
+Now, we will proceed for routing process by using the command
 
 ```run_routing```
 
@@ -2501,7 +2512,7 @@ In the Global route, the routing region is devided into the rectangular grids ce
 
 **Requirements of preprocessed guides**
 
-1) Should havw unit width
+1) Should have unit width
 
 2) Should be in preferred direction
 
@@ -2580,11 +2591,13 @@ Here in the figure shown above, the illustration of access points:
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/dbb89c03-9263-4598-afc5-385488da6e7d)
 
-The algorithm says that for each APCs we have to find the cost associated with it and we have to do minimum spaning tree betweem the APCs and the cost. finally the conclusion of the algorithm is that we have to find the minimul and the most optimal poits between two APCs.
+The algorithm requires the determination of the cost associated with each APC and the calculation of the minimum spanning tree between the APCs to find the optimal points between two APCs. 
 
-Now, remaning things is the post routing STA analysis. for that the first goal is to extract the perasetic (SPEF). This SPEF extraction is done outside the openlane because openlane does not have SPEF extraction tool.
+The next step involves post-routing STA analysis, which requires the extraction of parasitic effects (SPEF). 
 
-The .spef file can be found under the routing folder under the results folder.
+Since OpenLANE does not have a SPEF extraction tool, this process needs to be done outside of OpenLANE. 
+
+The resulting .spef file can be located in the routing folder under the results folder.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/74a8e898-1ddb-43fd-bb45-11e4826a000f)
 
@@ -2592,7 +2605,7 @@ The .spef file can be found under the routing folder under the results folder.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/023e79df-af7e-4522-bcd7-3f9c3a5b8bcb)
 
-This is the generated layout.
+This is the final generated layout.
 
 ![image](https://github.com/kmkalpana2001/DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING/assets/165163110/bac89f5c-1109-4cfa-8f89-64b412d51448)
 
@@ -2627,4 +2640,4 @@ This is the generated layout.
 
  # <h7 id="header-7">Acknowledgement</h7>	
 
- I would like to express my special thanks and gratitude to Mr. kunal ghosh (co.-founder of VLSIsystem design (VSD) corp.pvt.ltd.) and Mr.Nickson Jose for their guidance and temendously presenting this workshop on DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING. The Workshop was excellent and well designed. I have learned a lot of new things from this workshop about the physical chip design using OpenLANE software and many more.
+ I would like to extend my heartfelt thanks and express my deep gratitude to Mr. Kunal Ghosh, Co-founder of VLSI System Design (VSD) Corp. Pvt. Ltd., and Mr. Nickson Jose for their exceptional guidance and presentation of the DIGITAL-VLSI-SOC-DESIGN-AND-PLANNING workshop. Their expertise and insights have been invaluable in helping me learn about physical chip design using OpenLANE software and other advanced techniques. The workshop was meticulously designed and executed, and I have gained a wealth of knowledge and new perspectives from it. I cannot thank Mr. Kunal Ghosh and Mr. Nickson Jose enough for their unwavering commitment to sharing their expertise and making this workshop a resounding success.
